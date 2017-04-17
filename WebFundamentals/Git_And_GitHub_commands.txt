@@ -1,0 +1,76 @@
+# mkdir new_project
+
+# cd new_project
+
+# git init
+
+# cat > aboutMe.txt <<EOHI
+# Name: Mike Hoyt
+# Project Goal: Master Git!
+# Favorite TV Show: Timeless
+# EOHI
+
+# git status
+
+# git add aboutMe.txt
+
+# git commit -m "aboutMe.txt added"
+
+# git log
+
+# cat >> aboutMe.txt <<EOHI
+# Favorite Quote:
+# “Computer science education cannot make anybody an expert programmer any more than 
+# studying brushes and pigment can make somebody an expert painter.”
+# - Eric S. Raymond
+# EOHI
+
+# git status
+
+# git add aboutMe.txt
+
+# git status
+
+# git commit -m "added our favorite quote"
+
+# git log
+
+# git diff --stat <HASH>
+
+# git revert -n HEAD
+# git status
+# git diff aboutMe.txt 
+# cat aboutMe.txt
+# git revert --abort
+# git status
+
+# git revert -n HEAD
+# git status
+# cat aboutMe.txt
+# git revert --continue
+
+# cat >> aboutMe.txt <<EOHI
+# Favorite Quote:
+# “Computer science education cannot make anybody an expert programmer any more than 
+# studying brushes and pigment can make somebody an expert painter.”
+# - Eric S. Raymond
+# EOHI
+# git add aboutMe.txt
+# git commit -m "re-added our favorite quote"
+
+######################################################################
+
+Create local directories/files
+
+GitHub.com
+- Create Repository
+- CnP the GitHub.com Repository URL
+
+Local
+- git init
+- touch README.md
+- git add .
+- git commit -m "First commit"
+- git remote add origin <GitHub.com_Repo_URL>
+- git push origin master
+
