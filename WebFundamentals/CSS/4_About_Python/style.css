@@ -1,7 +1,89 @@
-* {
+/** {
   border: 2px dashed red;
-}
+}*/
 
 #container {
   width: 970px;
+  background-color: rgb(45, 90, 135);
+}
+
+#header {
+  padding: 10px;
+}
+
+#header img {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+}
+
+#textSize_and_search {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 315px;
+  text-align: right;
+}
+
+#textSize {
+  display: inline-block;
+  color: rgb(240, 240, 240);
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#textSize a:link {
+  color: rgb(250, 200, 25);
+}
+
+#textSize a:visited {
+  color: rgb(250, 200, 25);
+}
+
+#textSize .divider {
+  color: black;
+}
+
+#search {
+  background-color: rgb(65, 65, 65);
+  width: 275px;
+  height: 60px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 2px black;
+  border: none;
+  text-align: center;
+}
+
+#search form {
+  display: inline-block;
+  text-align: center;
+  margin-top: 12px;
+
+}
+
+input#searchString {
+  width: 150px;
+  height: 30px;
+  box-shadow: inset 1px 1px 3px rgb(128, 128, 128);
+  text-align: center;
+}
+
+input#searchString::placeHolder {
+  colr: rgb(128, 128, 128);
+}
+
+#searchButton {
+  display: inline-block;
+  background-color: rgb(45, 90, 135);
+  color: rgb(240, 240, 240);
+  height: 28px;
+  width: 40px;
+  border: 2px rgb(200, 200, 200);
+  border-style: outset;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+#searchButton span {
+  margin-top: 5px;
 }
