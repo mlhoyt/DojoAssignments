@@ -111,7 +111,7 @@
 }
 
 .box_main .project_tech {
-  padding: 10px;
+  padding: 10px 0px 0px 10px;
 }
 
 .box_main .project_tech ul {
@@ -127,6 +127,23 @@
 .box_main .project_tech img {
   height: 40px;
   margin: 5px;
+}
+
+.box_footer {
+  background: linear-gradient( to right, rgb(255, 255, 255), rgb(220, 220, 220) );
+  text-align: center;
+}
+
+.button {
+  background-color: rgb(50, 110, 80);
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  height: 20px;
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  margin: 10px;
 }
 
 /* -------------------- PROJECT -------------------- */
