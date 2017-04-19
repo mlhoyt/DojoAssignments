@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function Setting_and_Swapping () {
+        var myNumber = 42;
+        var myName = "My Name";
+        var tmp = myNumber;
+        var myNumber = myName;
+        var myName = tmp;
+        document.write( "----- Setting and Swapping" + "<br />" );
+        document.write( myNumber + ", " + myName + "<br />" );
+      }
+      function Print_m52_to_1066 () {
+        var arr = [];
+        for( var i = -52; i <= 1066; ++i ) {
+          arr.push( i );
+        }
+        document.write( "----- Print -25 to 1066" + "<br />" );
+        document.write( arr + "<br />" );
+      }
+      function Dont_Worry_Be_Happy () {
+      }
+      function Countdown_By_Fours () {
+        var n = 2016;
+        var arr = [];
+        while( n > 0 ) {
+          if( n % 4 == 0 ) {
+            arr.push( n );
+          }
+          --n;
+        }
+        document.write( "----- Countdown By Fours" + "<br />" );
+        document.write( arr + "<br />" );
+      }
+      function Flexible_Countdown ( lowNum, highNum, mult ) {
+        var n = highNum;
+        var arr = [];
+        while( n >= lowNum ) {
+          if( n % mult == 0 ) {
+            arr.push( n );
+          }
+          --n;
+        }
+        document.write( "----- Flexible Countdown" + "<br />" );
+        document.write( highNum + ":" + lowNum + ":" + mult + " - " + arr + "<br />" );
+      }
+      function The_Final_Countdown ( param1, param2, param3, param4 ) {
+        var n = param2;
+        var arr = [];
+        while( n <= param3 ) {
+          if( (n % param1 == 0) && (n !== param4) ) {
+            arr.push( n );
+          }
+          ++n;
+        }
+        document.write( "----- The Final Countdown" + "<br />" );
+        document.write( param1 + ":" + param2 + ":" + param3 + ":" + param4 + " - " + arr + "<br />" );
+      }
+      function Leap_Year ( year ) {
+        var rv = "is NOT";
+        if( year % 4 == 0 ) {
+          rv = "IS";
+        }
+        if( year % 100 == 0 ) {
+          rv = "is NOT";
+        }
+        if( year % 400 == 0 ) {
+          rv = "IS";
+        }
+        document.write( "----- Leap Year" + "<br />" );
+        document.write( year + " " + rv + " a leap year" + "<br />" );
+      }
+    </script>
+  </head>
+  <body>
+      <!-- <script>Setting_and_Swapping();</script> -->
+      <!-- <script>Print_m52_to_1066();</script> -->
+      <!-- <script>Dont_Worry_Be_Happy();</script> -->
+      <!-- <script>Countdown_By_Fours();</script> -->
+      <!-- <script>Flexible_Countdown( 1, 10, 1 );</script> -->
+      <!-- <script>Flexible_Countdown( 1, 10, 2 );</script> -->
+      <!-- <script>Flexible_Countdown( 2, 20, 3 );</script> -->
+      <script>The_Final_Countdown( 1, 1, 10, 5 );</script>
+      <script>The_Final_Countdown( 2, 1, 10, 5 );</script>
+      <script>The_Final_Countdown( 2, 1, 10, 6 );</script>
+      <script>The_Final_Countdown( 3, 2, 20, 7 );</script>
+      <script>The_Final_Countdown( 3, 2, 20, 9 );</script>
+      <!-- <script>Leap_Year( 1992 );</script> -->
+      <!-- <script>Leap_Year( 1900 );</script> -->
+      <!-- <script>Leap_Year( 2000 );</script> -->
+      <!-- <script>Leap_Year( 2001 );</script> -->
+  </body>
+</html>
