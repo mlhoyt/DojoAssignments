@@ -1,0 +1,166 @@
+* {
+}
+
+#container {
+  /* DEVEL border */
+  border: 1px solid black;
+  width: 970px;
+  /* OPTIONAL - for centering -- margin: 0px auto; */
+}
+
+/* -------------------- HEADER -------------------- */
+
+/* DEVEL - #name font family is not correct */
+#header {
+  background-color: rgb(252, 252, 252);
+  padding: 10px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+#name {
+  font-size: 30px;
+  color: black;
+}
+
+#desc {
+  font-size: 20px;
+  color: black;
+  /* DEVEL - what is the right way to get desc to align right? */
+  margin-left: 450px;
+}
+
+/* -------------------- MAIN -------------------- */
+
+#main {
+  background: radial-gradient(rgb(80, 80, 80), rgb(65, 65, 65), rgb(20, 20, 20));
+  color: rgb(31, 108, 78);
+  padding: 10px;
+}
+
+/* -------------------- MAIN :: HEADER -------------------- */
+
+#main__header {
+  margin-bottom: 10px;
+}
+
+/* -------------------- MAIN :: HEADER :: PHOTO -------------------- */
+
+#photo {
+  display: inline-block;
+  vertical-align: top;
+  border: 4px solid rgb(179, 179, 179);
+  margin-right: 15px;
+}
+
+#photo img {
+  /* DEVEL - what is the right way to make the #photo and #about the same height? */
+  width: 425px;
+}
+
+/* -------------------- MAIN :: HEADER :: ABOUT -------------------- */
+
+#about {
+  /* DEVEL - what is the right way to make the #photo and #about the same height? */
+  display: inline-block;
+  vertical-align: top;
+  width: 490px;
+}
+
+#about .box_main {
+  padding: 10px;
+  height: 230px;
+}
+
+/* -------------------- MAIN :: MAIN -------------------- */
+
+#main__main {
+}
+
+/* -------------------- BOX :: HEADER -------------------- */
+
+.box_header {
+  background: linear-gradient(rgb(160, 160, 160), rgb(115, 115, 115), rgb(160, 160, 160));
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+/* -------------------- BOX :: MAIN -------------------- */
+
+.box_main {
+  background: linear-gradient( to right, rgb(255, 255, 255), rgb(220, 220, 220) );
+  color: rgb(80, 45, 0);
+}
+
+.box_main a:link {
+  color: rgb(80, 45, 0);
+}
+
+.box_main a:visited {
+  color: rgb(80, 45, 0);
+}
+
+.box_main .project_image img {
+  width: 305px;
+}
+
+.box_main .project_desc {
+  height: 160px;
+  padding: 10px;
+}
+
+.box_main .project_tech {
+  padding: 10px;
+}
+
+.box_main .project_tech ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.box_main .project_tech ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.box_main .project_tech img {
+  height: 40px;
+  margin: 5px;
+}
+
+/* -------------------- PROJECT -------------------- */
+
+.project {
+  display: inline-block;
+  vertical-align: top;
+  width: 305px;
+}
+
+#main__main .project:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* -------------------- FOOTER -------------------- */
+
+#footer {
+  background-color: rgb(252, 252, 252);
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+#footer ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+#footer ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#footer img {
+  height: 1em;
+  margin-bottom: -5px;
+}
