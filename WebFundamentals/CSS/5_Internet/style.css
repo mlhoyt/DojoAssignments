@@ -96,7 +96,6 @@ body {
   vertical-align: top;
   padding-left: 0px 10px;
   width: 720px;
-  border: 2px dashed red; /* DEVEL */
 }
 
 /* -------------------- main::main__header -------------------- */
@@ -104,6 +103,7 @@ body {
 #main__header {
   border-bottom: 1px solid rgb(128, 128, 128);
   padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #main__header img {
@@ -153,10 +153,44 @@ body {
 /* -------------------- main::main__content -------------------- */
 
 #main__content {
-  border: 2px dashed red; /* DEVEL */
 }
 
-  /*border: 2px dashed red; /* DEVEL */*/
+#main__content img {
+  height: 100px;
+  display: inline-block;
+  margin: 10px 0px 10px 200px;
+}
+
+#main_content p {
+  /*margin-top: 10px;*/
+  margin: 1.12em 0;
+}
+
+#main_content ul {
+  margin-top: 10px;
+}
+
+/* -------------------- main::main__content -------------------- */
+
+#main__subcontent {
+  border-left: 4px solid rgb(45, 90, 135);
+  border-top: 4px solid rgb(45, 90, 135);
+  border-right: 4px solid rgb(45, 90, 135);
+  padding: 10px;
+}
+
+#main__subcontent img {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+
+#main__subcontent__desc {
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+}
+
 /* -------------------- general -------------------- */
 
 .button {

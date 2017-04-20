@@ -13,19 +13,18 @@
       </div>
       <span id="subtitle">The World Wide Web</span>
     </div>
-    <div id="sidebar">
-      <span class="text1">So, what's an <span class="red">Internet?</span></span>
-      <span class="text2">An <span class="fg_ltblue">inter</span>connected <span class="fg_ltblue">Net</span>work
-        of computers all around the world!
-      </span>
-      <a href="#" class="button_link"><div class="button button_blue">WATCH A VIDEO</div></a>
-      <a href="#" class="button_link"><div class="button button_orange">MORE RESOURCES</div></a>
-      <hr />
-      <div id="sidebar_ad">
-        <span id="text_ad">Reinvent your career in just 14 weeks</span>
-        <img src="assets/ninja.png" alt="Ninja image" />
-        <a href="#" class="button_link"><div class="button button_ltblue">Learn More >>></div></a>
-      </div>
+    <div id="sidebar"
+      ><span class="text1">So, what's an <span class="fg_red">Internet?</span></span
+      ><span class="text2">An <span class="fg_ltblue">inter</span>connected <span class="fg_ltblue">Net</span>work
+        of computers all around the world!</span
+      ><a href="#" class="button_link"><div class="button button_blue">WATCH A VIDEO</div></a
+      ><a href="#" class="button_link"><div class="button button_orange">MORE RESOURCES</div></a
+      ><hr
+      /><div id="sidebar_ad"
+        ><span id="text_ad">Reinvent your career in just 14 weeks</span
+        ><img src="assets/ninja.png" alt="Ninja image"
+        /><a href="#" class="button_link"><div class="button button_ltblue">Learn More >>></div></a
+      ></div>
     </div
     ><div id="main">
       <div id="main__header">
@@ -43,6 +42,43 @@
         </div>
       </div>
       <div id="main__content">
+        <h3>Clients and Servers</h3>
+        <p>Computers connected to the <span class="fg_ltblue">Web</span> are called
+        <strong>clients</strong> and <strong>servers</strong>.</p>
+        <ul>
+          <li><span class="fg_ltblue">Clients</span> are the typical Web user's
+            Internet-connected devices (for example, your computer connected to your
+            Wi-Fi, or your phone connected to your mobile network) and <span class="fg_ltblue">Web-accessing software</span>
+            available on those devices (usually a web browser like Firefox or Chrome).</li>
+          <li><span class="fg_ltblue">Servers</span> are computers that store
+            <span class="fg_ltblue">webpages, sites,</span> or <span class="fg_ltblue">apps.</span>
+            When a client device wants to access a webpage, a copy of the webpage is
+            downloaded from the server onto the client machine to be displayed in the user's
+            web browser.</li>
+        </ul>
+        <img src="assets/client_server.jpg" alt="Client-Server illustration image" />
+        <h3>So What Actually Happens?</h3>
+        <ol>
+          <li>The browser goes to the <span class="fg_ltblue">DNS server</span> and find
+            the real address of the <span class="fg_ltblue">server</span> that the website
+            lives on.</li>
+          <li>The browser sends an <span class="fg_ltblue">HTTP request</span> message to the
+            server asking it to send a copy of the website to the client.</li>
+          <li>If the server approves the client's request, the server sends the client a
+            <span class="fg_ltblue">"200 OK" message,</span> which means "Permission granted! Here you go!",
+            and then starts sending the website's files to the browser as a series of small chunks.</li>
+          <li>The browser assembles the small chunks into a complete website and displays it to you!</li>
+        </ol>
+        <div id="main__subcontent">
+          <img src="assets/html.png" alt="HTML+CSS+JS Image" />
+          <div id="main__subcontent__desc">
+            <h3><span class="fg_ltblue">The Big 3 - HTML, CSS, JavaScript</span><h3>
+            <p>While the server can process information in many different languages,
+              the files that they serve to the client are always going to be some
+              combination of HTML, CSS, and JavaScript!</p>
+            <p>Learn more about the Big 3 <a class="a_fg_ltblue" href="#">here</a>!</p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
