@@ -33,7 +33,7 @@ body {
 #textSize {
   display: inline-block;
   color: rgb(240, 240, 240); /* white */
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
@@ -52,7 +52,7 @@ body {
 /* -------------------- search -------------------- */
 
 #search {
-  background-color: rgb(65, 65, 65); /* dark-grey */
+  background-color: rgb(80, 80, 80); /* dark-grey */
   width: 275px;
   height: 60px;
   border-radius: 7px;
@@ -80,16 +80,17 @@ input#searchString::placeHolder {
 }
 
 #searchButton {
-  display: inline-block;
+  display: inline;
   background-color: rgb(45, 90, 135); /* python-blue */
   color: rgb(240, 240, 240);
   height: 28px;
-  width: 40px;
   border: 2px rgb(200, 200, 200); /* dark-grey */
   border-style: outset;
   border-radius: 5px;
   text-align: center;
-  margin-top: -5px;
+  margin-left: 5px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 #searchButton span {
