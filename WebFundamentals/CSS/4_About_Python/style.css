@@ -155,19 +155,19 @@ input#searchString::placeHolder {
   text-align: center;
 }
 
+#main1_nav ul li:before {
+  content: ">>";
+  color: rgb(250, 200, 25); /* yellow */
+  padding-right: 5px;
+  font-size: 10px;
+}
+
 #main1_nav a:link {
   color: rgb(240, 240, 240); /* white */
 }
 
 #main1_nav a:visited {
   color: rgb(240, 240, 240); /* white */
-}
-
-#main1_nav .bullet {
-  font-size: 8px;
-  color: rgb(250, 200, 25); /* yellow */
-  margin-right: 5px;
-  vertical-align: middle;
 }
 
 #main1_content {
