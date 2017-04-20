@@ -35,11 +35,7 @@ body {
   top: -25px;
   left: 10px;
   font-size: 48px;
-}
-
-#net {
   height: 50px;
-  color: rgb(60, 120, 180); /* light-blue */
 }
 
 #subtitle {
@@ -54,11 +50,95 @@ body {
 /* -------------------- sidebar -------------------- */
 
 #sidebar {
+  width: 215px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
   border: 2px dashed red; /* DEVEL */
+}
+
+#sidebar .text1 {
+  display: inline-block;
+  font-weight: bold;
+  font-size: auto;
+  margin-bottom: 10px;
+}
+
+#sidebar .text2 {
+  display: inline-block;
+  font-weight: bold;
+  font-size: auto;
+  margin-bottom: 10px;
+}
+
+#sidebar hr {
+  margin: 20px 0px;
+}
+
+#sidebar_ad {
+  background: url( "assets/ad_background.png" );
+  padding: 10px;
+  text-align: center;
+}
+
+#sidebar_ad #text_ad {
+  font-size: 28px;
+  color: rgb(240, 240, 240);
+}
+
+#sidebar_ad img {
+  height: 180px;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.button_link {
+  text-decoration: none;
+}
+
+.button_link:link {
+  color: rgb(240, 240, 240);
+}
+
+.button_link:visited {
+  color: rgb(240, 240, 240);
+}
+
+.button_blue {
+  background: linear-gradient(rgb(80, 130, 190), rgb(70, 110, 160), rgb(45, 90, 135));
+  color: rgb(240, 240, 240);
+}
+
+.button_orange {
+  background: linear-gradient(rgb(240, 180, 60), rgb(230, 160, 40), rgb(220, 140, 20));
+  color: rgb(240, 240, 240);
+}
+
+.button_ltblue {
+  background: linear-gradient(rgb(120, 170, 210), rgb(100, 150, 200), rgb(80, 130, 190));
+  color: rgb(240, 240, 240);
 }
 
 /* -------------------- main -------------------- */
 
 #main {
   border: 2px dashed red; /* DEVEL */
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* -------------------- main -------------------- */
+
+.blue {
+  color: rgb(60, 120, 180); /* light-blue */
+}
+
+.red {
+  color: rgb(240, 0, 0); /* red */
 }
