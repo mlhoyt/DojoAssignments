@@ -2,9 +2,13 @@
   border: 2px dashed red;
 }*/
 
+body {
+  font-family: sans-serif;
+}
+
 #container {
   width: 970px;
-  background-color: rgb(45, 90, 135);
+  background-color: rgb(45, 90, 135); /* python-blue */
 }
 
 #header {
@@ -26,17 +30,17 @@
 
 #textSize {
   display: inline-block;
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240); /* white */
   font-size: 16px;
   margin-bottom: 5px;
 }
 
 #textSize a:link {
-  color: rgb(250, 200, 25);
+  color: rgb(250, 200, 25); /* yellow */
 }
 
 #textSize a:visited {
-  color: rgb(250, 200, 25);
+  color: rgb(250, 200, 25); /* yellow */
 }
 
 #textSize .divider {
@@ -44,7 +48,7 @@
 }
 
 #search {
-  background-color: rgb(65, 65, 65);
+  background-color: rgb(65, 65, 65); /* dark-grey */
   width: 275px;
   height: 60px;
   border-radius: 7px;
@@ -63,21 +67,21 @@
 input#searchString {
   width: 150px;
   height: 30px;
-  box-shadow: inset 1px 1px 3px rgb(128, 128, 128);
+  box-shadow: inset 1px 1px 3px rgb(128, 128, 128); /* light-grey */
   text-align: center;
 }
 
 input#searchString::placeHolder {
-  colr: rgb(128, 128, 128);
+  colr: rgb(128, 128, 128); /* light-grey */
 }
 
 #searchButton {
   display: inline-block;
-  background-color: rgb(45, 90, 135);
+  background-color: rgb(45, 90, 135); /* python-blue */
   color: rgb(240, 240, 240);
   height: 28px;
   width: 40px;
-  border: 2px rgb(200, 200, 200);
+  border: 2px rgb(200, 200, 200); /* dark-grey */
   border-style: outset;
   border-radius: 5px;
   text-align: center;
@@ -91,7 +95,7 @@ input#searchString::placeHolder {
 #menu {
   height: 50px;
   width: 850px;
-  background-color: rgb(80, 130, 190);
+  background-color: rgb(80, 130, 190); /* light-blue */
   border-radius: 5px;
   box-shadow: 2px 2px 2px black;
   margin-left: 70px;
@@ -107,7 +111,7 @@ input#searchString::placeHolder {
   display: inline;
   font-family: sans-serif;
   font-size: 24px;
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240); /* white */
   padding-left: 32px;
 }
 
@@ -116,9 +120,78 @@ input#searchString::placeHolder {
 }
 
 #menu a:link {
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240); /* white */
 }
 
 #menu a:visited {
-  color: rgb(240, 240, 240);
+  color: rgb(240, 240, 240); /* white */
+}
+
+#main1_nav {
+  display: inline-block;
+  vertical-align: top;
+  color: rgb(240, 240, 240); /* white */
+  width: 175px;
+  margin-left: 115px;
+}
+
+#main1_nav ul {
+  list-style-type: none;
+  margin: 25px 0px 0px 0px;
+  padding: 0px;
+}
+
+#main1_nav ul li {
+  margin: 10px 0px;
+  text-align: center;
+}
+
+#main1_nav a:link {
+  color: rgb(240, 240, 240); /* white */
+}
+
+#main1_nav a:visited {
+  color: rgb(240, 240, 240); /* white */
+}
+
+#main1_nav .bullet {
+  font-size: 8px;
+  color: rgb(250, 200, 25); /* yellow */
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#main1_content {
+  display: inline-block;
+  vertical-align: top;
+  color: rgb(240, 240, 240); /* white */
+  width: 600px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#main1_content p {
+  margin: 10px 0px;
+}
+
+#main1_content .quote {
+  color: rgb(250, 200, 25); /* yellow */
+  font-size: 18px;
+}
+
+#main2 {
+  border: 2px dashed red;
+  background-color: rgb(240, 240, 240);
+  padding-left: 90px;
+}
+
+#main2_content {
+  border: 2px dashed red;
+  display: inline-block;
+  vertical-align: top;
+  color: rgb(83, 83, 83); /* black */
+  width: 400px;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 20px;
 }
