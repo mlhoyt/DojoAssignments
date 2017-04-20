@@ -161,13 +161,13 @@ body {
   margin: 10px 0px 10px 200px;
 }
 
-#main_content p {
-  /*margin-top: 10px;*/
-  margin: 1.12em 0;
+#main__content p {
+  margin: 0.5em 0;
 }
 
-#main_content ul {
-  margin-top: 10px;
+#main__content ul, ol {
+  margin: 0.5em 0;
+  padding-left: 40px;
 }
 
 /* -------------------- main::main__content -------------------- */
