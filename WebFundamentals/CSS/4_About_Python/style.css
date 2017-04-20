@@ -1,7 +1,3 @@
-/** {
-  border: 2px dashed red;
-}*/
-
 body {
   font-family: sans-serif;
 }
@@ -113,7 +109,7 @@ input#searchString::placeHolder {
 
 #menu ul {
   margin: 0px;
-  padding: 0px;
+  padding: 10px 0px 0px 0px;
 }
 
 #menu ul li {
@@ -236,7 +232,6 @@ input#searchString::placeHolder {
 /* -------------------- footer -------------------- */
 
 #footer {
-  border: 2px dashed red;
   background: linear-gradient( rgb(45, 90, 135), rgb(55, 115, 150), rgb(90, 135, 180) );
   height: 70px;
   padding-top: 40px;
