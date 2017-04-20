@@ -1,0 +1,64 @@
+/* -*- css -*- */
+
+/* Minimal RESET */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+body {
+  width: 970px;
+  border: 1px solid black;
+}
+
+/* -------------------- header -------------------- */
+
+#header {
+}
+
+#header_icon {
+  height: 90px;
+}
+
+#globe {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+}
+
+#title {
+  display: inline-block;
+  position: relative;
+  top: -25px;
+  left: 10px;
+  font-size: 48px;
+}
+
+#net {
+  height: 50px;
+  color: rgb(60, 120, 180); /* light-blue */
+}
+
+#subtitle {
+  display: block;
+  height: 50px;
+  font-size: 36px;
+  background: linear-gradient(rgb(45, 90, 135), rgb(80, 130, 190), rgb(45, 90, 135));
+  color: rgb(240, 240, 240); /* white */
+  padding: 10px 0px 0px 10px;
+}
+
+/* -------------------- sidebar -------------------- */
+
+#sidebar {
+  border: 2px dashed red; /* DEVEL */
+}
+
+/* -------------------- main -------------------- */
+
+#main {
+  border: 2px dashed red; /* DEVEL */
+}
