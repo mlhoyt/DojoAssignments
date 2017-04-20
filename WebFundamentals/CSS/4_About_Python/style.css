@@ -11,6 +11,8 @@ body {
   background-color: rgb(45, 90, 135); /* python-blue */
 }
 
+/* -------------------- header -------------------- */
+
 #header {
   padding: 10px;
 }
@@ -21,12 +23,16 @@ body {
   width: 350px;
 }
 
+/* -------------------- textSize and search -------------------- */
+
 #textSize_and_search {
   display: inline-block;
   vertical-align: top;
   margin-left: 315px;
   text-align: right;
 }
+
+/* -------------------- textSize -------------------- */
 
 #textSize {
   display: inline-block;
@@ -46,6 +52,8 @@ body {
 #textSize .divider {
   color: black;
 }
+
+/* -------------------- search -------------------- */
 
 #search {
   background-color: rgb(65, 65, 65); /* dark-grey */
@@ -92,6 +100,8 @@ input#searchString::placeHolder {
   margin-top: 5px;
 }
 
+/* -------------------- menu -------------------- */
+
 #menu {
   height: 50px;
   width: 850px;
@@ -126,6 +136,8 @@ input#searchString::placeHolder {
 #menu a:visited {
   color: rgb(240, 240, 240); /* white */
 }
+
+/* -------------------- main1 -------------------- */
 
 #main1_nav {
   display: inline-block;
@@ -179,6 +191,8 @@ input#searchString::placeHolder {
   font-size: 18px;
 }
 
+/* -------------------- main2 -------------------- */
+
 #main2 {
   background-color: rgb(240, 240, 240);
   padding-left: 70px;
@@ -218,4 +232,42 @@ input#searchString::placeHolder {
   text-decoration: none;
   font-size: 12px;
 }
-  /*border: 2px dashed red;*/
+
+/* -------------------- footer -------------------- */
+
+#footer {
+  border: 2px dashed red;
+  background: linear-gradient( rgb(45, 90, 135), rgb(55, 115, 150), rgb(90, 135, 180) );
+  height: 70px;
+  padding-top: 40px;
+  text-align: center;
+  color: rgb(115, 170, 220); /* light-blue */
+}
+
+#footer ul {
+  /*display: inline-block;*/
+  list-style-type: none;
+}
+
+#footer ul li {
+  display: inline;
+  padding-right: 40px;
+  font-size: 18px;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+#footer #copyright {
+  font-size: 10px;
+  display: block;
+}
+
+#footer a:link {
+  color: rgb(115, 170, 220); /* light-blue */
+}
+
+#footer a:visited {
+  color: rgb(115, 170, 220); /* light-blue */
+}
