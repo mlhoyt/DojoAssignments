@@ -53,8 +53,7 @@ body {
   width: 215px;
   display: inline-block;
   vertical-align: top;
-  padding: 10px;
-  border: 2px dashed red; /* DEVEL */
+  padding: 20px 10px 10px 10px;
 }
 
 #sidebar .text1 {
@@ -89,6 +88,76 @@ body {
 #sidebar_ad img {
   height: 180px;
 }
+
+/* -------------------- main -------------------- */
+
+#main {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 0px 10px;
+  width: 720px;
+  border: 2px dashed red; /* DEVEL */
+}
+
+/* -------------------- main::main__header -------------------- */
+
+#main__header {
+  border-bottom: 1px solid rgb(128, 128, 128);
+  padding-bottom: 20px;
+}
+
+#main__header img {
+  height: 20px;
+}
+
+#main__header #topic {
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#main__header #hours_and_phone {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 380px;
+  width: 265px;
+}
+
+#main__header #hours_and_phone img {
+  display: inline-block;
+  vertical-align: top;
+  height: 50px;
+  margin-top: 5px;
+}
+
+#main__header #hours_and_phone #phone {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  width: 200px;
+}
+
+#main__header #hours_and_phone #phone #hours {
+  font-size: 12px;
+}
+
+#main__header #hours_and_phone #phone #us_phone_number {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#main__header #hours_and_phone #phone #intl_phone_number {
+  font-size: 14px;
+}
+
+/* -------------------- main::main__content -------------------- */
+
+#main__content {
+  border: 2px dashed red; /* DEVEL */
+}
+
+  /*border: 2px dashed red; /* DEVEL */*/
+/* -------------------- general -------------------- */
 
 .button {
   border-radius: 5px;
@@ -125,20 +194,14 @@ body {
   color: rgb(240, 240, 240);
 }
 
-/* -------------------- main -------------------- */
-
-#main {
-  border: 2px dashed red; /* DEVEL */
-  display: inline-block;
-  vertical-align: top;
+.fg_white {
+  color: rgb(240, 240, 240); /* light-blue */
 }
 
-/* -------------------- main -------------------- */
-
-.blue {
+.fg_ltblue {
   color: rgb(60, 120, 180); /* light-blue */
 }
 
-.red {
+.fg_red {
   color: rgb(240, 0, 0); /* red */
 }
