@@ -1,0 +1,41 @@
+/* -*- css -*- */
+
+/* See: https://css-tricks.com/examples/ShapesOfCSS/ */
+
+.shape {
+  margin: 15px;
+}
+
+.square {
+  background-color: blue;
+	width: 100px;
+	height: 100px;
+}
+
+.circle {
+  background-color: red;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.triangle_up {
+  width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid green;
+}
+
+.pacman {
+	width: 0;
+	height: 0;
+  border-right: 50px solid transparent;
+  border-top: 50px solid yellow;
+  border-left: 50px solid yellow;
+  border-bottom: 50px solid yellow;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
