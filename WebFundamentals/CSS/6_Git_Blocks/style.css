@@ -5,3 +5,159 @@
   padding: 0px;
 }
 
+body {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Colors:
+  offwhite: rgb(220, 220, 220)
+  ltgreen: rgb(40, 160, 160)
+  ltyellow: rgb(240, 220, 140)
+  dkgreen: rgb(20, 60, 60)
+*/
+
+#container {
+  width: 970px;
+  padding: 15px;
+  background-color: rgb(220, 220, 220); /* off-white */
+}
+
+/* ------------------- header -------------------- */
+
+#header {
+  padding: 15px;
+  background-color: rgb(40, 160, 160); /* lt-green */
+  color: rgb(220, 220, 220); /* off-white */
+  margin-bottom: 15px;
+  height: 40px;
+}
+
+#header img {
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+}
+
+#header #title {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  color: black;
+  font-size: 28px;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+#header ul {
+  display: inline-block;
+  vertical-align: top;
+  list-style-type: none;
+  width: 610px;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+#header ul li {
+  display: inline;
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+#header a:link {
+  color: rgb(220, 220, 220); /* off-white */
+}
+
+#header a:visited {
+  color: rgb(220, 220, 220); /* off-white */
+}
+
+/* ------------------- main -------------------- */
+
+#main {
+  padding: 15px;
+  background-color: rgb(240, 220, 140); /* lt-yellow */
+  margin-bottom: 15px;
+}
+
+/* ------------------- textBox -------------------- */
+
+.text_box {
+  background-color: rgb(20, 60, 60); /* dk-green */
+  color: rgb(220, 220, 220); /* off-white */
+  padding: 0px 15px 15px 15px;
+}
+
+.text_box h2 {
+  margin: 8px 0px;
+}
+
+.text_box p {
+  margin: 8px 0px 8px 10px;
+}
+
+/* ------------------- main::sidebar -------------------- */
+
+#sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 260px;
+}
+
+/* ------------------- main::content -------------------- */
+
+#content {
+  display: inline-block;
+  vertical-align: top;
+  width: 440px;
+}
+
+#content__row1,
+#content__row2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 650px;
+  margin-bottom: 15px;
+}
+
+#git_init,
+#git_add,
+#git_status {
+  display: inline-block;
+  vertical-align: top;
+  width: 171px;
+  height: 140px;
+  margin-left: 15px;
+}
+
+#git_commit,
+#git_remote_add {
+  display: inline-block;
+  vertical-align: top;
+  width: 280px;
+  height: 123px;
+  margin-left: 15px;
+}
+
+#git_push {
+  display: inline-block;
+  vertical-align: top;
+  width: 605px;
+  height: 117px;
+  margin-left: 15px;
+}
+
+/* ------------------- footer -------------------- */
+
+#footer {
+  height: 40px;
+  padding: 15px;
+  background-color: rgb(40, 160, 160); /* lt-green */
+  color: black; /* black */
+  text-align: center;
+}
+
+#footer span {
+  display: inline-block;
+  margin-top: 15px;
+}
