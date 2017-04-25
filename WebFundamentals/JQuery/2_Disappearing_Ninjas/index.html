@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Disappearing Ninjas</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).ready( function(){
+        $( 'img.hide' ).click( function() {
+          $(this).hide();
+        });
+        $( 'img.toggle' ).click( function() {
+          $(this).toggle();
+        });
+        $( 'img.slideUp' ).click( function() {
+          $(this).slideUp();
+        });
+        $( 'img.fadeOut' ).click( function() {
+          $(this).fadeOut();
+        });
+        $( 'img.slideToggle' ).click( function() {
+          $(this).slideToggle();
+        });
+        $( 'img.fadeToggle' ).click( function() {
+          if( $(this).is(":hidden") ) {
+            $(this).fadeIn();
+          }
+          else {
+            $(this).fadeOut();
+          }
+        });
+        $( '#restore' ).click( function() {
+          $( 'img' ).show();
+        });
+      });
+    </script>
+    <style>
+      img {
+        display: inline-block;
+        vertical-align: top;
+        width: 150px;
+        border: 2px solid black;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      .button {
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 10px;
+        padding: 10px 20px;
+        background: linear-gradient( rgba( 128, 255, 128, 0.5 ), rgba( 0, 255, 0, 0.5 ) );
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JQuery - Disappearing Ninjas</h1>
+    <div class="row">
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="hide"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="toggle"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="slideUp"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="fadeOut"/>
+    </div>
+    <div class="row">
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="slideToggle"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="slideToggle"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="fadeToggle"/>
+      <img src="assets/ninja-cartoon-kicking.jpg" alt="Ninja image" class="fadeToggle"/>
+    </div>
+    <div id="restore" class="button">Restore</div>
+  </body>
+</html>
