@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQuery Functions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8" />
+    <script type="text/javascript">
+      $(document).ready( function(){
+        $('h1').css( "text-align", "center" );
+      });
+    </script>
+  </head>
+  <body>
+    <h1>JQuery Common Functions</h1>
+
+    <!-- ---------- click ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/click/">.click</a></h1>
+      <div class="functionButton" id="click">.click</div>
+      <h3>Click the button to get current date/time:</h3>
+      <div id="click_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#click" ).click(function() {
+        $( "#click_target" ).text( (new Date()).toString() );
+        console.log( "Clicked the 'click' button" );
+      });
+    </script>
+
+    <!-- ---------- hide ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/hide/">.hide</a></h1>
+      <div class="functionButton" id="hide">.hide</div>
+      <h3>Click the button to hide the target div:</h3>
+      <div id="hide_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#hide" ).click(function() {
+        $( "#hide_target" ).hide( "slow" );
+        console.log( "Clicked the 'hide' button" );
+      });
+    </script>
+
+    <!-- ---------- show ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/show/">.show</a></h1>
+      <div class="functionButton" id="show">.show</div>
+      <h3>Click the button to show the target div:</h3>
+      <div id="show_target" class="target" style="display: none;"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#show" ).click(function() {
+        $( "#show_target" ).show( "slow" );
+        console.log( "Clicked the 'show' button" );
+      });
+    </script>
+
+    <!-- ---------- toggle ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/toggle/">.toggle</a></h1>
+      <div class="functionButton" id="toggle">.toggle</div>
+      <h3>Click the button to toggle the target div:</h3>
+      <div id="toggle_target" class="target" style="display: none;"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#toggle" ).click(function() {
+        $( "#toggle_target" ).toggle( "fast" );
+        console.log( "Clicked the 'toggle' button" );
+      });
+    </script>
+
+    <!-- ---------- slideDown ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/slideDown/">.slideDown</a></h1>
+      <div class="functionButton" id="slideDown">.slideDown</div>
+      <h3>Click the button to slideDown (or hide) the target div:</h3>
+      <div id="slideDown_target" class="target" style="display: none;"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#slideDown" ).click(function() {
+        if( $( "#slideDown_target" ).is( ":hidden" ) ) {
+          $( "#slideDown_target" ).slideDown( "slow" );
+        }
+        else {
+          $( "#slideDown_target" ).hide();
+        }
+        console.log( "Clicked the 'slideDown' button" );
+      });
+    </script>
+
+    <!-- ---------- slideUp ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/slideUp/">.slideUp</a></h1>
+      <div class="functionButton" id="slideUp">.slideUp</div>
+      <h3>Click the button to slideUp (or show) the target div:</h3>
+      <div id="slideUp_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#slideUp" ).click(function() {
+        if( $( "#slideUp_target" ).is( ":hidden" ) ) {
+          $( "#slideUp_target" ).show();
+        }
+        else {
+          $( "#slideUp_target" ).slideUp( "slow" );
+        }
+        console.log( "Clicked the 'slideUp' button" );
+      });
+    </script>
+
+    <!-- ---------- slideToggle ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/slideToggle/">.slideToggle</a></h1>
+      <div class="functionButton" id="slideToggle">.slideToggle</div>
+      <h3>Click the button to slideToggle the target div:</h3>
+      <div id="slideToggle_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#slideToggle" ).click(function() {
+        $( "#slideToggle_target" ).slideToggle( "slow" );
+        console.log( "Clicked the 'slideToggle' button" );
+      });
+    </script>
+
+    <!-- ---------- fadeIn ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/fadeIn/">.fadeIn</a></h1>
+      <div class="functionButton" id="fadeIn">.fadeIn</div>
+      <h3>Click the button to fadeIn the target div:</h3>
+      <div id="fadeIn_target" class="target" style="display: none;"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#fadeIn" ).click(function() {
+        $( "#fadeIn_target" ).fadeIn( "slow" );
+        console.log( "Clicked the 'fadeIn' button" );
+      });
+    </script>
+
+    <!-- ---------- fadeOut ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/fadeOut/">.fadeOut</a></h1>
+      <div class="functionButton" id="fadeOut">.fadeOut</div>
+      <h3>Click the button to fadeOut the target div:</h3>
+      <div id="fadeOut_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#fadeOut" ).click(function() {
+        $( "#fadeOut_target" ).fadeOut( "slow" );
+        console.log( "Clicked the 'fadeOut' button" );
+      });
+    </script>
+
+    <!-- ---------- addClass ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/addClass/">.addClass</a></h1>
+      <div class="functionButton" id="addClass">.addClass</div>
+      <h3>Click the button to highlight the target div:</h3>
+      <div id="addClass_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#addClass" ).click(function() {
+        $( "#addClass_target" ).addClass( "highlight" );
+        console.log( "Clicked the 'addClass' button" );
+      });
+    </script>
+
+    <!-- ---------- before ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/before/">.before</a></h1>
+      <div class="functionButton" id="before">.before</div>
+      <h3>Click the button to demonstrate .before:</h3>
+      <div id="before_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#before" ).click(function() {
+        $( "#before_target" ).before( "<span class='highlight'>&lt;&lt;&nbsp;</span>" );
+        console.log( "Clicked the 'before' button" );
+      });
+    </script>
+
+    <!-- ---------- after ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/after/">.after</a></h1>
+      <div class="functionButton" id="after">.after</div>
+      <h3>Click the button to demonstrate .after:</h3>
+      <div id="after_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#after" ).click(function() {
+        $( "#after_target" ).after( "<span class='highlight'>&nbsp;&gt;&gt;</span>" );
+        console.log( "Clicked the 'after' button" );
+      });
+    </script>
+
+    <!-- ---------- prepend ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/prepend/">.prepend</a></h1>
+      <div class="functionButton" id="prepend">.prepend</div>
+      <h3>Click the button to demonstrate .prepend:</h3>
+      <div id="prepend_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#prepend" ).click(function() {
+        $( "#prepend_target" ).prepend( "<span class='highlight'>&lt;&lt;&nbsp;</span>" );
+        console.log( "Clicked the 'prepend' button" );
+      });
+    </script>
+
+    <!-- ---------- append ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/append/">.append</a></h1>
+      <div class="functionButton" id="append">.append</div>
+      <h3>Click the button to demonstrate .append:</h3>
+      <div id="append_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#append" ).click(function() {
+        $( "#append_target" ).append( "<span class='highlight'>&nbsp;&gt;&gt;</span>" );
+        console.log( "Clicked the 'append' button" );
+      });
+    </script>
+
+    <!-- ---------- html ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/html/">.html</a></h1>
+      <div class="functionButton" id="html">.html</div>
+      <h3>Click the button to demonstrate .html:</h3>
+      <div id="html_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#html" ).click(function() {
+        $( "#html_target" ).html( "<i>Some</i> text ..." );
+        console.log( "Clicked the 'html' button" );
+      });
+    </script>
+
+    <!-- ---------- text ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/text/">.text</a></h1>
+      <div class="functionButton" id="text">.text</div>
+      <h3>Click the button to demonstrate .text:</h3>
+      <div id="text_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#text" ).click(function() {
+        $( "#text_target" ).text( "<i>Some</i> text ..." );
+        console.log( "Clicked the 'text' button" );
+      });
+    </script>
+
+    <!-- ---------- attr ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/attr/">.attr</a></h1>
+      <div class="functionButton" id="attr">.attr</div>
+      <h3>Click the button to demonstrate .attr:</h3>
+      <div id="attr_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#attr" ).click(function() {
+        $( "#attr_target" ).text( $( "#attr_target" ).attr( "id" ) );
+        console.log( "Clicked the 'attr' button" );
+      });
+    </script>
+
+    <!-- ---------- val ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/val/">.val</a></h1>
+      <!-- <div class="functionButton" id="val">.val</div> -->
+      <select id="val_select">
+        <option>Option#1</option>
+        <option>Option#2</option>
+      </select>
+      <h3>Check options to demonstrate .val:</h3>
+      <div id="val_target" class="target"></div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#val_select" ).change(function() {
+        $( "#val_target" ).html( $( "#val_select" ).val() );
+        console.log( "Changed the 'val' selection" );
+      });
+    </script>
+
+    <!-- ---------- data ---------- -->
+    <div class="functionSection">
+      <h1><a href="http://api.jquery.com/data/">.data</a></h1>
+      <div class="functionButton" id="data">.data</div>
+      <h3>Click the button to demonstrate .data:</h3>
+      <div id="data_target" class="target">
+        <span>opt1:</span>
+        <span>opt2:</span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $( "#data" ).data( "opt1", "val1" );
+      $( "#data" ).data( "opt2", "val2" );
+      $( "#data" ).click(function() {
+        $( "#data_target span:first" ).text( "opt1: " + $( "#data" ).data( "opt1") );
+        $( "#data_target span:last" ).text( "opt2: " + $( "#data" ).data( "opt2") );
+      });
+    </script>
+  </body>
+</html>
