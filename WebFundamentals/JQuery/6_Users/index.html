@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="action.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>Users</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email Address</th>
+          <th>Contact #</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <div id="add_user">
+      <h1 class="title">Add User</h1>
+      <div class="body">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"></input>
+        <br />
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"></input>
+        <br />
+        <label for="email_addr">Email Address:</label>
+        <input type="text" id="email_addr" name="email_addr"></input>
+        <br />
+        <label for="phone_num">Phone Number:</label>
+        <input type="text" id="phone_num" name="phone_num"></input>
+        <br />
+        <div id="add_user_event" class="button">Add User</div>
+      </div>
+    </div>
+  </body>
+</html>
