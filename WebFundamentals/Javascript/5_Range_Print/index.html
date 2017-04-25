@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -*- javascript -*-
+      // Create a function that can take a start point, end point, and skip amount, to print all numbers in the range.
+      //
+      // For example:
+      //
+      // printRange(2, 10, 2);
+      // Copy
+      // Would print
+      //
+      // 2
+      // 4
+      // 6
+      // 8
+      // (Should go UP TO, but NOT INCLUDING the end point)
+      //
+      // Bonus (Only If You Have Time):
+      //
+      // Make sure it works for negative numbers
+      // If the user doesn't pass a skip amount, make it default to 1 (printRange(4, 8); would print 4, 5, 6, 7)
+      // If the user doesn't pass an end point, make it start at 0, and end at the first (printRange(4); would print 0, 1, 2, 3)
+
+      function printRange( start, stop, incr=1 ) {
+        // Exception: Should check that (stop - start) polarity matches incr polarity
+        // - Even more important once incr defaults to positive 1
+        if( stop == undefined ) {
+          stop = start;
+          start = 0;
+        }
+        for( var i = start; i != stop; i += incr ) {
+          document.write( i + "<br />" );
+        }
+      }
+
+      // Initial testing
+      document.write( "printRange( 2, 10, 2) ..." + "<br />" );
+      printRange( 2, 10, 2 );
+      document.write( "printRange( 10, 2, -2) ..." + "<br />" );
+      printRange( 10, 2, -2 );
+      document.write( "printRange( -2, -10, -2) ..." + "<br />" );
+      printRange( -2, -10, -2 );
+      document.write( "printRange( -10, -2, 2) ..." + "<br />" );
+      printRange( -10, -2, 2 );
+
+      // Default incr testing
+      document.write( "printRange( 2, 10 ) ..." + "<br />" );
+      printRange( 2, 10 );
+      document.write( "printRange( -10, -2 ) ..." + "<br />" );
+      printRange( -10, -2 );
+
+      // Default stop testing
+      document.write( "printRange( 10 ) ..." + "<br />" );
+      printRange( 10 );
+    </script>
+  </body>
+</html>

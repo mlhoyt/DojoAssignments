@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript::While You Wait</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -*- javascript -*-
+      // Create a birthday countdown.
+      //   var daysUntilMyBirthday = 60;
+      // For every day, print how many days left.
+      //   If it's more than 30 days, print a sad message.
+      //   If it's less than 30 days, print a message that sound excited!
+      //   If it's less than 5 days, SCREAM IT!
+      // ONCE IT'S YOUR BIRTHDAY HAVE PARTY!
+      // 60 days until my birthday. Such a long time... :(
+      // 59 days until my birthday. Such a long time... :(
+      // 58 days until my birthday. Such a long time... :(
+      // 2 DAYS UNTIL MY BIRTHDAY!!!
+      // 1 DAY UNTIL MY BIRTHDAY!!!
+      var daysUntilMyBirthday = 35;
+      for( var i = daysUntilMyBirthday; i > 0; --i ) {
+        if( i > 30 ) {
+          document.write( i + " days until my birthday.  Such a long time ...<br />" );
+        }
+        else if( i > 5 ) {
+          document.write( i + " days until my birthday.  It is getting close ...<br />" );
+        }
+        else if( i > 1 ) {
+          document.write( i + " DAYS UNTIL MY BIRTHDAY!!!<br />" );
+        }
+        else {
+          document.write( i + " DAY UNTIL MY BIRTHDAY!!!<br />" );
+        }
+      }
+      document.write( "♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*" + "<br />" );
+      document.write( "♪ღ♪░H░A░P░P░Y░ B░I░R░T░H░D░A░Y░░♪ღ♪" + "<br />" );
+      document.write( "*•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«" + "<br />" );
+    </script>
+  </body>
+</html>

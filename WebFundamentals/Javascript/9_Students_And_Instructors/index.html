@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Students And Instructors</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -*- javascript -*-
+      // Students and Instructors
+      // Part I
+      //
+      // Given the following array of objects:
+      //
+      // var students = [
+      //      {first_name:  'Michael', last_name : 'Jordan'},
+      //      {first_name : 'John', last_name : 'Rosales'},
+      //      {first_name : 'Mark', last_name : 'Guillen'},
+      //      {first_name : 'KB', last_name : 'Tonel'}
+      // ]
+      // Create a program that outputs:
+      //
+      // Michael Jordan
+      // John Rosales
+      // Mark Guillen
+      // KB Tonel
+      //
+      // Part II (Optional)
+      //
+      // Now, given the following dictionary:
+      //
+      // var users = {
+      //  'Students': [
+      //      {first_name:  'Michael', last_name : 'Jordan'},
+      //      {first_name : 'John', last_name : 'Rosales'},
+      //      {first_name : 'Mark', last_name : 'Guillen'},
+      //      {first_name : 'KB', last_name : 'Tonel'}
+      //   ],
+      //  'Instructors': [
+      //      {first_name : 'Michael', last_name : 'Choi'},
+      //      {first_name : 'Martin', last_name : 'Puryear'}
+      //   ]
+      //  }
+      // Create a program that prints  the following format (including the number of characters in each combined name):
+      //
+      // Students
+      // 1 - MICHAEL JORDAN - 13
+      // 2 - JOHN ROSALES - 11
+      // 3 - MARK GUILLEN - 11
+      // 4 - KB TONEL - 7
+      // Instructors
+      // 1 - MICHAEL CHOI - 11
+      // 2 - MARTIN PURYEAR - 13
+
+      // use strict;
+
+      // Part I
+      document.write( "--------------------" + " Part I " + "--------------------" + "<br />" );
+      var students = [
+        {first_name:  'Michael', last_name : 'Jordan'},
+        {first_name : 'John', last_name : 'Rosales'},
+        {first_name : 'Mark', last_name : 'Guillen'},
+        {first_name : 'KB', last_name : 'Tonel'}
+      ];
+      // for( var student in students ) {...}
+      for( var i = 0; i < students.length; ++i ) {
+        document.write( students[i].first_name + " " + students[i].last_name + "<br />" );
+      }
+
+      // Part II
+      document.write( "--------------------" + " Part II " + "--------------------" + "<br />" );
+      var users = {
+        'Students': [
+          {first_name:  'Michael', last_name : 'Jordan'},
+          {first_name : 'John', last_name : 'Rosales'},
+          {first_name : 'Mark', last_name : 'Guillen'},
+          {first_name : 'KB', last_name : 'Tonel'}
+        ],
+        'Instructors': [
+          {first_name : 'Michael', last_name : 'Choi'},
+          {first_name : 'Martin', last_name : 'Puryear'}
+        ]
+      };
+      document.write( "Students" + "<br />" );
+      for( var i = 0; i < users.Students.length; ++i ) {
+        var user = users.Students[i];
+        var fn = user.first_name.toUpperCase();
+        var ln = user.last_name.toUpperCase();
+        var len = user.first_name.length + user.last_name.length;
+        document.write( (i + 1) + " - " + fn + " " + ln + " - " + len + "<br />" );
+      }
+      document.write( "Instructors" + "<br />" );
+      for( var i = 0; i < users.Instructors.length; ++i ) {
+        var user = users.Instructors[i];
+        var fn = user.first_name.toUpperCase();
+        var ln = user.last_name.toUpperCase();
+        var len = user.first_name.length + user.last_name.length;
+        document.write( (i + 1) + " - " + fn + " " + ln + " - " + len + "<br />" );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -*- javascript -*-
+      // Create a program that will tell you the time.
+      // With the variables: HOUR, MINUTE, PERIOD (am/pm)
+      // Your program should print "It's <PROXIMITY> <HOUR> in the <PERIOD_STRING>"
+      // Challenge:
+      // If MINUTES less than 30, then PROXIMITY is "just after" the HOUR
+      // If MINUTES more than 30, then PROXIMITY is "almost" the next HOUR
+      // If PERIOD is "AM", then PERIOD_STRING is "in the morning"
+      // If PERIOD is "PM", then PERIOD_STRING is "in the evening"
+
+      function printDescTimeString( hour, minutes, period ) {
+        document.write( "It's" );
+
+        // <PROXIMITY>, <HOUR>
+        if( minutes < 30 ) {
+          document.write( " just after " + hour );
+        }
+        else {
+          document.write( " almost " + (hour + 1) );
+        }
+
+        // <PERIOD_STRING>
+        if( period == "AM" ) {
+          document.write( " in the morning" );
+        }
+        else {
+          document.write( " in the evening" );
+        }
+
+        document.write( " -- (DEBUG: " + hour + ", " + minutes + ", " + period + ")<br />" );
+      }
+
+      printDescTimeString( 8, 50, "AM" );
+      printDescTimeString( 7, 15, "PM" );
+      printDescTimeString( 12, 45, "AM" );
+      printDescTimeString( 12, 45, "PM" );
+    </script>
+  </body>
+</html>

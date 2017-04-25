@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random Chance</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -*- javascript -*-
+      // Random Chance
+      // Let's play the slots!
+      //
+      // Make a function that takes a number of quarters (1 quarter = 1 game).
+      //
+      // There is a 1 in 100 chance to win the slot machine (which will give you between 50 - 100 quarters -- use Math.random and Math.floor to pick a random number of coins).
+      //
+      // While the user still has quarters, use Math.random to determine if they won.
+      //
+      // If they ever win, return the number of quarters (ex: they had 50 remaining quarters and won 90, so it should return 140).
+      //
+      // Return 0 if all the quarters were wasted.
+      //
+      // Bonus (Only If You Have Time):
+      //
+      // Let the user pass the number they are willing to leave with
+      // (ex: If they won the lottery and still have 40 coins, they will keep playing until they have collected 200 coins)
+
+      function getSlotWinAmount() {
+        var win_amount = 50 + Math.floor( Math.random() * 51 );
+        return( win_amount );
+      }
+
+      function playSlotMachine( nr_coins, win_goal = -1 ) {
+        var chance;
+        for( var i = nr_coins; nr_coins > 0; --nr_coins ) {
+          chance = Math.floor( Math.random() * 100 );
+          if( chance == 0 ) {
+            var win_amount = getSlotWinAmount();
+            document.write( "Debug: playSlotMachine: winner: coins:" + (nr_coins - 1) + " win_amount:" + win_amount + "<br />" );
+            nr_coins = nr_coins - 1 + win_amount;
+            if( win_goal < 0 || nr_coins > win_goal ) {
+              return( nr_coins );
+            }
+          }
+        }
+
+        return( 0 );
+      }
+
+      // Initial testing
+      document.write( "Playing slot machine with " + 10 + " coins yielded " + playSlotMachine( 10 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 25 + " coins yielded " + playSlotMachine( 25 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 50 + " coins yielded " + playSlotMachine( 50 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins yielded " + playSlotMachine( 100 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins yielded " + playSlotMachine( 100 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins yielded " + playSlotMachine( 100 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins yielded " + playSlotMachine( 100 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins yielded " + playSlotMachine( 100 ) + " coins" + "<br />" );
+
+      // win_goal testing
+      document.write( "Playing slot machine with " + 100 + " coins and win_goal 200 yielded " + playSlotMachine( 100, 200 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins and win_goal 200 yielded " + playSlotMachine( 100, 200 ) + " coins" + "<br />" );
+      document.write( "Playing slot machine with " + 100 + " coins and win_goal 200 yielded " + playSlotMachine( 100, 200 ) + " coins" + "<br />" );
+    </script>
+  </body>
+</html>
