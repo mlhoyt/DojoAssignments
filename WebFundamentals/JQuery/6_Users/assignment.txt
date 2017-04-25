@@ -1,0 +1,24 @@
+# -*- text -*-
+
+Users
+
+Create a blank table which has columns (i.e. table headings):
+  - First Name
+  - Last Name
+  - Email
+  - Contact Number
+
+Have a form at the bottom which will be used to append items to the table.
+Make sure that each form field appends to its proper row/column in the table.
+
+Form:
+
+Add User
+--------
+First Name: Box("First Name")
+Last Name: Box("Last Name")
+Email Address: Box("Email Address")
+Contact No.: Box("Contact No")
+
+Button("Add User")
+
