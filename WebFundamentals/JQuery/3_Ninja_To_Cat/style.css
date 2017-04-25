@@ -1,0 +1,19 @@
+/* -*- css -*- */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+img {
+  display: block;
+  padding-bottom: 10px;
+}
