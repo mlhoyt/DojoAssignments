@@ -1,0 +1,48 @@
+/* -*- css -*- */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 20px;
+  width: 970px;
+}
+
+body h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#images {
+  display: inline-block;
+  vertical-align: top;
+  width: 700px;
+}
+
+#info {
+  display: inline-block;
+  vertical-align: top;
+  width: 205px;
+  border: 20px solid red;
+  padding: 10px;
+}
+
+#info .name {
+  text-align: center;
+}
+
+#info img {
+  display: block;
+  text-align: center;
+}
+
+#info h3, p, ul, li {
+  margin-top: 5px;
+}
+
+#info ul {
+  margin-left: 30px;
+}
