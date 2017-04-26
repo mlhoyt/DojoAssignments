@@ -32,11 +32,13 @@ $(document).ready( function(){
   $(document).on("click", "#add_user_btn", function(){
     if( checkAddUserForm() ) {
       $('#sidebar').prepend(
-        "<div class='card'" +
+        "<div" +
+          " height='88px'" +
+          " class='card'" +
+          " data-view='name'" +
           " data-first-name='" + $('#first_name').val() + "'" +
           " data-last-name='" + $('#last_name').val() + "'" +
           " data-desc='" + $('#desc').val() + "'" +
-          " data-state='" + "name" + "'" +
           ">" +
           "<h2>" + $('#first_name').val() + " " + $('#last_name').val() + "</h2>" +
           "<p>" + "Click for description!" + "</p>" +
@@ -47,18 +49,19 @@ $(document).ready( function(){
   });
 
   $(document).on("click", ".card p", function(){
-    if( $(this).parent().data( "state" ) == "name" ) {
-      $(this).parent().html(
-        "<p>" + $(this).parent().data( "desc" ) + "</p>"
-      );
-      $(this).parent().data( "state", "desc" );
+    var card = $(this).parent();
+    if( card.data( "view" ) == "name" ) {
+      var new_html =
+        "<p>" + card.data( "desc" ) + "</p>";
+      card.html( new_html );
+      card.data( "view", "desc" );
     }
     else {
-      $(this).parent().html(
-          "<h2>" + $(this).parent().data( "first-name" ) + " " + $(this).parent().data( "last-name" ) + "</h2>" +
-          "<p>" + "Click for description!" + "</p>"
-      );
-      $(this).parent().data( "state", "name" );
+      var new_html =
+        "<h2>" + card.data( "first-name" ) + " " + card.data( "last-name" ) + "</h2>" +
+        "<p>" + "Click for description!" + "</p>";
+      card.html( new_html );
+      card.data( "view", "name" );
     }
   });
 });
