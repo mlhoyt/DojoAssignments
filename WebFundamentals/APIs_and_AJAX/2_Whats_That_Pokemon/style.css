@@ -28,6 +28,9 @@ body h1 {
   width: 205px;
   border: 20px solid red;
   padding: 10px;
+  position: fixed;
+  top: 90px;
+  left: 710px;
 }
 
 #info .name {
