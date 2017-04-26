@@ -1,0 +1,20 @@
+# -*- text -*-
+
+Game of Thrones
+
+The Game of Thrones API is located here:
+
+    https://anapioficeandfire.com/
+
+Their documentation is great and will show how to use their API.
+Note: An API Key is not needed.
+
+Images you may use are found here: (see linked .zip file>
+
+When a User clicks an Image, the House Details should be appended or updated
+with the correct House information pulled from the API.
+
+For full names of the houses, see:
+
+    https://www.quora.com/What-are-the-names-of-the-noble-houses-and-the-Seven-Kingdoms-of-Westeros
+
