@@ -1,3 +1,5 @@
+# -*- text -*-
+
 Color Clicker
 
 For this assignment, you should use the traversing methods discussed in this
@@ -15,4 +17,3 @@ small box. Good luck!
 Hint: The function called random_color() that is defined in the template will
 return a random hexadecimal value that can be used as a background coloring.
 Simply call that function and a value will be assigned!
-
