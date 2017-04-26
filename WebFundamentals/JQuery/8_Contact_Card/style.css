@@ -1,0 +1,52 @@
+/* -*- css -*- */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+  width: 700px;
+}
+
+#main {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+  padding-right: 20px;
+  border-right: 1px ridge rgba( 128, 128, 128, 0.5 );
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 150px;
+}
+
+#desc_label {
+  margin-top: 20px;
+}
+
+#desc {
+  width: 150px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  background: linear-gradient( rgba( 128, 128, 128, 0.5 ), rgba( 128, 128, 128, 1 ));
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+#sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+}
