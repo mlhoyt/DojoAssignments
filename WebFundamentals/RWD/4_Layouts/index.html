@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RSW - Layouts</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        padding: 1.25rem;
+      }
+      #header {
+        background-color: rgb(221, 221, 221);
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      #header h2 {
+        margin-top: 1rem;
+      }
+      #nav {
+        margin-bottom: 1.25rem;
+      }
+      #nav li {
+        list-style-type: none;
+        display: inline;
+        background-color: rgb(221, 221, 221);
+        border: 1px solid rgb(170, 170, 170);
+        padding: 0.25rem 0.5rem;
+      }
+      /* */
+      * {
+        box-sizing: border-box;
+      }
+      @media only screen and (max-width: 814px) {
+        .three-m { width: 33.333333%; }
+        .twelve-m { width: 100%; }
+        #nav { display: none; }
+      }
+      @media only screen and (min-width: 815px) {
+        .four-l { width: 25%; }
+        #nav { display: block; }
+      }
+      .row {
+        clear: both;
+      }
+      .column {
+        float: left;
+        padding-right: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      .content h3 {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Header</h1>
+      <h2>Subtitle</h2>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Something</a></li>
+        <li><a href="#">Something more...</a></li>
+        <li><a href="#">Something even more...</a></li>
+      </ul>
+    </div>
+    <div id="main row">
+      <div class="content column three-m four-l">
+        <h3>Coffee Ipsum</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="content column three-m four-l">
+        <h3>Lorem Ipsum</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="content column three-m four-l">
+        <h3>Baby Ipsum</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="content column twelve-m four-l">
+        <h3>Zombie Ipsum</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
