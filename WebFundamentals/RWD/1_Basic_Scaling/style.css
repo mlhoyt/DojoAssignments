@@ -8,8 +8,8 @@
 
 /*convert these font sizes to ems*/
 .large {
-	font-size: 64px;
+	font-size: 4rem;
 }
 .medium {
-	font-size: 32px;
+	font-size: 2rem;
 }
