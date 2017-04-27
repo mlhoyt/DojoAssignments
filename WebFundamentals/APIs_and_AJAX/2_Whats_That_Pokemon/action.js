@@ -23,6 +23,16 @@ $(document).ready( function(){
           html_str += "<p>" + r.height + "</p>";
           html_str += "<h3>" + "Weight" + "</h3>";
           html_str += "<p>" + r.weight + "</p>";
+          html_str += "<h3>" + "Attack" + "</h3>";
+          html_str += "<p>" + r.attack + "</p>";
+          html_str += "<h3>" + "Defense" + "</h3>";
+          html_str += "<p>" + r.defense + "</p>";
+          html_str += "<h3>" + "Experience" + "</h3>";
+          html_str += "<p>" + r.exp + "</p>";
+          html_str += "<h3>" + "Hit Points" + "</h3>";
+          html_str += "<p>" + r.hp + "</p>";
+          html_str += "<h3>" + "Speed" + "</h3>";
+          html_str += "<p>" + r.speed + "</p>";
           $('#info').html( html_str )
           $('#info').show();
         },
