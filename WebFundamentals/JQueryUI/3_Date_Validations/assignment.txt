@@ -8,6 +8,4 @@ the form is submitted, an alert box will pop up with the valid information being
 displayed. If the name is not included, have an error message appear. Feel free
 to add more fields and create validations for them. Typically, your form
 validations are handled by your back-end language, but this is an excellent
-introduction as to how to design things of this nature! This image is available
-for download here for your convenience!
-
+introduction as to how to design things of this nature!

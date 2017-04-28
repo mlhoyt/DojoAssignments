@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQueryUI - Date Validations</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="action.js" charset="utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to the Codingdojo plan-a-Cruise!</h1>
+    <form>
+      <p>
+        <label for="from_date">From:</label>
+        <input type="text" id="from_date" class="date_entry" value="Select date"></input>
+      </p>
+      <p>
+        <label for="to_date">To:</label>
+        <input type="text" id="to_date" class="date_entry" value="Select date"></input>
+      </p>
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="Enter name"></input>
+        <span class="error_msg"></span>
+      </p>
+      <div class="button">Check dates!</div>
+    </form>
+  </body>
+</html>
