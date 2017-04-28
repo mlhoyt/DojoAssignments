@@ -1,0 +1,12 @@
+# -*- text -*-
+
+Assignment: Accordion and Tab
+
+Build a simple page using both an accordion and a tab widget. Get comfortable
+with inserting markup correctly into jQueryUI elements. Pay attention to how
+jQueryUI examples utilize the class and id attributes.
+
+Once you have built your page, find a new jQueryUI element and add it to your page.
+
+Don't spend more than 3 hours trying to get this to work.
+
