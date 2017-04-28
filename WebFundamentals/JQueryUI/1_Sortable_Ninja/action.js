@@ -2,6 +2,8 @@
 
 $(document).ready( function(){
   addRandomImages();
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
 });
 
 function shuffleArray( aref ) {
@@ -26,12 +28,18 @@ function addRandomImages() {
   // Add [shuffled] images to document
   for( var i in imageOrder ) {
     var n = imageOrder[i];
+    // Create span element
+    var el_span = document.createElement( "span" );
+    el_span.setAttribute( "class", "ui-icon ui-icon-arrowthick-2-n-s" );
     // Create img element
     var el_img = document.createElement( "img" );
     el_img.setAttribute( "src", "assets/sort" + n + ".png" );
     el_img.setAttribute( "alt", "Sortable Image #" + n );
     // Create li element
     var el_li = document.createElement( "li" );
+    el_img.setAttribute( "class", "ui-state-default" );
+    // Add span element to li element
+    el_li.appendChild( el_span );
     // Add img element to li element
     el_li.appendChild( el_img );
     // Add li element to div element
