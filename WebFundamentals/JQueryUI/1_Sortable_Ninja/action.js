@@ -26,10 +26,15 @@ function addRandomImages() {
   // Add [shuffled] images to document
   for( var i in imageOrder ) {
     var n = imageOrder[i];
-    var el = document.createElement( "img" );
-    el.setAttribute( "src", "assets/sort" + n + ".png" );
-    el.setAttribute( "alt", "Sortable Image #" + n );
-    // $('#container').append( el );
-    document.getElementById( 'container' ).appendChild( el );
+    // Create img element
+    var el_img = document.createElement( "img" );
+    el_img.setAttribute( "src", "assets/sort" + n + ".png" );
+    el_img.setAttribute( "alt", "Sortable Image #" + n );
+    // Create li element
+    var el_li = document.createElement( "li" );
+    // Add img element to li element
+    el_li.appendChild( el_img );
+    // Add li element to div element
+    $('#container ul').append( el_li );
   }
 }
