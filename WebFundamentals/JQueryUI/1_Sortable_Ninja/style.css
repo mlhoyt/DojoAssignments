@@ -1,0 +1,11 @@
+/* -*- css -*- */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  margin-bottom: 3px;
+}
