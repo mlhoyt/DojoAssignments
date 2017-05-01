@@ -7,6 +7,39 @@
 
 body {
   background-color: rgb( 212, 209, 178 );
-  width: 700px;
+  width: 640px;
   margin: 20px;
+}
+
+#header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#header img {
+  height: 50px;
+  background-color: rgb( 240, 240, 240 );
+}
+
+#header h1 {
+  display: inline-block;
+}
+
+.row img {
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.row img:not(:last-child) {
+  margin-right: 5px;
+}
+
+img.blue {
+  background-color: rgb( 127, 181, 233 );
+}
+
+img.pink {
+  background-color: rgb( 248, 103, 114 );
 }
