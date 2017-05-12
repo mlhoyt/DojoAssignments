@@ -26,12 +26,15 @@
       console.log( "bst0.contains(3)", bst0.contains( 3 ) );
       console.log( "bst0.contains(4)", bst0.contains( 4 ) );
       // Testing - unbalanced BSTs
+      bstAllLeft.add( 4 );
       bstAllLeft.add( 3 );
       bstAllLeft.add( 2 );
       bstAllLeft.add( 1 );
-      bstAllRight.add( 1 );
-      bstAllRight.add( 2 );
-      bstAllRight.add( 3 );
+      bstAllRight.add( 5 );
+      bstAllRight.add( 6 );
+      bstAllRight.add( 7 );
+      bstAllRight.add( 8 );
+      bstAllRight.add( 9 );
       // Testing - min
       console.log( "bstEmpty.min()", bstEmpty.min() );
       console.log( "bst0.min()", bst0.min() );
@@ -42,6 +45,11 @@
       console.log( "bst0.max()", bst0.max() );
       console.log( "bstAllLeft.max()", bstAllLeft.max() );
       console.log( "bstAllRight.max()", bstAllRight.max() );
+      // Testing - size
+      console.log( "bstEmpty.size()", bstEmpty.size() );
+      console.log( "bst0.size()", bst0.size() );
+      console.log( "bstAllLeft.size()", bstAllLeft.size() );
+      console.log( "bstAllRight.size()", bstAllRight.size() );
     </script>
   </body>
 </html>

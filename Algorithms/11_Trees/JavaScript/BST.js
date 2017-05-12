@@ -86,4 +86,21 @@ function BST() {
       return( node.val );
     }
   }
+
+  this.size = function() {
+    return( this.sizeNode( this.root ) );
+  }
+
+  this.sizeNode = function( node ) {
+    if( ! node ) {
+      return( 0 );
+    }
+    else {
+      return(
+        this.sizeNode( node.left ) +
+        1 +
+        this.sizeNode( node.right )
+      );
+    }
+  }
 }
