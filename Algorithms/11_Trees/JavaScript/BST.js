@@ -50,4 +50,22 @@ function BST() {
 
     return( false );
   }
+
+  this.min = function() {
+    if( ! this.root ) {
+      return( null );
+    }
+    else {
+      return( this.nodeMin( this.root ) );
+    }
+  }
+
+  this.nodeMin = function( node ) {
+    if( node.left ) {
+      return( this.nodeMin( node.left ) );
+    }
+    else {
+      return( node.val );
+    }
+  }
 }
