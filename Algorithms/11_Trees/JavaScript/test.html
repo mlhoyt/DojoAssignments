@@ -8,7 +8,10 @@
   <body>
     <script type="text/javascript">
       // Testing - constructor
+      bstEmpty = new BST();
       bst0 = new BST();
+      bstAllLeft = new BST();
+      bstAllRight = new BST();
       // Testing - add
       bst0.add( 2 );
       console.log( bst0 );
@@ -17,13 +20,28 @@
       bst0.add( 1 );
       console.log( bst0 );
       // Testing - contains
-      console.log( "contains(13)", bst0.contains( 13 ) );
-      console.log( "contains(1)", bst0.contains( 1 ) );
-      console.log( "contains(2)", bst0.contains( 2 ) );
-      console.log( "contains(3)", bst0.contains( 3 ) );
-      console.log( "contains(3)", bst0.contains( 4 ) );
+      console.log( "bst0.contains(13)", bst0.contains( 13 ) );
+      console.log( "bst0.contains(1)", bst0.contains( 1 ) );
+      console.log( "bst0.contains(2)", bst0.contains( 2 ) );
+      console.log( "bst0.contains(3)", bst0.contains( 3 ) );
+      console.log( "bst0.contains(4)", bst0.contains( 4 ) );
+      // Testing - unbalanced BSTs
+      bstAllLeft.add( 3 );
+      bstAllLeft.add( 2 );
+      bstAllLeft.add( 1 );
+      bstAllRight.add( 1 );
+      bstAllRight.add( 2 );
+      bstAllRight.add( 3 );
       // Testing - min
-      console.log( "min()", bst0.min() );
+      console.log( "bstEmpty.min()", bstEmpty.min() );
+      console.log( "bst0.min()", bst0.min() );
+      console.log( "bstAllLeft.min()", bstAllLeft.min() );
+      console.log( "bstAllRight.min()", bstAllRight.min() );
+      // Testing - max
+      console.log( "bstEmpty.max()", bstEmpty.max() );
+      console.log( "bst0.max()", bst0.max() );
+      console.log( "bstAllLeft.max()", bstAllLeft.max() );
+      console.log( "bstAllRight.max()", bstAllRight.max() );
     </script>
   </body>
 </html>

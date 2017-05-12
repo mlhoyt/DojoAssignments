@@ -68,4 +68,22 @@ function BST() {
       return( node.val );
     }
   }
+
+  this.max = function() {
+    if( ! this.root ) {
+      return( null );
+    }
+    else {
+      return( this.nodeMax( this.root ) );
+    }
+  }
+
+  this.nodeMax = function( node ) {
+    if( node.right ) {
+      return( this.nodeMax( node.right ) );
+    }
+    else {
+      return( node.val );
+    }
+  }
 }
