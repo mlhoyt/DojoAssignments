@@ -7,13 +7,21 @@
   </head>
   <body>
     <script type="text/javascript">
+      // Testing - constructor
       bst0 = new BST();
+      // Testing - add
       bst0.add( 2 );
       console.log( bst0 );
       bst0.add( 3 );
       console.log( bst0 );
       bst0.add( 1 );
       console.log( bst0 );
+      // Testing - contains
+      console.log( "contains(13)", bst0.contains( 13 ) );
+      console.log( "contains(1)", bst0.contains( 1 ) );
+      console.log( "contains(2)", bst0.contains( 2 ) );
+      console.log( "contains(3)", bst0.contains( 3 ) );
+      console.log( "contains(3)", bst0.contains( 4 ) );
     </script>
   </body>
 </html>

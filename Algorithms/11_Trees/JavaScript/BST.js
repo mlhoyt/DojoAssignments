@@ -32,13 +32,22 @@ function BST() {
 
     return( node );
   }
-}
 
-// ----------------------------------------------------------------------
-// Testing
-// ----------------------------------------------------------------------
-bst0 = new BST();
-bst0.add( 2 );
-bst0.add( 3 );
-bst0.add( 1 );
-console.log( bst0 );
+  this.contains = function( val ) {
+    return( this.nodeContains( this.root, val ) );
+  }
+
+  this.nodeContains = function( node, val ) {
+    if( node.val === val ) {
+      return( true );
+    }
+    else if( node.left && this.nodeContains( node.left, val ) ) {
+      return( true );
+    }
+    else if( node.right && this.nodeContains( node.right, val ) ) {
+      return( true );
+    }
+
+    return( false );
+  }
+}
