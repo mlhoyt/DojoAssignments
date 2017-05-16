@@ -15,7 +15,7 @@
       // Testing - add
       bst0.add( 2 );
       console.log( bst0 );
-      bst0.add( 3 );
+      bst0.add( 4 );
       console.log( bst0 );
       bst0.add( 1 );
       console.log( bst0 );
@@ -23,7 +23,7 @@
       console.log( bst0 );
       bst0.add( 5 );
       console.log( bst0 );
-      bst0.add( 4 );
+      bst0.add( 3 );
       console.log( bst0 );
       // --------------------
       // bst0
@@ -32,19 +32,18 @@
       // |- 1
       // |  |- 0
       // |  +- null
-      // +- 3
-      //    |- null
+      // +- 4
+      //    |- 3
+      //    |  +- null
+      //    |  +- null
       //    +- 5
-      //       |- 4
-      //       |  |- null
-      //       |  +- null
+      //       +- null
       //       +- null
       //
       //         2
-      //     1_______3
-      //   0___n   n___5
-      //  n_n        4___n
-      //            n_n
+      //     1_______4
+      //   0___n   3___5
+      //  n_n     n_n n_n
       // --------------------
       // Testing - contains
       console.log( "bst0.contains(13)", bst0.contains( 13 ) );
@@ -87,6 +86,11 @@
       console.log( "bst0.height()", bst0.height() );
       console.log( "bstAllLeft.height()", bstAllLeft.height() );
       console.log( "bstAllRight.height()", bstAllRight.height() );
+      // Testing - isBalanced
+      console.log( "bstEmpty.isBalanced()", bstEmpty.isBalanced() );
+      console.log( "bst0.isBalanced()", bst0.isBalanced() );
+      console.log( "bstAllLeft.isBalanced()", bstAllLeft.isBalanced() );
+      console.log( "bstAllRight.isBalanced()", bstAllRight.isBalanced() );
     </script>
   </body>
   </html>

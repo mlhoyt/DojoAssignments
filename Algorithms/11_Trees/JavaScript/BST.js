@@ -117,14 +117,37 @@ function BST() {
       return( 0 );
     }
     else {
-      m_height_l = this.nodeHeight( node.left );
-      m_height_r = this.nodeHeight( node.right );
+      var m_height_l = this.nodeHeight( node.left );
+      var m_height_r = this.nodeHeight( node.right );
       if( m_height_l > m_height_r ) {
         return( m_height_l + 1 );
       }
       else {
         return( m_height_r + 1 );
       }
+    }
+  }
+
+  this.isBalanced = function() {
+    return( this.nodeIsBalanced( this.root ) );
+  }
+
+  this.nodeIsBalanced = function( node ) {
+    if( ! node ) {
+      return( true );
+    }
+    else if( this.nodeIsBalanced( node.left ) && this.nodeIsBalanced( node.right ) ) {
+      var m_height_l = this.nodeHeight( node.left );
+      var m_height_r = this.nodeHeight( node.right );
+      if( Math.abs( m_height_l - m_height_r ) <= 1 ) {
+        return( true );
+      }
+      else {
+        return( false );
+      }
+    }
+    else {
+      return( false );
     }
   }
 }
