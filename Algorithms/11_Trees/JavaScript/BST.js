@@ -103,4 +103,8 @@ function BST() {
       );
     }
   }
+
+  this.isEmpty = function() {
+    return( ! this.root ? true : false );
+  }
 }
