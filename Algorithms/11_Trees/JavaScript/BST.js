@@ -107,4 +107,24 @@ function BST() {
   this.isEmpty = function() {
     return( ! this.root ? true : false );
   }
+
+  this.height = function() {
+    return( this.nodeHeight( this.root ) );
+  }
+
+  this.nodeHeight = function( node ) {
+    if( ! node ) {
+      return( 0 );
+    }
+    else {
+      m_height_l = this.nodeHeight( node.left );
+      m_height_r = this.nodeHeight( node.right );
+      if( m_height_l > m_height_r ) {
+        return( m_height_l + 1 );
+      }
+      else {
+        return( m_height_r + 1 );
+      }
+    }
+  }
 }

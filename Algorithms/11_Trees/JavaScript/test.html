@@ -19,6 +19,33 @@
       console.log( bst0 );
       bst0.add( 1 );
       console.log( bst0 );
+      bst0.add( 0 );
+      console.log( bst0 );
+      bst0.add( 5 );
+      console.log( bst0 );
+      bst0.add( 4 );
+      console.log( bst0 );
+      // --------------------
+      // bst0
+      // --------------------
+      // 2
+      // |- 1
+      // |  |- 0
+      // |  +- null
+      // +- 3
+      //    |- null
+      //    +- 5
+      //       |- 4
+      //       |  |- null
+      //       |  +- null
+      //       +- null
+      //
+      //         2
+      //     1_______3
+      //   0___n   n___5
+      //  n_n        4___n
+      //            n_n
+      // --------------------
       // Testing - contains
       console.log( "bst0.contains(13)", bst0.contains( 13 ) );
       console.log( "bst0.contains(1)", bst0.contains( 1 ) );
@@ -55,6 +82,11 @@
       console.log( "bst0.isEmpty()", bst0.isEmpty() );
       console.log( "bstAllLeft.isEmpty()", bstAllLeft.isEmpty() );
       console.log( "bstAllRight.isEmpty()", bstAllRight.isEmpty() );
+      // Testing - height
+      console.log( "bstEmpty.height()", bstEmpty.height() );
+      console.log( "bst0.height()", bst0.height() );
+      console.log( "bstAllLeft.height()", bstAllLeft.height() );
+      console.log( "bstAllRight.height()", bstAllRight.height() );
     </script>
   </body>
-</html>
+  </html>
