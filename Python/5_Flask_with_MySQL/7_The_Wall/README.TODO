@@ -18,5 +18,10 @@
       x @app.route( '/remove_comment' )
         x "DELETE FROM comments WHERE comments.id == request.form['comment_id']"
         x redirect( '/wall' )
-[ ] EC2: allow the user to delete their own messages ONLY if created in the last 30 minutes
-
+[x] EC2: allow the user to delete their own messages ONLY if created in the last 30 minutes
+    x app.py:
+      * @app.route( '/wall' )
+        x query comments.created_at
+          x calculate freeze time with DATE_ADD
+        x pass current datetime as argument into render_template
+          x calculated with datetime.datetime.now
