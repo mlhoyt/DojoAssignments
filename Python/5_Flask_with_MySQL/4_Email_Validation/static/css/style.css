@@ -1,0 +1,45 @@
+/* -*- css -*- */
+
+div.flash {
+  display: inline-block;
+  width: 300px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px;
+  margin-left: 40px;
+}
+
+div.fail {
+  background-color: red;
+  color: white;
+}
+
+div.success {
+  background-color: green;
+  color: black;
+}
+
+label {
+  width: 150px;
+}
+
+input#email {
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 250px;
+}
+
+input#submit {
+  margin-left: 325px;
+  margin-top: 10px;
+}
+
+table {
+  margin-left: 20px;
+  padding: 2px;
+}
+
+input.delete {
+  background-color: rgb(128, 128, 128);
+  border-radius: 5px;
+}

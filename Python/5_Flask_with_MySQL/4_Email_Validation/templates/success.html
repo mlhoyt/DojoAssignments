@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Email Validation</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}">
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash success">
+          {% for message in messages %}
+            <span>{{ message }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <h3>Email Addresses Entered:</h3>
+    <table border="0">
+      {% for i in all_emails: %}
+        <tr>
+          <td align="left">{{ i['email'] }}</td>
+          <td align="right">{{ i['since_date'] }}</td>
+          <td align="right">{{ i['since_time'] }}</td>
+          <td>
+            <form action="/remove_email" method="POST">
+              <input type="hidden" name="remove_email" value="{{ i['email'] }}" />
+              <input type="submit" value="Delete" class="delete"/>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <p>
+      <a href="/">Back to Home</a>
+    </p>
+  </body>
+</html>
