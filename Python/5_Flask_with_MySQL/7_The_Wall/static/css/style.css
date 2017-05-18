@@ -1,0 +1,163 @@
+/* -*- css -*- */
+
+/* minimal reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  border: 1px solid rgb(69, 69, 69);
+  width: 720px;
+}
+
+/* ------------------------- Header ------------------------- */
+
+header {
+  height: 30px;
+  padding: 0.5rem;
+  border-bottom: 2px solid black;
+}
+
+header h2 {
+  display: inline-block;
+  width: 400px;
+}
+
+header p {
+  display: inline-block;
+  float: right;
+  text-size: 12px;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* ------------------------- Body :: Login/Registration ------------------------- */
+
+div#registration {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+div#registration label {
+  display: inline-block;
+  width: 140px;
+}
+
+div#login {
+  display: inline-block;
+  vertical-align: top;
+  width: 290px;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+div#login label {
+  display: inline-block;
+  width: 80px;
+}
+
+input.email {
+  display: inline-block;
+  width: 200px;
+}
+
+input.name {
+  display: inline-block;
+  width: 120px;
+}
+
+input.passwd {
+  display: inline-block;
+  width: 80px;
+}
+
+input.button {
+  background-color: rgb(160, 160, 160);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.flash {
+  color: red;
+}
+
+/* ------------------------- Body :: Wall :: Post ------------------------- */
+
+div#post {
+  padding: 1rem;
+}
+
+div#post textarea {
+  display: block;
+  height: 5rem;
+  width: 40rem;
+}
+
+div#post #post_button {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}
+
+/* ------------------------- Body :: Wall :: Comment ------------------------- */
+
+div.comment {
+  padding: 1rem;
+}
+
+div.comment h3 {
+  margin-left: 2rem;
+}
+
+div.comment textarea {
+  display: block;
+  height: 3rem;
+  width: 38rem;
+  margin-left: 2rem;
+}
+
+div.comment .comment_button {
+  margin-left: 2rem;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+/* ------------------------- Body :: Wall :: Message ------------------------- */
+
+div.message {
+  padding: 1rem;
+}
+
+div.message p.msg_header {
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+div.message p.msg_body {
+  margin-bottom: 0.25rem;
+  margin-left: 1rem;
+}
+
+/* ------------------------- Body :: Wall :: Comment ------------------------- */
+
+div.comment {
+  padding: 1rem;
+}
+
+div.comment p.cmt_header {
+  margin-bottom: 0.25rem;
+  margin-left: 2rem;
+  font-weight: bold;
+}
+
+div.comment p.cmt_body {
+  margin-bottom: 0.25rem;
+  margin-left: 2rem;
+}

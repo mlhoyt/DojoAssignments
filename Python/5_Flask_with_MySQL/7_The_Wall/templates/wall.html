@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask_with_MySQL - 7_The_Wall</title>
+    <!-- CSS -- Internal -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}" />
+  </head>
+  <body>
+    <header>
+      <h2 id="header_icon">CodingDojo Wall</h2>
+      <p><a href="/logout">log off</a>
+      <p>Welcome {{ session['f_name'] }}</p>
+    </header>
+    <main>
+      <div id="post">
+        <form action="/new_post" method="POST">
+          <h2>Post a message:</h2>
+          <textarea name="post_text"></textarea>
+          <input type="submit" value="Post a message" class="button" id="post_button" />
+        </form>
+      </div>
+      {% for msg_idx in range( messages|length ) %}
+        {% with msg = messages[msg_idx] %}
+          {% if msg_idx != 0 and msg['message_id'] != messages[msg_idx - 1]['message_id'] %}
+            <div class="comment">
+              <form action="/new_comment" method="POST">
+                <h3>Post a comment:</h3>
+                <textarea name="comment_text"></textarea>
+                <input type="hidden" name="message_id" value="{{ messages[msg_idx - 1]['message_id'] }}" />
+                <input type="submit" value="Post a comment" class="button comment_button" />
+              </form>
+            </div>
+          {% endif %}
+          {% if msg_idx == 0 or msg['message_id'] != messages[msg_idx - 1]['message_id'] %}
+            <div class="message">
+              <p class="msg_header">{{ msg['first_name'] }} {{ msg['last_name'] }} - {{ msg['date'] }}</p>
+              <p class="msg_body">{{ msg['message'] }}</p>
+            </div>
+          {% endif %}
+          {% if msg['comment_first_name'] != None %}
+            <div class="comment">
+              <p class="cmt_header">{{ msg['comment_first_name'] }} {{ msg['comment_last_name'] }} - {{ msg['comment_date'] }}</p>
+              <p class="cmt_body">{{ msg['comment'] }}</p>
+            </div>
+          {% endif %}
+          {% if msg_idx == messages|length - 1 %}
+            <div class="comment">
+              <form action="/new_comment" method="POST">
+                <h3>Post a comment:</h3>
+                <textarea name="comment_text"></textarea>
+                <input type="hidden" name="message_id" value="{{ msg['message_id'] }}" />
+                <input type="submit" value="Post a comment" class="comment_button button" />
+              </form>
+            </div>
+          {% endif %}
+        {% endwith %}
+      {% endfor %}
+    </main>
+  </body>
+</html>

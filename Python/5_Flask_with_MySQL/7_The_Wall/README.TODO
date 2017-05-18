@@ -1,0 +1,15 @@
+# -*- text -*-
+
+[x] database.sql
+[x] app.py (cp ../5_Login_Registration/app.py app.py)
+[x] mysqlconnection.py (ln -sf ../mysqlconnection.py mysqlconnection.py)
+[x] templates/index.html (cp ../5_Login_Registration/templates/index.html templates/index.html)
+[x] templates/status.html (cp ../5_Login_Registration/templates/status.html templates/status.html)
+[x] static/css/style.css (cp ../5_Login_Registration/static/css/style.css static/css/style.css)
+[x] templates/wall.html
+[x] app.py: @app.route('/new_post')
+[x] store comments (to messages) in a separate table called 'comments'
+[ ] allow users to post comments for any message
+[ ] EC1: allow the user to delete their own messages
+[ ] EC2: allow the user to delete their own messages ONLY if created in the last 30 minutes
+
