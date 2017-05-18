@@ -1,0 +1,75 @@
+# -*- text -*-
+
+Assignment: Blogs
+
+Create the ERD for a platform that allows users to create blogs,
+similar to blogspot.com.
+
+The platform must allow users to register, create multiple blogs, and even allow
+the user to invite other users to be co-administrators of the blog.
+The administrators of the blog can change the blog name, add posts, edit posts,
+add comments, edit comments for each post, and upload new files associated with
+the blog post.
+We also want to capture information about which page the logged in users are viewing
+(e.g. page visited, when they visited, how long they stayed, ip address, name, etc). 
+
+Use the MySQL workbench to complete this assignment.
+
+----------------------------------------------------------------------
+
+users:
+  id:
+  username:
+  password:
+  created_at:
+  updated_at:
+# MOVED TO logins:
+x logged_in: BOOL 
+x current_ip_addr:
+x current_page:
+x current_arrival_time:
+
+blogs:
+  id:
+  name:
+  created_at:
+  updated_at:
+
+administrators:
+  id:
+ *user_id: users(1)->this(N)
+ *blog_id: blogs(1)->this(N)
+
+posts:
+  id:  
+  title:
+  content:
+  created_at:
+  updated_at:
+ *created_by_id: this(N)->users(1)
+ *updated_by_id: this(N)->users(1)
+ *blog_id: this(N)->blogs(1)
+
+comments:
+  id:
+  content:
+  created_at:
+  updated_at:
+ *created_by_id: this(N)->users(1)
+ *updated_by_id: this(N)->users(1)
+ *post_id: this(N)->posts(1)
+
+attachments:
+  id:
+  content: BIN
+  created_at:
+  updated_at:
+ *user_id: this(1)->users(N)
+ *post_id: this(1)->posts(N)
+
+logins:
+  id:
+  ip_addr:
+  arrived_at:
+ *user_id: 1:1
+ *post_id: 1:1
