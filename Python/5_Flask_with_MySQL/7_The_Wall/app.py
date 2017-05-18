@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, session, flash
 from mysqlconnection import MySQLConnector
 import os, binascii, md5
 import re
+import datetime
 
 app = Flask(__name__)
 app.secret_key = "TheWallSecretKey"
@@ -141,7 +142,7 @@ def status():
 
 @app.route( '/wall' )
 def wall():
-    db_query = "SELECT {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}".format(
+    db_query = "SELECT {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}".format(
         "users.first_name",
         "users.last_name",
         "DATE_FORMAT(messages.created_at,'%M %D %Y') AS date",
@@ -151,6 +152,7 @@ def wall():
         "comment_users.first_name AS comment_first_name",
         "comment_users.last_name AS comment_last_name",
         "DATE_FORMAT(comments.created_at,'%M %D %Y') AS comment_date",
+        "DATE_ADD(comments.created_at, INTERVAL 30 MINUTE) AS comment_freeze_datetime",
         "comments.comment",
         "comments.id AS comment_id"
     )
@@ -160,7 +162,7 @@ def wall():
     db_query += " LEFT OUTER JOIN users AS comment_users ON comments.user_id = comment_users.id"
     db_query += " ORDER BY messages.created_at DESC, comments.created_at ASC"
     db_result = mysql.query_db( db_query  )
-    return( render_template( 'wall.html', messages = db_result ) )
+    return( render_template( 'wall.html', messages = db_result, current_datetime = datetime.datetime.now() ) )
 
 @app.route( '/logout', methods=['GET', 'POST'] )
 def logout():
