@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 5_Landing_Page - dojos</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <form action="update" method="post">
+      Ninja: <select name="ninja_name">
+        <option selected disabled>Choose Ninja</option>
+        <option value="leo">Leo</option>
+        <option value="donny">Donny</option>
+        <option value="mikey">Mikey</option>
+        <option value="raph">Raph</option>
+      </select> <br />
+      Attribute: <input type="text" name="attr_name" /> <br />
+      Value: <input type="text" name="attr_val" /> <br />
+      <input type="submit" value="update_ninja" />
+    </form>
+  </body>
+</html>

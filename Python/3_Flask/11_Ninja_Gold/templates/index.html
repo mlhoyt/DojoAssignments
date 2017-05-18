@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 11_Ninja_Gold</title>
+    <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    label {
+      font-size: 1.5rem;
+    }
+    div#your_gold {
+      display: inline-block;
+      width: 10rem;
+      height: 1.5rem;
+      padding: 0.25rem;
+      border: 1px solid black;
+      margin-top: 0.25em;
+    }
+    div.loc {
+      display: inline-block;
+      width: 11rem;
+      height: 4rem;
+      padding: 1rem;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 1rem;
+    }
+    #activity {
+      color: rgb( 69, 69, 69 );
+      width: 850px;
+      height: 10rem;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <label>Your Gold:</label>
+      <div id="your_gold">{{ session['your_gold'] }}</div>
+    </header>
+    <main>
+      <div class="loc">
+        <h3>Farm</h3>
+        <p>(earns 10-20 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="loc" value="farm" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>Cave</h3>
+        <p>(earns 5-10 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="loc" value="cave" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>House</h3>
+        <p>(earns 2-5 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="loc" value="house" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>Casino</h3>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="loc" value="casino" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+    </main>
+    <footer>
+      <label>Activities:</label> <br />
+      <textarea id="activity" name="activity">{{ session["activity"] }}</textarea>
+      <form action="/reset" method="post">
+        <input type="submit" value="Reset" />
+      </form>
+    </footer>
+    <script type="text/javascript">
+      var textarea = document.getElementById("activity");
+      textarea.scrollTop = textarea.scrollHeight;
+    </script>
+  </body>
+</html>

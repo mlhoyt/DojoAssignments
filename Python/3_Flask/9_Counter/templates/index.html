@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 9_Counter</title>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <p>{{ session['counter'] }} times</p>
+    <form action="/update" method="post">
+      <input type="submit" value="+2" />
+    </form>
+    <form action="/reset" method="post">
+      <input type="submit" value="RESET" />
+    </form>
+<!--
+    <form action="/update" method="post">
+      <input type="hidden" name="action" value="incr" />
+      <input type="submit" value="+2" />
+    </form>
+    <form action="/update" method="post">
+      <input type="hidden" name="action" value="reset" />
+      <input type="submit" value="RESET" />
+    </form>
+-->
+  </body>
+</html>

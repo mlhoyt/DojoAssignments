@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 8_Disappearing_Ninja - ninja</title>
+    <style type="text/css">
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/ninja/purple"><img src="{{ url_for( 'static', filename='img/donatello.jpg' ) }}" alt="TMNT Donatello image" /></a>
+    <a href="/ninja/blue"><img src="{{ url_for( 'static', filename='img/leonardo.jpg' ) }}" alt="TMNT Leonardo image" /></a>
+    <a href="/ninja/orange"><img src="{{ url_for( 'static', filename='img/michelangelo.jpg' ) }}" alt="TMNT Michelangelo image" /></a>
+    <a href="/ninja/red"><img src="{{ url_for( 'static', filename='img/raphael.jpg' ) }}" alt="TMNT Raphael image" /></a>
+  </body>
+</html>

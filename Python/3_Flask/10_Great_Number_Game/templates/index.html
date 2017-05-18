@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 10_Great_Number_Game</title>
+    <style type="text/css">
+      * {
+        font-family: sans-serif;
+      }
+      div {
+        display: inline-block;
+        padding: 100px;
+        border: 1px solid black;
+      }
+      div.bad_guess {
+        background: red;
+        color: white;
+      }
+      div.good_guess {
+        background: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Welcome to the Great Number Game!</h1>
+    <h3>I am thinking of a number between 1 and 100</h3>
+    <h3>Take a guess!</h3>
+    {% if session['state'] == "bingo": %}
+      <div class="good_guess">{{ session['value'] }} was the number!</div>
+      <form action="/again" method="post">
+        <input type="submit" value="Play Again!" />
+      </form>
+    {% else: %}
+      {% if session['state'] == "too_low": %}
+        <div class="bad_guess">Too low!</div>
+      {% elif session['state'] == "too_high": %}
+        <div class="bad_guess">Too high!</div>
+      {% endif %}
+      <form action="/guess" method="post">
+        <input type="text" name="c_guess" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    {% endif %}
+  </body>
+</html>

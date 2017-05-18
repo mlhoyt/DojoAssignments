@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask - 7_Dojo_Survey</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}" />
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="flash">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form action="submit" method="post">
+      <label>Your Name:</label>
+      <input type="text" name="name" />
+      <br />
+      <label>Dojo Location:</label>
+      <input type="text" name="loc" />
+      <br />
+      <label>Favorite Language:</label>
+      <select name="lang">
+        <option value="js">JavaScript</option>
+        <option selected value="py">Python</option>
+        <option value="rb">Ruby</option>
+        <option value="swift">Swift</option>
+        <option value="sc">Scala</option>
+        <option value="pl">Perl</option>
+        <option value="cpp">C/C++</option>
+        <option value="java">Java</option>
+      </select>
+      <br />
+      <label>Comments:</label>
+      <br />
+      <textarea name="comments"></textarea>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
