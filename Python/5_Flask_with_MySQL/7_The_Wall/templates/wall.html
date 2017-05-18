@@ -41,6 +41,12 @@
           {% if msg['comment_first_name'] != None %}
             <div class="comment">
               <p class="cmt_header">{{ msg['comment_first_name'] }} {{ msg['comment_last_name'] }} - {{ msg['comment_date'] }}</p>
+              {% if msg['comment_user_id'] == session['login_id'] %}
+                <form action="/remove_comment" method="POST">
+                  <input type="hidden" name="comment_id" value="{{ msg['comment_id'] }}" />
+                  <input type="submit" value="Delete Comment" class="button" />
+                </form>
+              {% endif %}
               <p class="cmt_body">{{ msg['comment'] }}</p>
             </div>
           {% endif %}

@@ -10,13 +10,13 @@
 [x] app.py: @app.route('/new_post')
 [x] store comments (to messages) in a separate table called 'comments'
 [x] allow users to post comments for any message
-[ ] EC1: allow the user to delete their own messages
-    - wall.html:
-      - Show a "Delete" button in comment header if comment.user_id == session.login_id
-        - form action="/remove_comment"
-    - app.py:
-      - @app.route( '/remove_comment' )
-        - "DELETE FROM comments WHERE comments.id == request.form['comment_id']"
-        - redirect( '/wall' )
+[x] EC1: allow the user to delete their own messages
+    x wall.html:
+      x Show a "Delete" button in comment header if comment.user_id == session.login_id
+        x form action="/remove_comment"
+    x app.py:
+      x @app.route( '/remove_comment' )
+        x "DELETE FROM comments WHERE comments.id == request.form['comment_id']"
+        x redirect( '/wall' )
 [ ] EC2: allow the user to delete their own messages ONLY if created in the last 30 minutes
 

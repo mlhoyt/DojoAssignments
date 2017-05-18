@@ -141,12 +141,13 @@ def status():
 
 @app.route( '/wall' )
 def wall():
-    db_query = "SELECT {}, {}, {}, {}, {}, {}, {}, {}, {}, {}".format(
+    db_query = "SELECT {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}".format(
         "users.first_name",
         "users.last_name",
         "DATE_FORMAT(messages.created_at,'%M %D %Y') AS date",
         "messages.message",
         "messages.id AS message_id",
+        "comment_users.id AS comment_user_id",
         "comment_users.first_name AS comment_first_name",
         "comment_users.last_name AS comment_last_name",
         "DATE_FORMAT(comments.created_at,'%M %D %Y') AS comment_date",
@@ -196,6 +197,19 @@ def new_comment():
         'user_id': u_user_id,
         'message_id': u_msg_id,
         'comment': u_text,
+    }
+    mysql.query_db( db_query, db_data )
+    return( redirect( '/wall' ) )
+
+@app.route( '/remove_comment', methods=['POST'] )
+def remove_comment():
+    u_cmt_id = request.form['comment_id']
+    db_query = "DELETE FROM {} WHERE {}".format(
+        "comments",
+        "comments.id = :comment_id"
+    )
+    db_data = {
+        'comment_id': u_cmt_id
     }
     mysql.query_db( db_query, db_data )
     return( redirect( '/wall' ) )

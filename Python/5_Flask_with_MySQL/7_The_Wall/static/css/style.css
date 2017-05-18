@@ -129,6 +129,14 @@ div.comment .comment_button {
   font-weight: bold;
 }
 
+div.comment p.cmt_header {
+  display: inline-block;
+}
+
+div.comment form {
+  display: inline-block;
+}
+
 /* ------------------------- Body :: Wall :: Message ------------------------- */
 
 div.message {
