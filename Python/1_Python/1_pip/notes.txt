@@ -1,0 +1,110 @@
+# -*- text -*-
+
+######################################################################
+Installing pip
+######################################################################
+
+sudo port install py27-pip
+# NOTE: depends_on: pip_select
+sudo port select --set pip pip27
+which pip
+#=> /opt/local/bin/pip
+
+
+######################################################################
+pip install Django
+######################################################################
+
+Attempts to download the following:
+  - Django-1.11-py2.py3-none-any.whl (6.9MB)
+  - pytz-2017.2-py2.py3-none-any.whl (484kB)
+
+Attempts to install the downloads.  This failed with:
+
+  OSError: [Errno 13] Permission denied: '/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pytz'
+
+I probably would need to run with "sudo pip install ..."
+
+
+######################################################################
+pip list
+######################################################################
+
+This appears to list the extensions that "pip" is aware of:
+
+appdirs (1.4.3)
+Beaker (1.8.1)
+certifi (2017.1.23)
+Mako (1.0.6)
+MarkupSafe (0.23)
+packaging (16.8)
+pip (9.0.1)
+pyparsing (2.2.0)
+setuptools (34.3.3)
+six (1.10.0)
+
+
+######################################################################
+pip install Django
+# Note: We know you already ran this one. What information do you see returned in terminal after this command?)
+######################################################################
+
+The previous install downloads were still cached so nothing new downloaded.
+
+The installation failed in the same way (as expected).
+
+
+######################################################################
+pip freeze (What's the difference between freeze and list?)
+######################################################################
+
+The output is very similar to "list" but with "freeze" the syntax is basically ready to pass to "pip install".
+In theory this captures the pip "state" so one could revert to it if necessary.
+
+appdirs==1.4.3
+Beaker==1.8.1
+certifi==2017.1.23
+Mako==1.0.6
+MarkupSafe==0.23
+packaging==16.8
+pyparsing==2.2.0
+six==1.10.0
+
+
+######################################################################
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+######################################################################
+
+The "ls" shows the files and directories in the relevant directory including "requirements.txt".
+
+The contents of "requirements.txt" are exactly as shown above from the "pip freeze" invocation.
+
+
+######################################################################
+pip uninstall Django
+######################################################################
+
+#=> Cannot uninstall requirement Django, not installed
+
+Considering the installs both failed, the above result is expected.
+
+
+######################################################################
+pip show Django
+######################################################################
+
+There is nothing output from this command.
+
+Considering Django should not be installed at this point, the empty output is expected.
+
+
+######################################################################
+pip search Flask
+######################################################################
+
+This results in a ridiculously long list of the following:
+
+  <EXTENSION> (<VERSION>) - <DESCRIPTION>
+
+All of which are theoretically somehow related to Flask.
+
