@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Friends</title>
+  <style type="text/css">
+    tr.header {
+      background-color: rgb(128, 128, 128);
+    }
+    label {
+      display: inline-block;
+      width: 75px;
+    }
+    #name {
+      width: 205px;
+    }
+    #age {
+      width: 205px;
+      margin-top: 10px
+    }
+    #submit {
+      margin-left: 230px;
+      margin-top: 10px
+    }
+  </style>
+</head>
+<body>
+  <h1>Friends:</h1>
+  <table border="1">
+    <tr class="header">
+      <th>Name</th>
+      <th>Age</th>
+      <th>Friend Since</th>
+      <th></th>
+    </tr>
+    {% for friend in all_friends: %}
+      <tr>
+        <td>{{ friend['name'] }}</td>
+        <td>{{ friend['age'] }}</td>
+        <td>{{ friend['since_month_day'] }}</td>
+        <td>{{ friend['since_year'] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <h2>Add a Friend:</h2>
+  <form action='/create' method='POST'>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+    <br />
+    <label for="age">Age:</label>
+    <input type="text" name="age" id="age">
+    <br />
+    <input type="submit" value="Submit" id="submit">
+  </form>
+</body>
+</html>
