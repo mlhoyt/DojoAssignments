@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask_with_MySQL - 5_Login_Registration - Success</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}" />
+  </head>
+  <body>
+    {% if 'new_registration' in session %}
+      <p>Congratulations on a successful: <strong>Registration</strong>!</p>
+    {% else %}
+      <p>Congratulations on a successful: <strong>Login</strong>!</p>
+    {% endif %}
+    <hr />
+    <form action="/logout" method="POST">
+      <p><input type="submit" value="Logout" class="button" id="logout" /></p>
+      <p><a href="/">Back to Home</a></p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask_with_MySQL - 5_Login_Registration - Status</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}" />
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="flash">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <hr />
+    <a href="/">Back to Home</a>
+  </body>
+</html>

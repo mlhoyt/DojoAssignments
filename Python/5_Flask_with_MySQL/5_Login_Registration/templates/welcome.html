@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask_with_MySQL - 5_Login_Registration - Welcome</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css' ) }}" />
+  </head>
+  <body>
+    <p>Welcome, {{ session['f_name'] }}!</p>
+    <p>Logged in as: <strong>{{ session['email'] }}</strong></p>
+    <p>Login ID: <strong>{{ session['login_id'] }}</strong></p>
+    <hr />
+    <form action="/logout" method="POST">
+      <p><input type="submit" value="Logout" class="button" id="logout" /></p>
+      <p><a href="/">Back to Home</a></p>
+    </form>
+  </body>
+</html>
