@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _19_The_Wall - index</title>
+  </head>
+  <body>
+    <h3>users</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>first_name</th>
+          <th>last_name</th>
+          <th>email</th>
+          <th>password</th>
+          <th>salt</th>
+          <th>created_at</th>
+          <th>updated_at</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in users %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.first_name }}</td>
+            <td>{{ i.last_name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.password }}</td>
+            <td>{{ i.salt }}</td>
+            <td>{{ i.created_at }}</td>
+            <td>{{ i.updated_at }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h3>messages</h3>
+    <table border="1">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>user_id</th>
+        <th>user.first_name</th>
+        <th>user.last_name</th>
+        <th>message</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for i in messages %}
+        <tr>
+          <td>{{ i.id }}</td>
+          <td>{{ i.user_id.id }}</td>
+          <td>{{ i.user_id.first_name }}</td>
+          <td>{{ i.user_id.last_name }}</td>
+          <td>{{ i.message }}</td>
+          <td>{{ i.created_at }}</td>
+          <td>{{ i.updated_at }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <h3>comments</h3>
+    <table border="1">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>message_id</th>
+        <th>user_id</th>
+        <th>user.first_name</th>
+        <th>user.last_name</th>
+        <th>comment</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for i in comments %}
+        <tr>
+          <td>{{ i.id }}</td>
+          <td>{{ i.message_id.id }}</td>
+          <td>{{ i.user_id.id }}</td>
+          <td>{{ i.user_id.first_name }}</td>
+          <td>{{ i.user_id.last_name }}</td>
+          <td>{{ i.comment }}</td>
+          <td>{{ i.created_at }}</td>
+          <td>{{ i.updated_at }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <p><a href="/add_data">Click here to add some data!</a></p>
+    <p><a href="/remove_data">Click here to remove all data!</a></p>
+  </body>
+</html>
