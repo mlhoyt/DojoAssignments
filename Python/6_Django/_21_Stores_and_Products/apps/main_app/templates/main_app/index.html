@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _17_Books - index</title>
+  </head>
+  <body>
+    <h3>Product</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>description</th>
+          <th>weight</th>
+          <th>price</th>
+          <th>cost</th>
+          <th>category</th>
+          <th>created_at</th>
+          <th>updated_at</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in products %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.weight }}</td>
+            <td>{{ i.price }}</td>
+            <td>{{ i.cost }}</td>
+            <td>{{ i.category }}</td>
+            <td>{{ i.created_at }}</td>
+            <td>{{ i.updated_at }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h3>Store</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>products</th>
+          <th>created_at</th>
+          <th>updated_at</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in stores %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.products }}</td>
+            <td>{{ i.created_at }}</td>
+            <td>{{ i.updated_at }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p><a href="/add_data">Click here to add some data!</a></p>
+    <p><a href="/remove_data">Click here to remove all data!</a></p>
+  </body>
+</html>
