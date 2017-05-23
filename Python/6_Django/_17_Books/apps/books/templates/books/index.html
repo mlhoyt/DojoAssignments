@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _17_Books - index</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>author</th>
+          <th>published_date</th>
+          <th>category</th>
+          <th>created_at</th>
+          <th>updated_at</th>
+          <th>in_print</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in books %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.title }}</td>
+            <td>{{ i.author }}</td>
+            <td>{{ i.published_date }}</td>
+            <td>{{ i.category }}</td>
+            <td>{{ i.created_at }}</td>
+            <td>{{ i.updated_at }}</td>
+            <td>{{ i.in_print }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p><a href="/add_data">Click here to add some data!</a></p>
+    <p><a href="/remove_data">Click here to remove all data!</a></p>
+  </body>
+</html>
