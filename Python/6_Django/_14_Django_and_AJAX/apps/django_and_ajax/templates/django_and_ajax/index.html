@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>6_Django - _14_Django_and_AJAX - index</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="{% static 'django_and_ajax/js/action.js' %}" charset="utf-8"></script>
+  </head>
+  <body>
+    <center>
+      <h1>Welcome!</h1>
+      <input type="button" value="Click Me!" id="click_me" />
+      <br />
+      <div id="server_messages"></div>
+    </center>
+  </body>
+</html>
