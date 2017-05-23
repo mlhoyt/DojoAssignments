@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>6_Django - _8_Ninja_Gold</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'ninja_gold/css/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <label>Your Gold:</label>
+      <div id="your_gold">{{ request.session.your_gold }}</div>
+    </header>
+    <main>
+      <div class="loc">
+        <h3>Farm</h3>
+        <p>(earns 10-20 golds)</p>
+        <form action="/process_money" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="loc" value="farm" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>Cave</h3>
+        <p>(earns 5-10 golds)</p>
+        <form action="/process_money" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="loc" value="cave" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>House</h3>
+        <p>(earns 2-5 golds)</p>
+        <form action="/process_money" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="loc" value="house" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+      <div class="loc">
+        <h3>Casino</h3>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/process_money" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="loc" value="casino" />
+          <input type="submit" value="Find Gold!" />
+        </form>
+      </div>
+    </main>
+    <footer>
+      <label>Activities:</label> <br />
+      <textarea id="activity" name="activity">{{ request.session.activity }}</textarea>
+      <form action="/reset" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Reset" />
+      </form>
+    </footer>
+    <script type="text/javascript">
+      var textarea = document.getElementById("activity");
+      textarea.scrollTop = textarea.scrollHeight;
+    </script>
+  </body>
+</html>
