@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>6_Django - _25_Login_Registration - Success</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'login_app/css/style.css' %}" />
+  </head>
+  <body>
+    {% if 'new_registration' in request.session %}
+      <p>Congratulations on a successful: <strong>Registration</strong>!</p>
+    {% else %}
+      <p>Congratulations on a successful: <strong>Login</strong>!</p>
+    {% endif %}
+    <hr />
+    <form action="/logout" method="POST">
+      {% csrf_token %}
+      <p><input type="submit" value="Logout" class="button" id="logout" /></p>
+      <p><a href="/">Back to Home</a></p>
+    </form>
+  </body>
+</html>
