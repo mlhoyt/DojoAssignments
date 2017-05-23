@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _24_Username_Validation</title>
+  </head>
+  <body>
+    <div style="background-color: green; color: white; padding: 10px; display: inline-block;">
+      The username you entered ({{ username }}) is valid.  Thank you!
+    </div> <br />
+    <h3>Usernames entered:</h3>
+    <table border="1">
+      <tbody>
+        {% for i in users %}
+          <tr>
+            <td>{{ i.email }}</td>
+            <td>{{ i.created_at }}</td>
+            <td><a href="/delete_user/{{ i.id }}">delete</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/">Back to Home</a>
+  </body>
+</html>

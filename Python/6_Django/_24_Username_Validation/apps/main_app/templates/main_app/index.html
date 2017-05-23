@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _24_Username_Validation - index</title>
+  </head>
+  <body>
+    {% if 'error_msg' in request.session %}
+      <div style="background-color: red; color: white; padding: 10px; display: inline-block">
+        {{ request.session.error_msg }}
+      </div>
+      <br />
+    {% endif %}
+    <form action="/add_user" method="POST">
+      {% csrf_token %}
+      <label for="username">Username:<input type="text" name="username" value="{{ request.session.username }}"/></label> <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
