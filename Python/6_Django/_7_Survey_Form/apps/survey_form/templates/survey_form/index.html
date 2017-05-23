@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _7_Survey_Form - index</title>
+  </head>
+  <body>
+    <div id="survey">
+      <form action="/surveys/process" method="POST">
+        {% csrf_token %}
+        <label for="name">Name:<input type="text" name="name" />
+        </label>
+        <br />
+        <label for="location">Dojo Location:<select name="location">
+          <option selected value="Seattle">Seattle</option>
+          <option value="Silicon Valley">Silicon Valley</option>
+          <option value="Dallas">Dallas</option>
+          <option value="Chicago">Chicago</option>
+          <option value="New York City">New York City</option>
+        </select>
+        </label>
+        <br />
+        <label for="fav_lang">Favorite Language:<select name="fav_lang">
+          <option selected value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Ruby">Ruby</option>
+          <option value="Swift">Swift</option>
+          <option value="C#">C#</option>
+          <option value="SQL">SQL</option>
+          <option value="Scala">Scala</option>
+          <option value="Perl">Perl</option>
+          <option value="C/C++">C/C++</option>
+          <option value="Java">Java</option>
+        </select>
+        </label>
+        <br />
+        <label for="comments">Comments:</label>
+        <br />
+        <textarea name="comments" style="width: 30rem; height: 3rem;"></textarea>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

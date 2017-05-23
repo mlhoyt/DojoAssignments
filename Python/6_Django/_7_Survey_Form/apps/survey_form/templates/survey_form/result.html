@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Python - _7_Survey_Form - result</title>
+  </head>
+  <body>
+    <div class="header">
+      Thanks for submitting this form!  You have submitted this form {{ request.session.nr_submits }} times now.
+    </div>
+    <div class="main">
+      <u><strong>Submitted Information:</strong></u> <br />
+      Name: {{ request.session.name }} <br />
+      Dojo Location: {{ request.session.location }} <br />
+      Favorite Language: {{ request.session.fav_lang }} <br />
+      Comments: {{ request.session.comments }} <br />
+      <a href="/"><input type="button" value="Go Back"></a>
+    </div>
+  </body>
+</html>
