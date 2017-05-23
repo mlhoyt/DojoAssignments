@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Users
 import re
 import os, binascii, md5
@@ -42,46 +43,46 @@ def add_predefined_data( request ):
     )
     return redirect( "/" )
 
-def register_validate_email( u_email ):
+def register_validate_email( request, u_email ):
     if len( u_email ) < 1:
-        # flash( "Unable to register!  The email field is empty." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, 'Unable to register! The email field is empty.' )
+        return( False )
     elif not email_regex.match( u_email ):
-        # flash( "Unable to register!  Incorrectly formatted email." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, 'Unable to register! Incorrectly formatted email.' )
+        return( False )
     else:
         if len( Users.objects.filter( email = u_email ) ) > 0:
-            # flash( "Unable to register!  This email ({}) is already used.".format( u_email ) )
-            return( redirect( '/status' ) )
+            messages.add_message( request, messages.INFO, "Unable to register! This email ({}) is already used.".format( u_email ) )
+            return( False)
 
-def register_validate_first_name( u_name ):
+def register_validate_first_name( request, u_name ):
     if len( u_name ) < 1:
-        # flash( "Unable to register!  The first name field is empty." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to register! The first name field is empty." )
+        return( False )
     elif not u_name.isalpha():
-        # flash( "Unable to register!  The first name field can only contain letters." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to register! The first name field can only contain letters." )
+        return( False )
 
-def register_validate_last_name( u_name ):
+def register_validate_last_name( request, u_name ):
     if len( u_name ) < 1:
-        # flash( "Unable to register!  The last name field is empty." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to register! The last name field is empty." )
+        return( False )
     elif not u_name.isalpha():
-        # flash( "Unable to register!  The last name field can only contain letters." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to register! The last name field can only contain letters." )
+        return( False )
 
-def register_validate_password( u_passwd ):
+def register_validate_password( request, u_passwd ):
     if len( u_passwd ) < 1:
-        # flash( "Unable to register!  The password field is empty." )
+        messages.add_message( request, messages.INFO, "Unable to register! The password field is empty." )
         return( redirect( '/status' ) )
     elif len( u_passwd ) < 8:
-        # flash( "Unable to register!  The password field MUST be AT LEAST 8 characters!" )
+        messages.add_message( request, messages.INFO, "Unable to register! The password field MUST be AT LEAST 8 characters!" )
         return( redirect( '/status' ) )
     elif not re.match( r'^.*[A-Z]+.*$', u_passwd ):
-        # flash( "Unable to register!  The password field MUST contain AT LEAST 1 capital letter!" )
+        messages.add_message( request, messages.INFO, "Unable to register! The password field MUST contain AT LEAST 1 capital letter!" )
         return( redirect( '/status' ) )
     elif not re.match( r'^.*\d+.*$', u_passwd ):
-        # flash( "Unable to register!  The password field MUST contain AT LEAST 1 number!" )
+        messages.add_message( request, messages.INFO, "Unable to register! The password field MUST contain AT LEAST 1 number!" )
         return( redirect( '/status' ) )
 
 def register( request ):
@@ -92,13 +93,17 @@ def register( request ):
     u_passwd_2 = request.POST['passwd_2']
 
     # validate
-    register_validate_email( u_email )
-    register_validate_first_name( u_f_name )
-    register_validate_last_name( u_l_name )
-    register_validate_password( u_passwd_1 )
+    if not register_validate_email( request, u_email ):
+        return redirect( "/status" )
+    if not register_validate_first_name( request, u_f_name ):
+        return redirect( "/status" )
+    if not register_validate_last_name( request, u_l_name ):
+        return redirect( "/status" )
+    if not register_validate_password( request, u_passwd_1 ):
+        return redirect( "/status" )
     # validate passwd_1 against passwd_2
     if u_passwd_1 != u_passwd_2:
-        # flash( "Unable to register!  The password and confirm password fields MUST match!" )
+        messages.add_message( request, messages.INFO, "Unable to register! The password and confirm password fields MUST match!" )
         return( redirect( '/status' ) )
 
     # store registration in db
@@ -117,34 +122,36 @@ def register( request ):
     request.session['new_registration'] = 1
     return( redirect( '/success' ) )
 
-def login_validate_email( u_email ):
+def login_validate_email( request, u_email ):
     if len( u_email ) < 1:
-        # flash( "Unable to login!  The email field is empty." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to login! The email field is empty." )
+        return( False )
     elif not email_regex.match( u_email ):
-        # flash( "Unable to login!  Incorrectly formatted email." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to login! Incorrectly formatted email." )
+        return( False )
 
-def login_validate_password( u_passwd ):
+def login_validate_password( request, u_passwd ):
     if len( u_passwd ) < 1:
-        # flash( "Unable to login!  The password field is empty." )
-        return( redirect( '/status' ) )
+        messages.add_message( request, messages.INFO, "Unable to login! The password field is empty." )
+        return( False )
 
 def login( request ):
     u_email = request.POST['email']
     u_passwd = request.POST['passwd']
 
     # validate
-    login_validate_email( u_email )
-    login_validate_password( u_passwd )
+    if not login_validate_email( request, u_email ):
+        return( redirect( '/status' ) )
+    if not login_validate_password( request, u_passwd ):
+        return( redirect( '/status' ) )
 
     users = Users.objects.filter( email = u_email )
     if len( users ) < 1:
-        # flash( "Unable to login!  Unknown email." )
+        messages.add_message( request, messages.INFO, "Unable to login! Unknown email." )
         return( redirect( '/status' ) )
     user = Users.objects.get( email = u_email )
     if get_passwd_hash( u_passwd, user.salt ) != user.password:
-        # flash( "Unable to login!  Incorrect email or password." )
+        messages.add_message( request, messages.INFO, "Unable to login! Incorrect email or password." )
         return( redirect( '/status' ) )
     else:
         request.session['login_id'] = user.id

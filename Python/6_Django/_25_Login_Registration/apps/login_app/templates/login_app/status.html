@@ -7,7 +7,12 @@
     <link type="text/css" rel="stylesheet" href="{% static 'login_app/css/style.css' %}" />
   </head>
   <body>
-    <!-- flash messages -->
+    {% if messages %}
+      {% for message in messages %}
+        <!-- Use message.tags? -->
+        <p class="flash">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
     <hr />
     <a href="/">Back to Home</a>
   </body>
