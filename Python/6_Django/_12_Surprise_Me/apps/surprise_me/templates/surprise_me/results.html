@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>6_Django - _12_Surprise_Me - results</title>
+  </head>
+  <body>
+    <center>
+      <h1>Surprises:</h1>
+      <ul type="none">
+        {% for i in request.session.surprises %}
+          <li>{{ i }}</li>
+        {% endfor %}
+      </ul>
+    </center>
+  </body>
+</html>
