@@ -1,0 +1,14 @@
+# -*- text -*-
+
+Django Links
+============
+https://docs.djangoproject.com/en/1.11/topics/db/queries/
+https://docs.djangoproject.com/en/1.11/topics/db/aggregation/
+https://docs.djangoproject.com/en/1.11/topics/db/managers/
+https://docs.djangoproject.com/en/1.9/ref/contrib/messages/
+  - https://stackoverflow.com/questions/23793308/django-my-flash-messages-dont-work
+
+Python Links
+============
+https://www.tutorialspoint.com/python/python_lists.htm
+
