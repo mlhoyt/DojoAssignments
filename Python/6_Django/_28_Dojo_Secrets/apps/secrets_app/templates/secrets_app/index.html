@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>6_Django - _28_Dojo_Secrets - secrets</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'secrets_app/css/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <h2 id="header_icon">CodingDojo Secrets</h2>
+      <p><a href="{% url 'login:logout' %}">log off</a>
+      <p>Welcome {{ request.session.f_name }}</p>
+    </header>
+    <main>
+      <h1>Hello, {{ request.session.f_name }}!</h1>
+      <div id="new_secret">
+        <form action="{% url 'secrets:add_secret' %}" method="POST">
+          {% csrf_token %}
+          <textarea name="secret" rows="5" cols="40" style="display: block;"></textarea>
+          <input type="submit" value="Post" />
+          <a href="{% url 'secrets:most_popular' %}">Most Popular Secrets</a>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
