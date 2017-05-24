@@ -17,35 +17,92 @@ def get_passwd_hash( passwd, salt ):
 
 
 class UsersManager( models.Manager ):
-    def login( self, postData ):
+    def register( self, postData ):
         errors = []
-        user = None
 
         # validate email (raw content)
-        u_email = postData['email']
-        if len( u_email ) < 1:
+        if len( postData['email'] ) < 1:
             errors.append( "The email field is empty." )
         elif not email_regex.match( postData['email'] ):
             errors.append( "Incorrectly formatted email." )
-        # validate password (raw content)
-        elif len( postData['passwd'] ) < 1:
+        # validate email (not in DB)
+        elif len( self.filter( email = postData['email'] ) ) > 0:
+            errors.append( "The email ({}) is already used.".format( postData['email'] ) )
+        # validate first_name (raw content)
+        if len( postData['f_name'] ) < 1:
+            errors.append( "The first name field is empty." )
+        elif not postData['f_name'].isalpha():
+            errors.append( "The first name field can only contain letters." )
+        # validate last_name (raw content)
+        if len( postData['l_name'] ) < 1:
+            errors.append( "The last name field is empty." )
+        elif not postData['l_name'].isalpha():
+            errors.append( "The last name field can only contain letters." )
+        # validate passwd_1 (raw content)
+        if len( postData['passwd_1'] ) < 1:
             errors.append( "The password field is empty." )
-        else:
-            # validate email (in DB)
-            users = self.filter( email = postData['email'] )
-            if len( users ) < 1:
-                errors.append( "Unknown email." )
-            else:
-                # validate password (matches DB)
-                user = self.get( email = postData['email'] )
-                if get_passwd_hash( postData['passwd'], user.salt ) != user.password:
-                    errors.append( "Incorrect email or password." )
+        elif len( postData['passwd_1'] ) < 8:
+            errors.append( "The password field MUST be AT LEAST 8 characters!" )
+        elif not re.match( r'^.*[A-Z]+.*$', postData['passwd_1'] ):
+            errors.append( "The password field MUST contain AT LEAST 1 capital letter!" )
+        elif not re.match( r'^.*\d+.*$', postData['passwd_1'] ):
+            errors.append( "The password field MUST contain AT LEAST 1 number!" )
+        # validate passwd_1 against passwd_2
+        if postData['passwd_1'] != postData['passwd_2']:
+            errors.append( "The password and confirm password fields MUST match!" )
 
         # return
         if len( errors ):
-            return { 'status': False, 'errors': errors }
+            return {
+                'status': False,
+                'errors': errors
+            }
         else:
-            return { 'status': True, 'user': user }
+            passwd_salt = get_passwd_salt()
+            passwd_hash = get_passwd_hash( postData['passwd_1'], passwd_salt )
+
+            return {
+                'status': True,
+                'user': self.create(
+                    email = postData['email'],
+                    first_name = postData['f_name'],
+                    last_name = postData['l_name'],
+                    password = passwd_hash,
+                    salt = passwd_salt,
+                )
+            }
+
+    def login( self, postData ):
+        errors = []
+
+        # validate email (raw content)
+        if len( postData['email'] ) < 1:
+            errors.append( "The email field is empty." )
+        elif not email_regex.match( postData['email'] ):
+            errors.append( "Incorrectly formatted email." )
+        # validate email (in DB)
+        elif len( self.filter( email = postData['email'] ) ) < 1:
+            errors.append( "Unknown email." )
+        # validate password (raw content)
+        elif len( postData['passwd'] ) < 1:
+            errors.append( "The password field is empty." )
+        # validate password (matches DB)
+        else:
+            user = self.get( email = postData['email'] )
+            if get_passwd_hash( postData['passwd'], user.salt ) != user.password:
+                errors.append( "Incorrect email or password." )
+
+        # return
+        if len( errors ):
+            return {
+                'status': False,
+                'errors': errors
+            }
+        else:
+            return {
+                'status': True,
+                'user': self.get( email = postData['email'] )
+            }
 
     def add_predefined_data( self ):
         self.create(
