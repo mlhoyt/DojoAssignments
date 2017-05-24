@@ -20,27 +20,7 @@ def index( request ):
         return render( request, "login_app/index.html" )
 
 def add_predefined_data( request ):
-    Users.objects.create(
-        email = "AbCde@f.x",
-        first_name = "Ab",
-        last_name = "Cde",
-        password = "d554cd79bb09a064e714146fcdf9593e", # 1password
-        salt = "28d0e694c86f0c47ecd910a0348130",
-    )
-    Users.objects.create(
-        email = "gh_ijk@l.y",
-        first_name = "Gh",
-        last_name = "Ijk",
-        password = "ea9b64123c0bed77a641fbef723a9fb6", # 2password
-        salt = "cb52189918385519677cdff03a0012",
-    )
-    Users.objects.create(
-        email = "Mn_Opq@r.y",
-        first_name = "Mn",
-        last_name = "Opq",
-        password = "6e8a2346251bb05cf6bf7773501a5997", # password1
-        salt = "45e9ae8382bdd321174a89d3091dc3",
-    )
+    Users.objects.add_predefined_data()
     return redirect( "/" )
 
 def register_validate_email( request, u_email ):
@@ -130,46 +110,18 @@ def register( request ):
     request.session['new_registration'] = 1
     return( redirect( '/success' ) )
 
-def login_validate_email( request, u_email ):
-    if len( u_email ) < 1:
-        messages.add_message( request, messages.INFO, "Unable to login! The email field is empty." )
-        return( False )
-    elif not email_regex.match( u_email ):
-        messages.add_message( request, messages.INFO, "Unable to login! Incorrectly formatted email." )
-        return( False )
-    else:
-        return( True )
-
-def login_validate_password( request, u_passwd ):
-    if len( u_passwd ) < 1:
-        messages.add_message( request, messages.INFO, "Unable to login! The password field is empty." )
-        return( False )
-    else:
-        return( True )
-
 def login( request ):
-    u_email = request.POST['email']
-    u_passwd = request.POST['passwd']
+    db_result = Users.objects.login( request.POST )
 
-    # validate
-    if not login_validate_email( request, u_email ):
-        return( redirect( '/status' ) )
-    if not login_validate_password( request, u_passwd ):
-        return( redirect( '/status' ) )
-
-    users = Users.objects.filter( email = u_email )
-    if len( users ) < 1:
-        messages.add_message( request, messages.INFO, "Unable to login! Unknown email." )
-        return( redirect( '/status' ) )
-
-    user = Users.objects.get( email = u_email )
-    if get_passwd_hash( u_passwd, user.salt ) != user.password:
-        messages.add_message( request, messages.INFO, "Unable to login! Incorrect email or password." )
+    if not db_result['status']:
+        messages.add_message( request, messages.INFO, "Unable to login!" )
+        for i in db_result['errors']:
+            messages.add_message( request, messages.INFO, "- " + i )
         return( redirect( '/status' ) )
     else:
-        request.session['login_id'] = user.id
-        request.session['email'] = user.email
-        request.session['f_name'] = user.first_name
+        request.session['login_id'] = db_result['user'].id
+        request.session['email'] = db_result['user'].email
+        request.session['f_name'] = db_result['user'].first_name
         return( redirect( '/success' ) )
 
 def status( request ):
