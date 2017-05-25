@@ -22,6 +22,24 @@
           <a href="{% url 'secrets:most_popular' %}">Most Popular Secrets</a>
         </form>
       </div>
+      <h1>Recent Secrets ...</h1>
+      <ul type="none">
+        {% for secret in recent_secrets %}
+          <div>
+            <span class="secret_text">{{ secret.secret }}</span>
+            <span class="secret_date">({{ secret.created_at }})</span>
+            <span class="secret_likes">{{ secret.num_likes }} Likes</span>
+            {% if secret.authored_by.id == request.session.login_id %}
+              <strong>You posted this</strong>
+              <a href="{% url 'secrets:delete_secret' id=secret.id %}">Delete</a>
+            {% elif user in secret.liked_by.all %}
+              <strong>You liked this</strong>
+            {% else %}
+              <a href="{% url 'secrets:add_like' s_id=secret.id u_id=request.session.login_id %}">Like</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </ul>
     </main>
   </body>
 </html>

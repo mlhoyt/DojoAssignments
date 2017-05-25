@@ -1,0 +1,13 @@
+# -*- text -*-
+
+apps/secrets_app/templates/secrets_app/most_popular.html
+- h1 Most Popular Secrets ...
+- a:Back (to "secrets:index")
+- ul type=none <secret> (<date> <time>) <amount:int> likes (a:Like | strong:You liked this | strong:You posted this a:Delete)
+  - all entries - ordered by most likes, then most recent first
+
+apps/secrets_app/views.py: most_popular
+
+apps/secrets_app/templates/secrets_app/index.html
+- (<amount:int> minutes ago)
+
