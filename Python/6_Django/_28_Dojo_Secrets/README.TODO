@@ -1,8 +1,2 @@
 # -*- text -*-
 
-apps/secrets_app/templates/secrets_app/most_popular.html
-- (<date> <time>)
-
-apps/secrets_app/templates/secrets_app/index.html
-- (<amount:int> minutes ago)
-

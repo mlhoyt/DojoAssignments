@@ -27,7 +27,7 @@
         {% for secret in recent_secrets %}
           <div>
             <span class="secret_text">{{ secret.secret }}</span>
-            <span class="secret_date">({{ secret.created_at }})</span>
+            <span class="secret_date">({{ secret.created_at|timesince }} ago)</span>
             <span class="secret_likes">{{ secret.num_likes }} Likes</span>
             {% if secret.authored_by.id == request.session.login_id %}
               <strong>You posted this</strong>

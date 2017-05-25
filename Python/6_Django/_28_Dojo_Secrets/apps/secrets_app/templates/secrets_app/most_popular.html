@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     {% load staticfiles %}
+    {% load tz %}
     <meta charset="utf-8">
     <title>6_Django - _28_Dojo_Secrets - most_popular</title>
     <link type="text/css" rel="stylesheet" href="{% static 'secrets_app/css/style.css' %}"
@@ -18,7 +19,9 @@
         {% for secret in popular_secrets %}
           <div>
             <span class="secret_text">{{ secret.secret }}</span>
-            <span class="secret_date">({{ secret.created_at }})</span>
+            {% timezone "America/Los_Angeles" %}
+            <span class="secret_date">({{ secret.created_at|date:"F j, Y, g:i A" }})</span>
+            {% endtimezone %}
             <span class="secret_likes">{{ secret.num_likes }} Likes</span>
             {% if secret.authored_by.id == request.session.login_id %}
               <strong>You posted this</strong>
