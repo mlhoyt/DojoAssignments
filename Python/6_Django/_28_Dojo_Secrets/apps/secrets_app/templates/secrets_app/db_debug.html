@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Users</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>first_name</th>
+          <th>last_name</th>
+          <th>email</th>
+          <th>authored_secrets</th>
+          <th>likes_secrets</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              {% for secret in user.authored_secrets.all %}
+                {{ secret.id }}
+              {% endfor %}
+            </td>
+            <td>
+              {% for secret in user.likes_secrets.all %}
+                {{ secret.id }}
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h3>Secrets</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>secret</th>
+          <th>authored_by</th>
+          <th>liked_by</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for secret in secrets %}
+          <tr>
+            <td>{{ secret.id }}</td>
+            <td>{{ secret.secret }}</td>
+            <td>{{ secret.authored_by.id }}</td>
+            <td>
+              {% for user in secret.liked_by.all %}
+                {{ user.id }}
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
