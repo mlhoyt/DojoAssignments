@@ -9,8 +9,8 @@ email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 import bcrypt
 
-def get_passwd_hash( passwd ):
-    return( bcrypt.hashpw( passwd, bcrypt.gensalt() ) )
+def get_passwd_hash( passwd, salt = bcrypt.gensalt() ):
+    return( bcrypt.hashpw( passwd, salt ) )
 
 
 class UsersManager( models.Manager ):
@@ -82,7 +82,7 @@ class UsersManager( models.Manager ):
         # validate password (matches DB)
         else:
             user = self.get( email = postData['email'] )
-            if bcrypt.hashpw( postData['passwd'].encode(), user.password.encode() ) != user.password:
+            if get_passwd_hash( postData['passwd'].encode(), user.password.encode() ) != user.password:
                 errors.append( "Incorrect email or password." )
 
         # return
