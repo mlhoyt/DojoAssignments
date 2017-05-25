@@ -7,13 +7,10 @@ import re
 email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
-import os, binascii, md5
+import bcrypt
 
-def get_passwd_salt():
-    return( binascii.b2a_hex( os.urandom( 15 ) ) )
-
-def get_passwd_hash( passwd, salt ):
-    return( md5.new( passwd + salt ).hexdigest() )
+def get_passwd_hash( passwd ):
+    return( bcrypt.hashpw( passwd, bcrypt.gensalt() ) )
 
 
 class UsersManager( models.Manager ):
@@ -58,17 +55,13 @@ class UsersManager( models.Manager ):
                 'errors': errors
             }
         else:
-            passwd_salt = get_passwd_salt()
-            passwd_hash = get_passwd_hash( postData['passwd_1'], passwd_salt )
-
             return {
                 'status': True,
                 'user': self.create(
                     email = postData['email'],
                     first_name = postData['f_name'],
                     last_name = postData['l_name'],
-                    password = passwd_hash,
-                    salt = passwd_salt,
+                    password = get_passwd_hash( postData['passwd_1'].encode() ),
                 )
             }
 
@@ -89,7 +82,7 @@ class UsersManager( models.Manager ):
         # validate password (matches DB)
         else:
             user = self.get( email = postData['email'] )
-            if get_passwd_hash( postData['passwd'], user.salt ) != user.password:
+            if bcrypt.hashpw( postData['passwd'].encode(), user.password.encode() ) != user.password:
                 errors.append( "Incorrect email or password." )
 
         # return
@@ -109,22 +102,19 @@ class UsersManager( models.Manager ):
             email = "AbCde@f.x",
             first_name = "Ab",
             last_name = "Cde",
-            password = "d554cd79bb09a064e714146fcdf9593e", # 1password
-            salt = "28d0e694c86f0c47ecd910a0348130",
+            password = get_passwd_hash( "1password".encode() ),
         )
         self.create(
-            email = "gh_ijk@l.y",
-            first_name = "Gh",
-            last_name = "Ijk",
-            password = "ea9b64123c0bed77a641fbef723a9fb6", # 2password
-            salt = "cb52189918385519677cdff03a0012",
+            email = "a@b.c",
+            first_name = "A",
+            last_name = "Bc",
+            password = get_passwd_hash( "2password".encode() ),
         )
         self.create(
-            email = "Mn_Opq@r.y",
-            first_name = "Mn",
-            last_name = "Opq",
-            password = "6e8a2346251bb05cf6bf7773501a5997", # password1
-            salt = "45e9ae8382bdd321174a89d3091dc3",
+            email = "x@y.z",
+            first_name = "X",
+            last_name = "Yz",
+            password = get_passwd_hash( "password2".encode() ),
         )
 
 
@@ -133,7 +123,6 @@ class Users( models.Model ):
     last_name = models.CharField( max_length = 255 )
     email = models.CharField( max_length = 255 )
     password = models.CharField( max_length = 40 )
-    salt = models.CharField( max_length = 40 )
     created_at = models.DateTimeField( auto_now_add = True )
     updated_at = models.DateTimeField( auto_now = True )
 
