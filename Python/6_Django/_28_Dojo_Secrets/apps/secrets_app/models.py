@@ -22,6 +22,9 @@ class SecretsManager( models.Manager ):
     def get_recent_secrets( self ):
         return self.all().annotate( num_likes = Count( 'liked_by' ) ).order_by( 'created_at' ).reverse()[:10]
 
+    def get_popular_secrets( self ):
+        return self.all().annotate( num_likes = Count( 'liked_by' ) ).order_by( '-num_likes', '-created_at' )
+
 class Secrets( models.Model ):
     secret = models.CharField( max_length = 255 )
     authored_by = models.ForeignKey( Users, related_name = "authored_secrets" )
