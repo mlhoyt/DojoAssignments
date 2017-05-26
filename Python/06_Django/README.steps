@@ -10,7 +10,7 @@ Contants:
   <<REGEX>>
 
 ######################################################################
-# Create Project
+## Create Project
 ######################################################################
 $ django-admin startproject <<PROJECT_NAME>>
 $ cd <<PROJECT_NAME>>
@@ -21,7 +21,7 @@ $ python ../manage.py startapp <<APP_NAME>>
 $ cd ..
 
 ######################################################################
-# Configure Project
+## Configure Project
 ######################################################################
 $ atom .
 
@@ -64,7 +64,7 @@ $ atom .
     > from .models import <<TABLE_CLASS>>
     > from ..<<OTHER_APP_NAME>>.models import <<TABLE_CLASS>>
     > ...
-    > ## REMEMBER *** Skinny Controllers (view.py), Fat models (models.py) ***
+    > ## REMEMBER *** Skinny Controllers (views.py), Fat models (models.py) ***
     > ...
     > # simple route
     > def <<VIEW_NAME>>( request ):
@@ -91,6 +91,8 @@ $ atom .
     >     # - Should only invoke methods from correponding custom models.Manager
     >     # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/queries/
     >     # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/aggregation/
+    >     ...
+    >     ... <<CLASS_NAME>>.objects.<<METHOD_NAME>>( ... ) ...
     >     ...
     >     # HttpReponse (for preliminary testing)
     >     return HttpReponse( "<<TESTING_MESSAGE>>" )
@@ -150,6 +152,7 @@ $ atom .
   ####################################################################
   $ mkdir -p <<PROJECT_NAME>>/apps/<<APP_NAME>>/templates/<<APP_NAME>>
 
+  ####################################################################
   - EDIT <<PROJECT_NAME>>/apps/<<APP_NAME>>/templates/<<APP_NAME>>/<<VIEW_NAME>>.html
     > <!-- REFERENCE https://docs.djangoproject.com/en/1.11/ref/templates/builtins/ -->
     > <!-- REFERENCE - https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#std:templatefilter-date -->
@@ -187,6 +190,8 @@ $ atom .
     > <!-- context -->
     > ... {{ <<CONTEXT_KEY>> }} ...
 
+####################################################################
+## Run Project
 ####################################################################
 $ python manage.py makemigrations
 $ python manage.py migrate
