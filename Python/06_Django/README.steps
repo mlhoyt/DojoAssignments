@@ -1,0 +1,237 @@
+# -*- text -*-
+
+Contants:
+  <<PROJECT_NAME>>
+  <<APP_NAME>>
+  <<NS_NAME>>
+  <<ROUTE>>
+  <<VIEW_NAME>>
+  PARAM
+  <<REGEX>>
+
+######################################################################
+# Create Project
+######################################################################
+$ django-admin startproject <<PROJECT_NAME>>
+$ cd <<PROJECT_NAME>>
+$ mkdir apps
+$ cd apps
+$ touch __init__.py
+$ python ../manage.py startapp <<APP_NAME>>
+$ cd ..
+
+######################################################################
+# Configure Project
+######################################################################
+$ atom .
+
+  ####################################################################
+  - EDIT: <<PROJECT_NAME>>/settings.py
+    - Add "apps.<<APP_NAME>>" to INSTALLED_APPS
+
+  ####################################################################
+  - EDIT: <<PROJECT_NAME>>/urls.py
+    > from django.conf.urls import ..., include
+    > ...
+    > urlpatterns = [
+    >   ...
+    >   # app urls with namespace
+    >   url( r'^<<ROUTE>>', include( 'apps.<<APP_NAME>>.urls', namespace=<<NS_NAME>> ) ),
+    > ]
+
+  ####################################################################
+  $ touch <<PROJECT_NAME>>/apps/<<APP_NAME>>/urls.py
+
+  - EDIT: <<PROJECT_NAME>>/apps/<<APP_NAME>>/urls.py
+    > from django.conf.urls import url
+    > from . import views
+    > ...
+    > urlpatterns = [
+    >   # root route
+    >   url( r'^$', views.index, name="index" ),
+    >   # custom route
+    >   url( r'^<<ROUTE>>$', views.<<VIEW_NAME>>, name="<<VIEW_NAME>>" ),
+    >   # custom route with named parameter(s)
+    >   url( r'^<<ROUTE>>/(?P<PARAM><<REGEX>>)$', views.<<VIEW_NAME>>, name="<<VIEW_NAME>>" ),
+    >   # catcher route
+    >   url( r'^', views.catcher, name="catcher" ),
+    > ]
+
+  ####################################################################
+  - EDIT: <<PROJECT_NAME>>/apps/<<APP_NAME>>/views.py
+    > from django.shortcuts import render, redirect, reverse, HttpResponse
+    > from django.contrib import messages
+    > from .models import <<TABLE_CLASS>>
+    > from ..<<OTHER_APP_NAME>>.models import <<TABLE_CLASS>>
+    > ...
+    > ## REMEMBER *** Skinny Controllers (view.py), Fat models (models.py) ***
+    > ...
+    > # simple route
+    > def <<VIEW_NAME>>( request ):
+    >     ...
+    > # parameterized route
+    > def <<VIEW_NAME>>( request, <<PARAM_NAME>> ... ):
+    >     ...
+    >     # Forms
+    >     if request.method == "POST":
+    >         ... request.POST['<<FORM_KEY>>'] ...
+    >     else:
+    >         ... request.GET['<<URL_KEY>>'] ...
+    >     ...
+    >     # Session
+    >     ... request.session['<<KEY>>'] ...
+    >     ... if '<<KEY>>' in request.session: ...
+    >     ...
+    >     # Flash messages
+    >     # REFERENCE: https://docs.djangoproject.com/en/1.9/ref/contrib/messages/
+    >     # REFERENCE: - https://stackoverflow.com/questions/23793308/django-my-flash-messages-dont-work
+    >     messages.add_message( request, messages.INFO, "..." )
+    >     ...
+    >     # ORMs
+    >     # - Should only invoke methods from correponding custom models.Manager
+    >     # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/queries/
+    >     # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/aggregation/
+    >     ...
+    >     # HttpReponse (for preliminary testing)
+    >     return HttpReponse( "<<TESTING_MESSAGE>>" )
+    >     ...
+    >     # Render / Context
+    >     context = { ... }
+    >     return render( request, "<<APP_NAME>>/<<VIEW_NAME>>.html", context )
+    >     ...
+    >     # Redirect
+    >     return redirect( reverse( "<<NS_NAME>>:<<VIEW_NAME>>" ) )
+
+  ####################################################################
+  - EDIT: <<PROJECT_NAME>>/apps/<<APP_NAME>>/models.py
+    > ...
+    > # import aggregate functions
+    > from django.db.models import Count
+    > # import ORM tables from other apps
+    > from ..<<OTHER_APP_NAME>>.models import <<CLASS_NAME>>
+    > ...
+    > # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/queries/
+    > # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/aggregation/
+    > # REFERENCE: https://docs.djangoproject.com/en/1.11/topics/db/managers/
+    > ...
+    > class <<TABLE_NAME>>Manager( models.Manager ):
+    >     def <<METHOD_NAME>>( self ... ):
+    >         ...
+    >         ... <<CLASS_NAME>>.objects.all() ...
+    >         ... <<CLASS_NAME>>.objects.filter( ... ) ...
+    >         ... <<CLASS_NAME>>.objects.exclude( ... ) ...
+    >         ... <<CLASS_NAME>>.objects.get( ... ) ...
+    >         ... <<CLASS_NAME>>.objects.create( ... ) ...
+    >         ...
+    >         ... # ManyToMany Relationships
+    >         ... <<CLASS1_INST>>.<<ATTR_NAME>>.add( <<CLASS2_INST>> )
+    >         ...
+    > ...
+    > class <<TABLE_NAME>>( models.Model ):
+    >     <<COLUMN_NAME>> = models.<<DATA_TYPE>>( ... )
+    >     # models.CharField( max_length = <<INT>> )
+    >     # models.TextField( [max_length = <<INT>>] )
+    >     # models.DateTimeField()
+    >     # models.BooleanField()
+    >     # models.IntegerField()
+    >     # models.ForeignKey( <<FOREIGN_TABLE>>, related_name = '<<FOREIGN_TABLE_COLUMN>>' )
+    >     # models.OneToOneField( <<FOREIGN_TABLE>>, related_name = '<<FOREIGN_TABLE_COLUMN>>' )
+    >     # models.ManyToManyField( <<FOREIGN_TABLE>>, related_name = '<<FOREIGN_TABLE_COLUMN>>' )
+    >     created_at = models.DateTimeField( auto_now_add = True )
+    >     updated_at = models.DateTimeField( auto_now = True )
+    >
+    >     objects = <<TABLE_NAME>>Manager()
+
+  ####################################################################
+  $ mkdir -p <<PROJECT_NAME>>/apps/<<APP_NAME>>/static/<<APP_NAME>>/css
+  $ mkdir -p <<PROJECT_NAME>>/apps/<<APP_NAME>>/static/<<APP_NAME>>/js
+  $ mkdir -p <<PROJECT_NAME>>/apps/<<APP_NAME>>/static/<<APP_NAME>>/img
+
+  ####################################################################
+  $ mkdir -p <<PROJECT_NAME>>/apps/<<APP_NAME>>/templates/<<APP_NAME>>
+
+  - EDIT <<PROJECT_NAME>>/apps/<<APP_NAME>>/templates/<<APP_NAME>>/<<VIEW_NAME>>.html
+    > <!-- REFERENCE https://docs.djangoproject.com/en/1.11/ref/templates/builtins/ -->
+    > <!-- REFERENCE - https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#std:templatefilter-date -->
+    > <!-- REFERENCE - https://docs.djangoproject.com/en/1.11/topics/i18n/timezones/#time-zones-in-templates -->
+    > <!-- static files -->
+    > ...
+    > <head>
+    >   {% load static %}
+    >   ...
+    > ... {% static '<<APP_NAME>>/{css|js|img}/<<STATIC_FILE>>.<<SUFFIX>>' %} ...
+    > ...
+
+    > <!-- forms -->
+    > <form action="{% url '<<NS_NAME>>:<<VIEW_NAME>>' %}" method="post">
+    >   {% csrf_token %}
+    >   ...
+    > </form>
+
+    > <!-- named routes with parameters -->
+    > ... {% url '<<NS_NAME>>:<<VIEW_NAME>>' <<PARAM_NAME>> = <<PARAM_VALUE>> ... %} ...
+
+    > <!-- session -->
+    > ... {{ request.session.<<KEY>> }} ...
+    > ... {% if '<<KEY>>' in request.session %} ... {% endif %} ...
+
+    > <!-- Flash messages -->
+    > <!-- REFERENCE: https://docs.djangoproject.com/en/1.9/ref/contrib/messages/ -->
+    > <!-- REFERENCE: - https://stackoverflow.com/questions/23793308/django-my-flash-messages-dont-work -->
+    > {% if messages %}
+    >   {% for message in messages %}
+    >     ... {{ message }} ...
+    >   {% endfor %}
+    > {% endif %}
+
+    > <!-- context -->
+    > ... {{ <<CONTEXT_KEY>> }} ...
+
+####################################################################
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py runserver
+  - See: Web Browser => localhost:8000
+
+######################################################################
+## Python: Regular Expressions
+######################################################################
+
+import re
+<<NAME>>_regex = re.compile( r'<<REGEX>>' )
+
+if <<NAME>>_regex.{match|search}( <<VARIABLE|STRING>> ):
+    ...
+
+######################################################################
+## Python: bcrypt
+######################################################################
+
+import bcrypt
+
+# Usage: must .encode() pw (and salt if provided)
+def get_pw_hash( pw, salt = bcrypt.gensalt() ):
+    return( bcrypt.hashpw( pw, salt ) )
+
+# Usage: Create:  <<PW_HASH>> = get_pw_hash( <<RAW_PW>> )
+# Usage: Compare: if <<PW_HASH>> == get_pw_hash( <<RAW_PW>>, <<PW_HASH>> ): ...
+
+######################################################################
+## HTML: Date Formating
+## - REFERENCE - https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#std:templatefilter-date -->
+######################################################################
+
+{{ <<VARIABLE>>|date:"<<FORMATTING>>" }}
+{{ <<VARIABLE>>|timesince }}
+
+######################################################################
+## HTML: Timezone
+## - REFERENCE - https://docs.djangoproject.com/en/1.11/topics/i18n/timezones/#time-zones-in-templates -->
+######################################################################
+
+{% load tz %}
+
+{% timezone "America/Los_Angeles" %}
+...
+{% endtimezone %}
+
