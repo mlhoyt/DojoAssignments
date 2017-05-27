@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <title>Books Home</title>
     <!-- JavaScript -- External -->
+<!--
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+-->
     <!-- JavaScript -- Internal -->
     <script type="text/javascript" src="{% static 'login/js/action.js' %}" charset="utf-8"></script>
     <!-- CSS -- External -->
+<!--
     <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
+-->
     <!-- CSS -- Internal -->
     <link type="text/css" rel="stylesheet" href="{% static 'login/css/style.css' %}" />
   </head>
@@ -18,16 +22,127 @@
     <header>
       <h2 id="header_icon">CodingDojo Book Reviews</h2>
       <span>Welcome, {{ request.session.alias }}</span>
-      <a href="">Add Book and Reviews</a>
+      <a href="{% url 'book_reviews:add_book' %}">Add Book and Reviews</a>
       <a href="{% url 'login:logout' %}">Logout</a>
     </header>
     <main style="align: top;">
       <div id="recent_reviews" style="display: inline-block; width: 400px;">
         <h3>Recent Book Reviews:</h3>
+        {% for review in recent_reviews %}
+          <div>
+            <p>{{ review.book.title }}</p>
+            <ul type="none">
+              <li>Rating: {{ review.rating }}</li>
+              <li>{{ review.author.alias }} says: {{ review.comments }}</li>
+              <li>Posted on: {{ review.created_at|date:"F j, Y, g:i A" }}</li>
+            </ul>
+          </div>
+        {% endfor %}
       </div>
       <div id="other_books_reviews" style="display: inline-block; width: 300px;">
         <h3>Other Books with Reviews:</h3>
       </div>
     </main>
+    <hr />
+    <!-- DEBUG -->
+    <footer>
+      Users:
+      <table border="1">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>alias</th>
+            <th>email</th>
+            <th>authored_reviews</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in all_users %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.alias }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                {% for review in user.authored_reviews.all %}
+                  {{ review.id }}
+                {% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      Authors:
+      <table border="1">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>authored_books</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for author in all_authors %}
+            <tr>
+              <td>{{ author.id }}</td>
+              <td>{{ author.name }}</td>
+              <td>
+                {% for book in author.authored_books.all %}
+                  {{ book.id }}
+                {% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      Books:
+      <table border="1">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>author</th>
+            <th>reviews</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in all_books %}
+            <tr>
+              <td>{{ book.id }}</td>
+              <td>{{ book.title }}</td>
+              <td>{{ book.author.name }}</td>
+              <td>
+              {% for review in book.reviews.all %}
+                {{ review.id }}</td>
+              {% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      Reviews:
+      <table border="1">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>book</th>
+            <th>rating</th>
+            <th>comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for review in all_reviews %}
+            <tr>
+              <td>{{ review.id }}</td>
+              <td>{{ review.book.title }}</td>
+              <td>{{ review.rating }}</td>
+              <td>{{ review.comments }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      </table>
+    </footer>
   </body>
 </html>
