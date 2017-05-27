@@ -70,7 +70,7 @@ class BooksManager( models.Manager ):
                 author,
             )
             # create review (using above book)
-            review = Reviews.objects.add(
+            Reviews.objects.add(
                 postData['review'],
                 postData['rating'],
                 Users.objects.get( id = user_id ),
@@ -79,7 +79,7 @@ class BooksManager( models.Manager ):
 
             return {
                 'status': True,
-                'review': review,
+                'book': book,
             }
 
 class Books( models.Model ):
@@ -95,6 +95,38 @@ class Books( models.Model ):
 class ReviewsManager( models.Manager ):
     def add( self, comments, rating, author, book ):
         return self.create( comments = comments, rating = rating, author = author, book = book )
+
+    def add_review( self, user_id, postData ):
+        errors = []
+
+        # validate review
+        if len( postData['review'] ) < 1:
+            errors.append( "The review field is empty" )
+
+        # validate rating
+        if postData['rating'] == "unselected":
+            errors.append( "A rating must be selected" )
+
+        if errors:
+            return {
+                'status': False,
+                'errors': errors,
+            }
+        else:
+            return {
+                'status': True,
+                'review': self.create(
+                    comments = postData['review'],
+                    rating = postData['rating'],
+                    author = Users.objects.get( id = user_id ),
+                    book = Books.objects.get( id = int( postData['book_id'] ) ),
+                )
+            }
+
+    def remove( self, id ):
+        if len( self.filter( id = id ) ) == 1:
+            self.get( id = id ).delete()
+        return True
 
     def recent( self ):
         return self.order_by( '-created_at' )[:3]

@@ -25,12 +25,12 @@
       <a href="{% url 'book_reviews:add_book' %}">Add Book and Reviews</a>
       <a href="{% url 'login:logout' %}">Logout</a>
     </header>
-    <main style="align: top;">
+    <main style="vertical-align: top;">
       <div id="recent_reviews" style="display: inline-block; width: 400px;">
         <h3>Recent Book Reviews:</h3>
         {% for review in recent_reviews %}
           <div>
-            <p>{{ review.book.title }}</p>
+            <p><a href="{% url 'book_reviews:view_book' id=review.book.id %}">{{ review.book.title }}</a></p>
             <ul type="none">
               <li>Rating: {{ review.rating }}</li>
               <li>{{ review.author.alias }} says: {{ review.comments }}</li>
@@ -41,6 +41,11 @@
       </div>
       <div id="other_books_reviews" style="display: inline-block; width: 300px;">
         <h3>Other Books with Reviews:</h3>
+        <div style="border: 1px solid black; width=200px; heigh=200px;">
+          {% for book in all_books %}
+            <p><a href="{% url 'book_reviews:view_book' id=book.id %}">{{ book.title }}</a></p>
+          {% endfor %}
+        </div>
       </div>
     </main>
     <hr />
