@@ -30,8 +30,8 @@ class UsersManager( models.Manager ):
         # validate name (raw content)
         if len( postData['name'] ) < 1:
             errors.append( "The name field is empty." )
-        elif not postData['name'].isalpha():
-            errors.append( "The name field can only contain letters." )
+        # elif not postData['name'].isalpha():
+        #     errors.append( "The name field can only contain letters." )
 
         # validate alias (raw content)
         if len( postData['alias'] ) < 1:
