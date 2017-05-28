@@ -3,3 +3,4 @@ Python/venvs
 *.pyc
 db.sqlite3*
 *.zip
+COMMIT_MSG*
