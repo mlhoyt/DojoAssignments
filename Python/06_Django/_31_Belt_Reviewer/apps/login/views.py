@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .models import Users
 
+# render
 def index( request ):
     if 'login_id' in request.session:
         return redirect( "book_reviews:index" )
     else:
         return render( request, "login/index.html" )
 
+# action
 def register( request ):
     if request.method == "POST":
         db_result = Users.objects.register( request.POST )
@@ -27,6 +29,7 @@ def register( request ):
     else:
         return redirect( reverse( "login:index" ) )
 
+# action
 def login( request ):
     if request.method == "POST":
         db_result = Users.objects.login( request.POST )
@@ -45,9 +48,11 @@ def login( request ):
     else:
         return redirect( reverse( "login:index" ) )
 
+# action
 def logout( request ):
     request.session.clear()
     return redirect( reverse( "login:index" ) )
 
-def catcher( request ):
-    return redirect( reverse( "login:index" ) )
+# # redirect
+# def catcher( request ):
+#     return redirect( reverse( "login:index" ) )
