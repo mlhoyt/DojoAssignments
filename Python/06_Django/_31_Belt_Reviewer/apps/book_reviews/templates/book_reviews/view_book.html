@@ -4,19 +4,8 @@
     <meta charset="utf-8">
     <title>View Book and Reviews</title>
     {% load static %}
-    <!-- JavaScript -- External -->
-<!--
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
--->
-    <!-- JavaScript -- Internal -->
-    <script type="text/javascript" src="{% static 'login/js/action.js' %}" charset="utf-8"></script>
-    <!-- CSS -- External -->
-<!--
-    <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
--->
-    <!-- CSS -- Internal -->
-    <link type="text/css" rel="stylesheet" href="{% static 'login/css/style.css' %}" />
+    {% include 'book_reviews/common/head_js.html' %}
+    {% include 'book_reviews/common/head_css.html' %}
   </head>
   <body>
     <header>
@@ -28,13 +17,13 @@
     <main>
       <h4>{{ book.title }}</h4>
       <p>Author: {{ book.author.name }}</p>
-      <div id="reviews" style="display: inline-block; width: 400px;">
+      <div id="reviews" style="display: inline-block; vertical-align: top; width: 400px;">
         <h3>Reviews:</h3>
         {% for review in book.reviews.all %}
           <div>
             <hr />
             <p>Rating: {{ review.rating }}</p>
-            <p>{{ review.author.alias }} says: {{ review.comments }}</p>
+            <p><a href="{% url 'book_reviews:view_user' id=review.author.id %}">{{ review.author.alias }}</a> says: {{ review.comments }}</p>
             <p>Posted on: {{ review.created_at|date:"F j, Y, g:i A" }}</p>
             {% if review.author.id == request.session.login_id %}
               <a href="{% url 'book_reviews:delete_review' id=review.id %}">delete this review</a>
@@ -42,7 +31,7 @@
           </div>
         {% endfor %}
       </div>
-      <div id="add_review" style="display: inline-block; width: 300px;">
+      <div id="add_review" style="display: inline-block; vertical-align: top; width: 300px;">
         <h3>Add a Review:</h3>
         <div style="width=200px; heigh=200px;">
           <form action="{% url 'book_reviews:add_review' %}" method="POST">
@@ -68,5 +57,6 @@
         </div>
       </div>
     </main>
+    {% include 'book_reviews/common/body_footer.html' %}
   </body>
 </html>

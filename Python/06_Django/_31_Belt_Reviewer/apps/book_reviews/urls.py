@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^books/(?P<id>\d+)$', views.view_book, name="view_book"),
     # render
     url(r'^users/(?P<id>\d+)$', views.view_user, name="view_user"),
+    # render (DEBUG)
+    url(r'^models_view$', views.models_view, name="models_view"),
 
     # action
     url(r'^books/add_review$', views.add_review, name="add_review"),

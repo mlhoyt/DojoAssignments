@@ -9,10 +9,6 @@ def index( request ):
         context = {
             'recent_reviews': Reviews.objects.recent(),
             'all_books': Books.objects.all(),
-            # dbview
-            'all_users': Users.objects.all(),
-            'all_authors': Authors.objects.all(),
-            'all_reviews': Reviews.objects.all(),
         }
         return render( request, "book_reviews/index.html", context )
     else:
@@ -43,8 +39,22 @@ def view_user( request, id ):
     if 'login_id' in request.session:
         context = {
             'user': Users.objects.get( id = id ),
+            'books_reviewed': Books.objects.filter( reviews__author__id = id ).distinct(),
         }
         return render( request, "book_reviews/view_user.html", context )
+    else:
+        return redirect( reverse( 'book_reviews:index' ) )
+
+# render (DEBUG)
+def models_view( request ):
+    if 'login_id' in request.session:
+        context = {
+            'all_users': Users.objects.all(),
+            'all_books': Books.objects.all(),
+            'all_authors': Authors.objects.all(),
+            'all_reviews': Reviews.objects.all(),
+        }
+        return render( request, "book_reviews/models_view.html", context )
     else:
         return redirect( reverse( 'book_reviews:index' ) )
 

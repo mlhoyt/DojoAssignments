@@ -4,19 +4,8 @@
     <meta charset="utf-8">
     <title>User Reviews</title>
     {% load static %}
-    <!-- JavaScript -- External -->
-<!--
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
--->
-    <!-- JavaScript -- Internal -->
-    <script type="text/javascript" src="{% static 'login/js/action.js' %}" charset="utf-8"></script>
-    <!-- CSS -- External -->
-<!--
-    <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
--->
-    <!-- CSS -- Internal -->
-    <link type="text/css" rel="stylesheet" href="{% static 'login/css/style.css' %}" />
+    {% include 'book_reviews/common/head_js.html' %}
+    {% include 'book_reviews/common/head_css.html' %}
   </head>
   <body>
     <header>
@@ -27,6 +16,17 @@
       <a href="{% url 'login:logout' %}">Logout</a>
     </header>
     <main>
+      <p style="font-size: 150%;">User Alias: {{ user.alias }}</p>
+      <p>Name: {{ user.name }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Total Reviews: {{ user.authored_reviews.count }}</p>
+      <p>Posted reviews on the following books:</p>
+      <ul type="none">
+        {% for book in books_reviewed %}
+          <li><a href="{% url 'book_reviews:view_book' id=book.id %}">{{ book.title }}</a></li>
+        {% endfor %}
+      </ul>
     </main>
+    {% include 'book_reviews/common/body_footer.html' %}
   </body>
 </html>
