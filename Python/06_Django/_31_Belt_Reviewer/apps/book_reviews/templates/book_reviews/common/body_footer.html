@@ -1,0 +1,5 @@
+<!-- DEBUG -->
+{% if request.META.HTTP_HOST == "localhost:8000" %}
+  <hr />
+  <a href="{% url 'book_reviews:models_view' %}">View Models</a>
+{% endif %}
