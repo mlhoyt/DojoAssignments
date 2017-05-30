@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class ModelsViewMixin():
+class ModelsViewMixin( object ):
     def toHTMLTableTHeadRow( self ):
         rv = []
         rv.append( '<tr>' )
