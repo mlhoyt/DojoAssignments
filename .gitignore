@@ -6,3 +6,4 @@ db.sqlite3*
 COMMIT_MSG*
 MEAN/bower_components
 MEAN/node_modules
+node_modules
