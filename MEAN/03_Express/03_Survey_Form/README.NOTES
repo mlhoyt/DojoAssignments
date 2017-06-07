@@ -1,0 +1,24 @@
+# -*- text -*-
+
+[x] mkdir <PROJECT_DIR>
+[x] cd <PROJECT_DIR>
+
+[x] npm init -y
+[x] npm install express --save
+[x] npm install ejs --save
+[x] npm install body-parser --save
+
+[x] touch server.js
+
+[x] mkdir views
+[x] touch views/index.ejs
+[x] touch views/results.ejs
+
+[x] mkdir static
+[x] mkdir static/css
+[x] touch static/css/style.css
+
+[x] EDIT server.js
+[ ] EDIT views/index.ejs
+[ ] EDIT views/results.ejs
+

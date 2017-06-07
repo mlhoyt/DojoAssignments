@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - Express - Survey Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div id="form_results">
+      <div>
+        <h3>Submitted Information:</h3>
+      </div>
+      <div>
+        <label class="form_result">Name:</label>
+        <%= name %>
+      </div>
+      <div>
+        <label class="form_result">Dojo Location:</label>
+        <%= location %>
+      </div>
+      <div>
+        <label class="form_result">Favorite Language:</label>
+        <%= language %>
+      </div>
+      <div>
+        <label class="form_result">Comment:</label>
+        <textarea class="form_result" readonly="1"><%= comment %></textarea>
+      </div>
+      <div>
+        <a href="/"><button class="form_result btn">Go Back</button></a>
+      </div>
+    </div>
+  </body>
+</html>

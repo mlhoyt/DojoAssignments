@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - Express - Survey Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <form class="" action="/results" method="post">
+      <div id="form_container">
+        <div>
+          <label for="name">Your Name:</label>
+          <input type="text" name="name" placeholder="Enter your name" value="" />
+        </div>
+        <div>
+          <label for="location">Dojo Location:</label>
+          <select name="location">
+            <option selected disabled value="NULL">Choose location</option>
+            <% for( let i = 0; i < all_locations.length; ++i ) { %>
+              <option value="<%= all_locations[i] %>"><%= all_locations[i] %></option>
+            <% } %>
+          </select>
+        </div>
+        <div>
+          <label for="language">Favorite Langauge:</label>
+          <select name="language">
+            <option selected disabled value="NULL">Choose lanaguage</option>
+            <% for( let i = 0; i < all_languages.length; ++i ) { %>
+              <option value="<%= all_languages[i] %>"><%= all_languages[i] %></option>
+            <% } %>
+          </select>
+        </div>
+        <div>
+          <label for="comment" id="comment">Comment (optional):</label>
+          <textarea name="comment"></textarea>
+        </div>
+        <div>
+          <input type="submit" value="submit" id="submit" class="btn" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
