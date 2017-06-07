@@ -4,3 +4,5 @@ Python/venvs
 db.sqlite3*
 *.zip
 COMMIT_MSG*
+MEAN/bower_components
+MEAN/node_modules
