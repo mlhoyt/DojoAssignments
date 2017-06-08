@@ -1,0 +1,23 @@
+<html>
+<head>
+<title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function (){
+        var socket = io.connect();
+
+        $('button').click(function (){
+          socket.emit("button_clicked", {reason: "because I want to learn about sockets!"});
+        });
+        socket.on('server_response', function (data){
+            console.log('The server says: ' + data.response);
+        });
+      })
+    </script>
+</head>
+<body>
+    <button>I AM A BUTTON!</button>
+    <!-- web page goes here -->
+</body>
+</html>

@@ -3,7 +3,6 @@ Python/venvs
 *.pyc
 db.sqlite3*
 *.zip
-COMMIT_MSG*
-MEAN/bower_components
-MEAN/node_modules
+bower_components
 node_modules
+COMMIT_MSG*
