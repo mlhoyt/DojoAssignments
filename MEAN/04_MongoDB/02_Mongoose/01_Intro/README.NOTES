@@ -1,0 +1,16 @@
+# -*- text -*-
+
+npm init -y
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+
+mkdir static
+
+mkdir views
+touch views/index.ejs
+EDIT views/index.ejs
+
+touch server.js
+EDIT server.js

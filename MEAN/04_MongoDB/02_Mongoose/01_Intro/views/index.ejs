@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 01_Intro</title>
+  </head>
+  <body>
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% console.log( all_users ); %>
+          <% for( let i = 0; i < all_users.length; ++i ) { %>
+            <tr>
+              <td><%= all_users[i].name %></td>
+              <td><%= all_users[i].age %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <form class="" action="/users" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter a name" />
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter an age" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
