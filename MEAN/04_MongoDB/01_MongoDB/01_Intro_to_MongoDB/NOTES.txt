@@ -1,0 +1,281 @@
+# -*- text -*-
+
+STATES = [
+  "WA",
+  "CA",
+  "TX",
+  "IL",
+  "OK",
+  "MD"
+]
+
+function getRandomState() { return( STATES[ Math.floor( Math.random() * STATES.length ) ] ); }
+
+INTERESTS = [
+  "Archery",
+  "Baseball",
+  "Fishing",
+  "Golf",
+  "Hiking",
+  "Shooting",
+  "Soccer",
+  "Volleyball",
+  "Wrestling"
+]
+
+function getRandomInterest() { return( INTERESTS[ Math.floor( Math.random() * INTERESTS.length ) ] ); }
+
+NAMES = [
+  "Alpha",
+  "Bravo",
+  "Charlie",
+  "Delta",
+  "Echo",
+  "Foxtrot",
+  "Golf",
+  "Hotel",
+  "India",
+  "Juliett",
+]
+
+function getRandomName() { return( NAMES[ Math.floor( Math.random() * NAMES.length ) ] ); }
+
+function getRandomLuckyNumber() { return( 1 + Math.floor( Math.random() * 100 ) ); }
+function getRandomYear() { return( 1970 + Math.floor( Math.random() * 46 ) ); }
+function getRandomMonth() { return( 1 + Math.floor( Math.random() * 12 ) ); }
+function getRandomDay() { return( 1 + Math.floor( Math.random() * 28 ) ); }
+
+function addRandomStudent() {
+  db.students.insert({
+    name: (getRandomName() + " " + getRandomName()),
+    home_state: getRandomState(),
+    lucky_number: getRandomLuckyNumber(),
+    birthday: {
+      year: getRandomYear(),
+      month: getRandomMonth(),
+      day: getRandomDay()
+    }
+  })
+}
+
+######################################################################
+
+show dbs
+...
+
+######################################################################
+1. Create a database called 'my_first_db'.
+######################################################################
+
+> use my_first_db
+switched to db my_first_db
+
+> db
+my_first_db
+
+######################################################################
+2. Create students collection.
+######################################################################
+
+> db.createCollection( "students" )
+...
+> show collections
+students
+
+######################################################################
+3. Each document you insert into this collection should have the following format:
+  {
+    name: STRING,
+    home_state: STRING,
+    lucky_number: NUMBER,
+    birthday: {
+      year: NUMBER,
+      month: NUMBER,
+      day: NUMBER
+    }
+  }
+######################################################################
+
+######################################################################
+4. Create 5 students with the appropriate info.
+######################################################################
+
+db.students.insert({
+  name: "Alpha Bravo",
+  home_state: "WA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+db.students.insert({
+  name: "Charlie Delta",
+  home_state: "WA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+db.students.insert({
+  name: "Echo Foxtrot",
+  home_state: "WA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+db.students.insert({
+  name: "Golf Hotel",
+  home_state: "WA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+db.students.insert({
+  name: "India Juliett",
+  home_state: "WA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+
+######################################################################
+5. Get all students.
+######################################################################
+
+db.students.find().pretty()
+
+######################################################################
+6. Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).
+######################################################################
+
+db.students.find( {$or: [ {home_state: {$eq: "CA"}}, {home_state: {$eq: "WA"}} ] } )
+
+db.students.find( { home_state: {$in: ["CA", "WA"]} } )
+
+db.students.find( { home_state: {$in: ["CA"]} } )
+
+######################################################################
+7.a. Get all students whose lucky number is... greater than 3
+######################################################################
+
+db.students.find( {lucky_number: {$gt: 10}} )
+
+######################################################################
+7.b. Get all students whose lucky number is...  less than or equal to 10
+######################################################################
+
+db.students.find( {lucky_number: {$lte: 10}} )
+
+######################################################################
+7.c. Get all students whose lucky number is...  between 1 and 9 (inclusive)
+######################################################################
+
+db.students.find( {$and: [ {lucky_number: {$gte: 1}}, {lucky_number: {$lte: 9}} ] } )
+
+db.students.find( {$and: [ {lucky_number: {$gte: 1}}, {lucky_number: {$lte: 10}} ] } )
+
+######################################################################
+8. Add a field to each student collection called 'interests' that is an ARRAY.
+   ** It should contain the following entries: 'coding', 'brunch', 'MongoDB'.
+   ** Do this in ONE operation.
+######################################################################
+
+db.students.updateMany( {}, {$set: {interests: ["coding", "brunch", "MongoDB"]}} )
+
+######################################################################
+9. Add some unique interests for each particular students into each of their interest arrays.
+######################################################################
+
+db.students.find().forEach( function( doc ) {
+  db.students.update( {_id: doc._id}, {$push: {interests: getRandomInterest()}} )
+})
+
+######################################################################
+10. Add the interest 'taxes' into someone's interest array.
+######################################################################
+
+n = Math.floor( Math.random() * db.students.find().length() )
+doc_n = db.students.find()[n]
+db.students.update( {_id: doc_n._id}, {$addToSet: {interests: "taxes"}} )
+
+######################################################################
+11. Remove the 'taxes' interest you just added.
+######################################################################
+
+db.students.update( {_id: doc_n._id}, {$pull: {interests: "taxes"}} )
+
+######################################################################
+12. Remove all students who are from California (or Washington).
+######################################################################
+
+db.students.insert({
+  name: "Kilo Lima",
+  home_state: "CA",
+  lucky_number: ( 1 + Math.floor( Math.random() * 100 ) ),
+  birthday: {
+    year: ( 1970 + Math.floor( Math.random() * 46 ) ),
+    month: ( Math.floor( Math.random() * 12 ) ),
+    day: ( Math.floor( Math.random() * 28 ) )
+  }
+})
+
+db.students.remove( {home_state: "CA"} )
+
+######################################################################
+13. Remove a user by name. 
+######################################################################
+
+db.students.remove( {name: "Alpha Bravo"} )
+
+######################################################################
+14. Remove a student whose lucky number is greater than 5 (JUST ONE)
+######################################################################
+
+db.students.remove( {lucky_number: {$gt: 5}}, true )
+
+######################################################################
+15. Add a field to each student collection called 'number_of_belts' and set it to 0.
+######################################################################
+
+db.students.updateMany( {}, {$set: {number_of_belts: 0} } )
+
+######################################################################
+16. Increment this field by 1 for all students in Washington (Seattle Dojo).
+######################################################################
+
+db.students.find().forEach( function( doc ) {
+  let num_belts = doc.number_of_belts + 1;
+  db.students.update( {_id: doc._id}, {$set: {number_of_belts: num_belts}} );
+})
+
+######################################################################
+17. Rename the 'number_of_belts' field to 'belts_earned'
+######################################################################
+
+db.students.updateMany( {}, {$rename: { number_of_belts: "belts_earned" }} )
+
+######################################################################
+18. Remove the 'lucky_number' field.
+######################################################################
+
+db.students.updateMany( {}, {$unset: { lucky_number: "" }} )
+
+######################################################################
+19. Add a 'updated_on' field, and set the value as the current date.
+######################################################################
+
+db.students.updateMany( {}, {$currentDate: {updated_on: { $type: "timestamp" }}} )
+
