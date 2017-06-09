@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>MEAN - 04_MongoDB - 02_Mongoose - 03_Dashboard</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+    <script src="/js/action.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
@@ -30,7 +32,7 @@
               <td>
                 <button onclick="location.href='/animals/<%= all_animals[ i ]._id %>'" type="button" class="btn" type="button">view</button>
                 <button onclick="location.href='#'" type="button" class="btn" type="button">edit</button>
-                <button onclick="location.href='#'" type="button" class="btn" type="button">delete</button>
+                <button data-id="<%= all_animals[ i ]._id %>" type="button" type="button" class="btn delete_btn">delete</button>
               </td>
             </tr>
           <% } %>

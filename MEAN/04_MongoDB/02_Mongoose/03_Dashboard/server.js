@@ -48,7 +48,7 @@ mongoose.model('Animal', AnimalSchema);
 var Animal = mongoose.model( 'Animal' );
 
 // ---------- MVC:CONTROLLER (Routing)
-// VIEW_ALL
+// CRUD:READ -- ALL
 app.get('/', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url ); // DEBUG
   Animal.find({}).sort('-createdAt').exec( function(err, all_animals) {
@@ -56,19 +56,20 @@ app.get('/', function(req, res) {
   });
 });
 
-// CREATE_VIEW
+// CRUD:CREATE -- VIEW
 app.get('/animals/new', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url ); // DEBUG
   res.render( 'create', { ANIMAL_TYPES: ANIMAL_TYPES } );
 });
 
-// CREATE_ACTION
+// CRUD:CREATE -- ACTION
 app.post('/animals/create', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url, req.body ); // DEBUG
   let animal = new Animal( req.body );
   animal.save( function( err ) {
     if( err ) {
       // TODO: Should re-render /animals/create with error messages and previous form data
+      // Example: res.render( '<VIEW>', { ..., errors: quote.errors } );
       for( let error in animal.errors ) {
         console.log( err.message );
       }
@@ -76,12 +77,12 @@ app.post('/animals/create', function(req, res) {
     }
     else {
       console.log( "Server: ACTION: POST /animals/create:", animal._id ); // DEBUG
-      res.redirect( '/animals/<%= animal._id %>' );
+      res.redirect( "/animals/" + animal._id );
     }
   });
 });
 
-// VIEW_ONE
+// CRUD:READ -- ONE
 app.get('/animals/:id', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
   Animal.find({ _id: req.params.id }, function(err, animal) {
@@ -89,23 +90,14 @@ app.get('/animals/:id', function(req, res) {
   });
 });
 
-// app.post('/quotes', function(req, res) {
-//   var quote = new Quote( req.body );
-//   quote.save(function(err) {
-//     if( err ) {
-//       res.render( 'index', { errors: quote.errors } );
-//     } else {
-//       res.redirect( '/quotes' );
-//     }
-//   })
-// });
-//
-// app.get('/quotes', function(req, res) {
-//   Quote.find({}).sort('-createdAt').exec( function(err, all_quotes) {
-//     if (err) throw err;
-//     res.render( 'quotes', { "all_quotes": all_quotes, moment: moment } );
-//   });
-// });
+// CRUD:DELETE -- ONE ACTION
+app.post('/animals/delete/:id', function(req, res) {
+  console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
+  Animal.remove({ _id: req.params.id }, function( err ) {
+    if( err ) throw err;
+    res.redirect( '/' );
+  });
+});
 
 // ---------- WEB SERVER
 app.listen( WEB_SERVER_PORT, function() {
