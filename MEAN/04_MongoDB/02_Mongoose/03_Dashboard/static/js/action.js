@@ -14,5 +14,12 @@ $.extend({
 $(document).ready( function() {
   $(".delete_btn").click( function(){
     $.redirectPost( "/animals/delete/" + $(this).data( "id" ), {} );
+    // $.post({
+    //   url: "animals/delete/" + $(this).data( "id" ),
+    //   success: function() {
+    //     // In theory should pull the DB data and refresh the data
+    //     // ... or somehow force the browser to refesh???
+    //   }
+    // });
   });
 });
