@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 02_Mongoose - 02-Quoting_Dojo_Redux</title>
+    <style>
+      .flash { color: red; }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Quoting Dojo</h1>
+    <div id="for_errors">
+      <% if( typeof(errors) != "undefined" ) { %>
+        <% for( var x in errors ) { %>
+          <p class="flash"><%= errors[x].message %></p>
+        <% } %>
+      <% } %>
+    </div>
+    <form class="" action="/quotes" method="post">
+      <div>
+        <label for="user">Your Name:</label>
+        <input type="text" name="user" placeholder="Enter name" />
+      </div>
+      <div>
+        <label for="message">Your Quote:</label>
+        <textarea name="message" placeholder="Enter commet"></textarea>
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+    <a href="/quotes"><button id="to_quotes">Skip to Quotes</button></a>
+  </body>
+</html>

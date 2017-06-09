@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 02_Mongoose - 02-Quoting_Dojo_Redux</title>
+  </head>
+  <body>
+    <h1>Here are some awesome quotes</h1>
+    <div id="for_errors">
+      <% for( var i in all_quotes ) { %>
+          <p>"<%= all_quotes[i].message %>"</p>
+          <p><%= all_quotes[i].user %> at <%= moment( all_quotes[i].createdAt ).format( "h:mm a MMMM Do, YYYY" ) %></p>
+          <% if( i < all_quotes.length - 1 ) { %>
+            <hr />
+          <% } %>
+      <% } %>
+    </div>
+    <a href="/"><button>Back to Home</button></a>
+  </body>
+</html>
