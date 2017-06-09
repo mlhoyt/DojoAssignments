@@ -75,8 +75,8 @@ app.post('/animals/create', function(req, res) {
       res.redirect( '/' );
     }
     else {
-      console.log( "Server: ACTION: POST /animals/create:", animal._id );
-      res.redirect( '/' ); // TODO: Should redirect to VIEW_ONE of _id
+      console.log( "Server: ACTION: POST /animals/create:", animal._id ); // DEBUG
+      res.redirect( '/animals/<%= animal._id %>' );
     }
   });
 });
@@ -84,8 +84,8 @@ app.post('/animals/create', function(req, res) {
 // VIEW_ONE
 app.get('/animals/:id', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
-  Animal.find({ _id: req.params._id })( function(err, animal) {
-    res.render( 'view', {animal: animal} );
+  Animal.find({ _id: req.params.id }, function(err, animal) {
+    res.render( 'view', { animal: animal[0] } );
   });
 });
 
@@ -109,5 +109,5 @@ app.get('/animals/:id', function(req, res) {
 
 // ---------- WEB SERVER
 app.listen( WEB_SERVER_PORT, function() {
-    console.log( "Server listening on port ", WEB_SERVER_PORT );
+    console.log( "Server listening on port ", WEB_SERVER_PORT ); // INFO
 });
