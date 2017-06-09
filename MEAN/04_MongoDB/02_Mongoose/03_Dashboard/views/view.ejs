@@ -26,7 +26,7 @@
       </tbody>
     </table>
     <button onclick="location.href='/'" class="btn" type="button">Dashboard</button>
-    <button onclick="location.href='#'" class="btn" type="button">Edit</button>
+    <button onclick="location.href='/animals/edit/<%= animal._id %>'" class="btn" type="button">Edit</button>
     <button data-id="<%= animal._id %>" class="btn delete_btn" type="button">Delete</button>
   </body>
 </html>

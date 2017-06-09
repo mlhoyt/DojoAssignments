@@ -31,7 +31,7 @@
               <td><%= all_animals[ i ].age %></td>
               <td>
                 <button onclick="location.href='/animals/<%= all_animals[ i ]._id %>'" type="button" class="btn" type="button">view</button>
-                <button onclick="location.href='#'" type="button" class="btn" type="button">edit</button>
+                <button onclick="location.href='/animals/edit/<%= all_animals[ i ]._id %>'" type="button" class="btn" type="button">edit</button>
                 <button data-id="<%= all_animals[ i ]._id %>" type="button" type="button" class="btn delete_btn">delete</button>
               </td>
             </tr>

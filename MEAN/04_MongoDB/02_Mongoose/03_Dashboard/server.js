@@ -90,6 +90,28 @@ app.get('/animals/:id', function(req, res) {
   });
 });
 
+// CRUD:UPDATE -- VIEW
+app.get('/animals/edit/:id', function(req, res) {
+  console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
+  Animal.find({ _id: req.params.id }, function(err, animal) {
+    res.render( 'edit', { animal: animal[0], ANIMAL_TYPES: ANIMAL_TYPES } );
+  });
+});
+
+// CRUD:UPDATE -- ACTION
+app.post('/animals/update/:id', function(req, res) {
+  console.log( "Server: RECEIVED route:", req.method, req.url, req.params, req.body ); // DEBUG
+  Animal.find({ _id: req.params.id }, function( err, animal ) {
+    animal[0].type = req.body.type;
+    animal[0].name = req.body.name;
+    animal[0].age = req.body.age;
+    animal[0].save( function( err ) {
+      if( err ) throw err;
+      res.redirect( "/animals/" + animal[0]._id );
+    });
+  });
+});
+
 // CRUD:DELETE -- ONE ACTION
 app.post('/animals/delete/:id', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
