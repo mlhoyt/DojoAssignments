@@ -1,0 +1,27 @@
+# -*- text -*-
+
+npm init -y
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+
+touch server.js
+vi server.js 
+
+mkdir views
+touch views/index.ejs
+touch views/...
+
+mkdir static
+mkdir static/css
+touch static/css/style.css
+mkdir static/js
+touch static/js/action.js
+
+mongod --dbpath ~/Desktop/DojoMisc/MEAN/mongodb/data/db
+nodemon server.js 
+open http://localhost:8000
+
+git add .
+git commit -m "Added ..."

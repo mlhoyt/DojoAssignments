@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 04_Message_Board</title>
+    <style media="screen">
+      .post {
+        margin-left: 2rem;
+      }
+      .comment {
+        margin-left: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Dojo Message Board</h1>
+    <hr />
+    <form class="" action="/posts/create" method="post">
+      <label for="name" style="display: block;">Name:</label>
+      <input type="text" name="name" placeholder="Enter name" value="" style="display: block;" />
+      <label for="text" style="display: block;">Message:</label>
+      <textarea name="text" placeholder="Enter message" style="display: block;"></textarea>
+      <input type="submit" value="Add Message" style="display: block;" />
+    </form>
+    <% for( let i = 0; i < all_posts.length; ++i ) { %>
+      <div class="post">
+        <p><strong>Name:</strong> <%= all_posts[ i ].name %></p>
+        <p><strong>Message:</strong> <%= all_posts[ i ].text %></p>
+        <% for( let j = 0; j < all_posts[ i ]._comments.length; ++j ) { %>
+          <div class="comment">
+            <p><strong>Name:</strong> <%= all_posts[ i ]._comments[ j ].name %></p>
+            <p><strong>Comment:</strong> <%= all_posts[ i ]._comments[ j ].text %></p>
+          </div>
+        <% } %>
+        <form class="comment" action="/comments/create/<%= all_posts[ i ]._id %>" method="post">
+          <label for="name" style="display: block;">Name:</label>
+          <input type="text" name="name" placeholder="Enter name" value="" style="display: block;" />
+          <label for="text" style="display: block;">Comment:</label>
+          <textarea name="text" placeholder="Enter comment" style="display: block;"></textarea>
+          <input type="submit" value="Add Comment" style="display: block;" />
+        </form>
+      </div>
+    <% } %>
+  </body>
+</html>
