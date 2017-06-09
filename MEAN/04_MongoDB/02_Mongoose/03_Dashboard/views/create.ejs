@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 03_Dashboard</title>
+  </head>
+  <body>
+    <h1>Animal Creator</h1>
+    <form class="" action="/animals/create" method="post">
+      <div class="">
+        <label for="type">Type:</label>
+        <select class="" name="type">
+          <option selected disabled value="NULL">Choose a type</option>
+          <% for( let i = 0; i < ANIMAL_TYPES.length; ++i ) { %>
+            <option value="<%= ANIMAL_TYPES[ i ] %>"><%= ANIMAL_TYPES[ i ] %></option>
+          <% } %>
+        </select>
+      </div>
+      <div class="">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Enter name" value=""></input>
+      </div>
+      <div class="">
+        <label for="age">Age:</label>
+        <input type="text" name="age" placeholder="Enter age (> 0)" value=""></input>
+      </div>
+      <div class="">
+        <input type="submit" name="submit" value="Submit">
+        <div class="btn"><a href="/">Cancel</a></div>
+      </div>
+    </form>
+  </body>
+</html>

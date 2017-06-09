@@ -1,0 +1,24 @@
+/* -*- css -*- */
+
+/* TODO: Add minimal reset * { margin: 0 auto; padding: 0; } */
+
+.btn {
+  display: inline-block;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  box-shadow: 10px 10px 5 black;
+  background-color: rgb( 128, 128, 128 );
+}
+
+.btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn a:link {
+  color: black;
+}
+
+.btn a:visited {
+  color: black;
+}
