@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 03_Dashboard</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+    <script src="/js/action.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <h1>Animal Viewer</h1>
+    <table border="1">
+      <tbody>
+        <tr>
+          <th>Type</th>
+          <td><%= animal.type %></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td><%= animal.name %></td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td><%= animal.age %></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="location.href='/'" class="btn" type="button">Dashboard</button>
+    <button onclick="location.href='/animals/edit/<%= animal._id %>'" class="btn" type="button">Edit</button>
+    <button data-id="<%= animal._id %>" class="btn delete_btn" type="button">Delete</button>
+  </body>
+</html>

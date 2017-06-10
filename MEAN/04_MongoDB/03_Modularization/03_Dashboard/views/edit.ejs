@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 03_Dashboard</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+    <script src="/js/action.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <h1>Animal Editor</h1>
+    <form class="" action="/animals/update/<%= animal._id %>" method="post">
+      <div class="">
+        <label for="type">Type:</label>
+        <select class="" name="type">
+          <% for( let i = 0; i < ANIMAL_TYPES.length; ++i ) { %>
+            <% if( ANIMAL_TYPES[ i ] === animal.type ) { %>
+              <option selected value="<%= ANIMAL_TYPES[ i ] %>"><%= ANIMAL_TYPES[ i ] %></option>
+            <% } else { %>
+              <option value="<%= ANIMAL_TYPES[ i ] %>"><%= ANIMAL_TYPES[ i ] %></option>
+            <% } %>
+          <% } %>
+        </select>
+      </div>
+      <div class="">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Enter name" value="<%= animal.name %>"></input>
+      </div>
+      <div class="">
+        <label for="age">Age:</label>
+        <input type="text" name="age" placeholder="Enter age (> 0)" value="<%= animal.age %>"></input>
+      </div>
+      <div class="">
+        <input type="submit" name="submit" value="Submit" />
+        <button onclick="location.href='/'" class="btn" type="button">Cancel</button>
+      </div>
+    </form>
+  </body>
+</html>

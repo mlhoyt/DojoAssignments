@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN - 04_MongoDB - 02_Mongoose - 03_Dashboard</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js" charset="utf-8"></script>
+    <script src="/js/action.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <h1>Animals Dashboard</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if( all_animals.length == 0 ) { %>
+          <tr>
+            <td colspan="4">*** No animals added yet ***</td>
+          </tr>
+        <% } else { %>
+          <% for( let i = 0; i < all_animals.length; ++i ) { %>
+            <tr>
+              <td><%= all_animals[ i ].type %></td>
+              <td><%= all_animals[ i ].name %></td>
+              <td><%= all_animals[ i ].age %></td>
+              <td>
+                <button onclick="location.href='/animals/<%= all_animals[ i ]._id %>'" type="button" class="btn" type="button">view</button>
+                <button onclick="location.href='/animals/edit/<%= all_animals[ i ]._id %>'" type="button" class="btn" type="button">edit</button>
+                <button data-id="<%= all_animals[ i ]._id %>" type="button" type="button" class="btn delete_btn">delete</button>
+              </td>
+            </tr>
+          <% } %>
+        <% } %>
+      </tbody>
+    </table>
+    <button onclick="location.href='/animals/new'" class="btn">Add Animal</button>
+  </body>
+</html>
