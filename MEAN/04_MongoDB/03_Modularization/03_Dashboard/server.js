@@ -11,10 +11,10 @@ let app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, './static')));
+app.use(express.static(path.join(__dirname, './client/static')));
 // app.use(express.static(path.join(__dirname, './node_modules')));
 
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
 // ---------- MVC:MODEL (DB (MongoDB) SERVER CONNECTION)
