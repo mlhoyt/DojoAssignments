@@ -1,0 +1,56 @@
+# -*- shell -*-
+
+npm init -y
+npm install express --save
+# npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+######################################################################
+touch server.js
+# UPDATE server.js (specifically "globals" object contents)
+######################################################################
+mkdir -p server/config
+cat > server/config/routes.js << EOHI
+// -*- javascript -*-
+module.exports = function( global ) {
+};
+EOHI
+######################################################################
+cat > server/config/models.js << EOHI
+// -*- javascript -*-
+module.exports = function( global ) {
+};
+EOHI
+######################################################################
+cat > server/config/views.js << EOHI
+// -*- javascript -*-
+module.exports = function( global ) {
+};
+EOHI
+mkdir -p server/models
+mkdir -p server/controllers
+######################################################################
+# Testing
+######################################################################
+mongod --dbpath ~/Desktop/DojoMisc/MEAN/mongodb/data/db
+nodemon server.js
+curl http://localhost:8000
+######################################################################
+# UPDATE server/config/models.js
+# CREATE server/models/*.js
+######################################################################
+# Testing
+######################################################################
+mongod --dbpath ~/Desktop/DojoMisc/MEAN/mongodb/data/db
+nodemon server.js
+curl http://localhost:8000
+######################################################################
+# UPDATE server/config/routes.js
+# CREATE server/controllers/*.js
+######################################################################
+# Testing
+######################################################################
+mongod --dbpath ~/Desktop/DojoMisc/MEAN/mongodb/data/db
+nodemon server.js
+curl http://localhost:8000
+######################################################################

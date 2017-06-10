@@ -1,0 +1,45 @@
+# -*- text -*-
+
+echo "show_all:"
+curl http://localhost:8000/
+echo ""
+
+echo "create:"
+# curl http://localhost:8000/new/Bill%20Gates?birthday=1955-10-28
+# curl http://localhost:8000/new/Steve%20Jobs?birthday=1955-02-24
+# curl http://localhost:8000/new/Bill%20Nye?birthday=1955-11-27
+# curl http://localhost:8000/new/Gilbert%20Gottfried?birthday=1955-02-28
+# curl http://localhost:8000/new/Charles%20Martinet?birthday=1955-09-17
+curl http://localhost:8000/new/Yo-Yo%20Ma?birthday=1955-10-07
+# curl http://localhost:8000/new/Gary%20Sinise?birthday=1955-03-17
+# curl http://localhost:8000/new/Tim%20Berners-Lee?birthday=1955-06-08
+echo ""
+
+echo "show_one: exists"
+curl http://localhost:8000/Steve%20Jobs
+echo ""
+
+echo "show_one: NOT exists"
+curl http://localhost:8000/Jimmy%20Buffett
+echo ""
+
+echo "show_one: exists"
+curl http://localhost:8000/Yo-Yo%20Ma
+echo ""
+echo "remove: exists"
+curl http://localhost:8000/remove/Yo-Yo%20Ma
+echo ""
+echo "show_one: NOT exists"
+curl http://localhost:8000/Yo-Yo%20Ma
+echo ""
+
+echo "show_one: NOT exists"
+curl http://localhost:8000/Jimmy%20Buffett
+echo ""
+echo "remove: NOT exists"
+curl http://localhost:8000/remove/Jimmy%20Buffett
+echo ""
+echo "show_one: NOT exists"
+curl http://localhost:8000/Jimmy%20Buffett
+echo ""
+

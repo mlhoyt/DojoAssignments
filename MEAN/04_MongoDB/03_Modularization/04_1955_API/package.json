@@ -1,0 +1,17 @@
+{
+  "name": "04_1955_API",
+  "version": "1.0.0",
+  "description": "npm init -y npm install express --save # npm install ejs --save npm install body-parser --save npm install mongoose --save",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.5"
+  }
+}
