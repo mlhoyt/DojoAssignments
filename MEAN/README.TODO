@@ -1,0 +1,5 @@
+# -*- text -*-
+
+MEAN/04_MongoDB/03_Modularization/04_1955_API:
+  - Build a simple HTML front end that is served by an alternate Node server
+  - Write an AJAX call to retrieve your list of names from your 1955 API
