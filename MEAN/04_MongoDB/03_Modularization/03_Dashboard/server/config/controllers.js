@@ -5,11 +5,11 @@ let bodyParser = require('body-parser');
 var mongoose = require( 'mongoose' );
 var Animal = mongoose.model( 'Animal' );
 
-module.exports = function( app, ANIMAL_TYPES ) {
-  app.use(bodyParser.urlencoded({ extended: true }));
+module.exports = function( globals ) {
+  globals.app.use(bodyParser.urlencoded({ extended: true }));
 
   // CRUD:READ -- ALL
-  app.get('/', function(req, res) {
+  globals.app.get('/', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url ); // DEBUG
     Animal.find({}).sort('-createdAt').exec( function(err, all_animals) {
       res.render( 'index', {all_animals: all_animals} );
@@ -17,13 +17,13 @@ module.exports = function( app, ANIMAL_TYPES ) {
   });
 
   // CRUD:CREATE -- VIEW
-  app.get('/animals/new', function(req, res) {
+  globals.app.get('/animals/new', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url ); // DEBUG
-    res.render( 'create', { ANIMAL_TYPES: ANIMAL_TYPES } );
+    res.render( 'create', globals );
   });
 
   // CRUD:CREATE -- ACTION
-  app.post('/animals/create', function(req, res) {
+  globals.app.post('/animals/create', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url, req.body ); // DEBUG
     let animal = new Animal( req.body );
     animal.save( function( err ) {
@@ -43,7 +43,7 @@ module.exports = function( app, ANIMAL_TYPES ) {
   });
 
   // CRUD:READ -- ONE
-  app.get('/animals/:id', function(req, res) {
+  globals.app.get('/animals/:id', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
     Animal.find({ _id: req.params.id }, function(err, animal) {
       res.render( 'view', { animal: animal[0] } );
@@ -51,15 +51,15 @@ module.exports = function( app, ANIMAL_TYPES ) {
   });
 
   // CRUD:UPDATE -- VIEW
-  app.get('/animals/edit/:id', function(req, res) {
+  globals.app.get('/animals/edit/:id', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
     Animal.find({ _id: req.params.id }, function(err, animal) {
-      res.render( 'edit', { animal: animal[0], ANIMAL_TYPES: ANIMAL_TYPES } );
+      res.render( 'edit', { animal: animal[0], ANIMAL_TYPES: globals.ANIMAL_TYPES } );
     });
   });
 
   // CRUD:UPDATE -- ACTION
-  app.post('/animals/update/:id', function(req, res) {
+  globals.app.post('/animals/update/:id', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url, req.params, req.body ); // DEBUG
     Animal.find({ _id: req.params.id }, function( err, animal ) {
       animal[0].type = req.body.type;
@@ -73,7 +73,7 @@ module.exports = function( app, ANIMAL_TYPES ) {
   });
 
   // CRUD:DELETE -- ONE ACTION
-  app.post('/animals/delete/:id', function(req, res) {
+  globals.app.post('/animals/delete/:id', function(req, res) {
     console.log( "Server: RECEIVED route:", req.method, req.url, req.params ); // DEBUG
     Animal.remove({ _id: req.params.id }, function( err ) {
       if( err ) throw err;
