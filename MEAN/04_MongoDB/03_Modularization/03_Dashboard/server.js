@@ -11,15 +11,8 @@ let app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require( "./server/config/views.js" )( app );
-
-// ---------- MVC:MODEL (DB (MongoDB) SERVER CONNECTION)
-var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-
-mongoose.connect('mongodb://localhost/animals_dashboard');
-
-var ANIMAL_TYPES = [
+// GLOBALS
+const ANIMAL_TYPES = [
   'Wolf',
   'Coyote',
   'Elk',
@@ -30,20 +23,16 @@ var ANIMAL_TYPES = [
   'Grouse',
 ];
 
-var AnimalSchema = new mongoose.Schema(
-  {
-    type: { type: String, required: true, enum: ANIMAL_TYPES },
-    name: { type: String, required: true, minlength: 3 },
-    age: { type: Number, required: true, min: 1 },
-  },
-  { timestamps: true }
-);
+// MVC:VIEWS
+require( "./server/config/views.js" )( app );
 
-mongoose.model('Animal', AnimalSchema);
-
-var Animal = mongoose.model( 'Animal' );
+// MVC:MODELS
+require( "./server/config/models.js" )( { ANIMAL_TYPES: ANIMAL_TYPES } );
 
 // ---------- MVC:CONTROLLER (Routing)
+var mongoose = require( 'mongoose' );
+var Animal = mongoose.model( 'Animal' );
+
 // CRUD:READ -- ALL
 app.get('/', function(req, res) {
   console.log( "Server: RECEIVED route:", req.method, req.url ); // DEBUG
