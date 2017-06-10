@@ -5,13 +5,7 @@ var path = require("path");
 var app = express();
 // require bodyParser since we need to handle post data for adding a user
 var bodyParser = require("body-parser");
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/quotes');
-var QuoteSchema = new mongoose.Schema({
-  name: String,
-  quote: String
-})
-var Quote = mongoose.model('Quote', QuoteSchema);
+require( './server/config/models.js' );
 app.use(bodyParser.urlencoded({ extended: true }));
 // static content
 app.use(express.static(path.join(__dirname, "./static")));
