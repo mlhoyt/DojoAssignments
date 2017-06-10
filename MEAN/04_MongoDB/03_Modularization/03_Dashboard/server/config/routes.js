@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 module.exports = function( globals ) {
   globals.app.use( bodyParser.urlencoded( { extended: true } ) );
 
-  let animals = require( "../controllers/animals.js" )( globals );
+  let animals = require( "../controllers/animals.js" );
 
   globals.app.get( '/', function( req, res ) {
     animals.show_all_view( req, res );
