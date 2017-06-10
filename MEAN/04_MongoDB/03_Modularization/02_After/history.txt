@@ -1,0 +1,24 @@
+# -*- text -*-
+
+npm init -y
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+
+touch server.py
+
+### MODELS
+touch server/config/models.js  # Configure models access; Load Schemas/Collections
+touch server/models/quote.js   # Define Schemas/Collections
+### VIEWS
+# ??? server/config/views.js
+touch client/views/index.ejs
+touch client/views/main.ejs
+touch client/static/js/
+touch client/static/css/
+### CONTROLLER/S
+# ??? server/config/controllers.js
+touch server/config/routes.js       # Configure routes
+touch server/controllers/quotes.js  # Split route definitions and actions ???
+
