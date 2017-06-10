@@ -38,7 +38,7 @@ require( "./server/config/views.js" )( globals );
 // ----------------------------------------------------------------------
 // MVC:CONTROLLERS
 // ----------------------------------------------------------------------
-require( "./server/config/controllers.js" )( globals );
+require( "./server/config/routes.js" )( globals );
 
 // ----------------------------------------------------------------------
 // WEB SERVER
