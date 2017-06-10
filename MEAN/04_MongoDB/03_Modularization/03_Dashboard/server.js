@@ -2,7 +2,7 @@
 
 let express = require('express');
 let bodyParser = require('body-parser');
-let path = require('path');
+// let path = require('path');
 // let moment = require('moment');
 
 let WEB_SERVER_PORT = 8000;
@@ -11,7 +11,7 @@ let app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require( "./server/config/views.js" )( app, express, path );
+require( "./server/config/views.js" )( app );
 
 // ---------- MVC:MODEL (DB (MongoDB) SERVER CONNECTION)
 var mongoose = require('mongoose');
