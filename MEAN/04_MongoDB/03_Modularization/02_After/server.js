@@ -1,20 +1,28 @@
-// require express and path
-var express = require("express");
-var path = require("path");
-// create the express app
-var app = express();
-// require bodyParser since we need to handle post data for adding a user
-var bodyParser = require("body-parser");
+// -*- javascript -*-
+
+let express = require("express");
+let path = require("path");
+let bodyParser = require("body-parser");
+
+let WEB_SERVER_PORT = 8000;
+
+let app = express();
+
+// MVC:MODELS
 require( './server/config/models.js' );
-app.use(bodyParser.urlencoded({ extended: true }));
-// static content
-app.use(express.static(path.join(__dirname, "./client/static")));
-// setting up ejs and our views folder
+
+// MVC:VIEWS
 app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
-// root route to render the index.ejs view
+// MVC:VIEWS -- STATIC content configration
+app.use(express.static(path.join(__dirname, "./client/static")));
+
+// MVC:CONTROLLERS -- POST-data processing configuration
+app.use(bodyParser.urlencoded({ extended: true }));
+// MVC:CONTROLLERS
 require( './server/config/routes.js' )( app );
-// tell the express app to listen on port 8000
-app.listen(8000, function() {
-  console.log("listening on port 8000");
-})
+
+// SERVER
+app.listen( WEB_SERVER_PORT, function() {
+  console.log( "Server: listening on port", WEB_SERVER_PORT );
+});
