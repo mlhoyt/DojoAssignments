@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <div class="buttons_container">
+    <ul type="none">
+      <li *ngFor="let tz of TZ_KEYS">
+        <div class="btn" [ngClass]="{'selected': currentTZ === tz}" (click)="updateByTZ(tz)">{{ tz }}</div>
+      </li>
+      <li><div class="btn" (click)="clearDTAndTZ()">Clear</div></li>
+    </ul>
+  </div>
+  <h2>{{ currentDateTime | date:"medium" }}</h2>
+</div>

@@ -1,0 +1,23 @@
+div.container {
+  width: 720px;
+  margin: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+  text-align: center;
+}
+
+div.buttons_container ul li {
+  display: inline;
+  margin-left: 1rem;
+}
+
+div.btn {
+  display: inline-block;
+  border: 1px solid black;
+  box-shadow: 4px 4px 2px;
+  padding: 1.5rem;
+}
+
+.selected {
+  background-color: yellow;
+}
