@@ -1,0 +1,10 @@
+* {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+app-human {
+  display: inline-block;
+  width: 220px;
+  margin-top: 1rem;
+}

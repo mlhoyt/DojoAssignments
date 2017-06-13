@@ -1,0 +1,5 @@
+<fieldset>
+  <legend>{{ typeLabel }}Component</legend>
+  <p [ngClass]="{'hidden': !powerLevel }">Power Level: &nbsp;&nbsp; {{ powerScale * powerLevel }}</p>
+  <p [ngClass]="{'hidden': valueComment === '', bold: true}">"{{ valueComment }}"</p>
+</fieldset>

@@ -1,0 +1,12 @@
+# -*- text -*-
+
+# ng new powerLevels
+# cd powerLevels
+ng generate component Power
+# ng generate component Human
+# ng generate component Saiyan
+# ng generate component SuperSaiyan
+# ng generate component SuperSaiyanTwo
+# ng generate component SuperSaiyanThree
+# ng generate component SuperSaiyanFour
+

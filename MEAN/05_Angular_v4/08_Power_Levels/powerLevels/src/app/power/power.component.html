@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>PowerComponent</legend>
+  <form (change)="onChangePowerLevel()">
+    <label for="powerLevel">Initial Power Level:</label>
+    <select name="powerLevel" [(ngModel)]="powerLevel">
+      <option selected disabled value="0">Choose</option>
+      <option *ngFor="let n of POWER_LEVELS" value="{{ n }}">{{ n }}</option>
+    </select>
+    <input type="submit" name="" value="Calculate Powers" />
+  </form>
+  <div class="row_container"
+    ><app-human typeLabel="Human" powerScale="1" [powerLevel]="powerLevel"></app-human
+    ><app-human typeLabel="Saiyan" powerScale="10" [powerLevel]="powerLevel"></app-human
+    ><app-human typeLabel="SuperSaiyan" powerScale="90" [powerLevel]="powerLevel"></app-human
+  ></div>
+  <div class="row_container"
+    ><app-human typeLabel="SuperSaiyanTwo" powerScale="150" [powerLevel]="powerLevel"></app-human
+    ><app-human typeLabel="SuperSaiyanThree" powerScale="250" [powerLevel]="powerLevel"></app-human
+    ><app-human typeLabel="SuperSaiyanFour" powerScale="500" [powerLevel]="powerLevel"></app-human
+  ></div>
+</fieldset>
