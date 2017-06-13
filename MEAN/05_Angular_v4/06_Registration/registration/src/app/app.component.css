@@ -1,0 +1,41 @@
+* {
+  font-family: sans-serif;
+}
+
+div.outer_container {
+  width: 720px;
+}
+
+div.container {
+  margin: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+div#success_region {
+  display: none;
+  color: green;
+}
+
+form div label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+.form_column {
+  width: 150px;
+}
+
+.error {
+  color: red;
+}
+
+#submit_btn {
+  margin-left: 1rem;
+  width: 688px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 4px 4px 2px;
+  height: 40px;
+}
