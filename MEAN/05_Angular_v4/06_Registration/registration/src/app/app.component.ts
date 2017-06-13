@@ -29,11 +29,17 @@ export class AppComponent {
   ];
 
   onSubmit() {
-    console.log( "Debug: onSubmit: Checking form..." );
-  }
+    let msg = "";
+    msg += "Thank you for registering with us " + this.user.firstName + ".";
+    msg += "  ";
+    msg += "We just sent you a confirmation email at " + this.user.email;
+    msg += ", and we will send all mail to " + this.user.street;
+    if( this.user.street2 ) {
+      msg += " " + this.user.street2;
+    }
+    msg += " " + this.user.city + ", " + this.user.state;
 
-  onChange( isFormValid ) {
-    console.log( "Debug: onChange: isFormValid:", isFormValid );
-    this.submit_enable = isFormValid;
+    document.getElementById( "success_region" ).appendChild( document.createTextNode( msg ) );
+    document.getElementById( "success_region" ).style.display = "block";
   }
 }

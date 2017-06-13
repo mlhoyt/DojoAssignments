@@ -3,6 +3,6 @@
 [x] Change "State" field needs to be select+option
 [x] Add "I'm feeling lucky" radio-button field
 [x] Add "Register" button
-[ ] Disable "Register" button until form validation is complete
-[ ] Populate "success_region" message on "Register" button click
+[x] Disable "Register" button until form validation is complete
+[x] Populate "success_region" message on "Register" button click
 [ ] What about a "Reset" button to reset the form?

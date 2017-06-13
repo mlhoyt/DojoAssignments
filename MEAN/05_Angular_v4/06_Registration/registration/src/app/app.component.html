@@ -1,70 +1,65 @@
 <div class="container outer_container">
   <h1>{{ title }}</h1>
-  <form class="" #registrationForm="ngForm"
-    (change)="onChange( firstName.valid && lastName.valid && email.valid && pw.valid && pwConfirm.valid && street.valid && city.valid && state.valid && isFeelingLucky.valid )"
-    (submit)="onSubmit()"
-  >
+  <form class="" #registrationForm="ngForm" (submit)="onSubmit()">
     <div class="container">
       <h1>Account Information</h1>
-      <div id="success_region" class="container">
+      <div id="success_region" class="container"></div>
+      <div class="">
+        <label for="firstName">*First Name:</label>
+        <input type="text" name="firstName" required minlength="1" [(ngModel)]="user.firstName" #firstName="ngModel" class="form_column" />
+        <span class="error" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">First name is requred</span>
       </div>
-        <div class="">
-          <label for="firstName">*First Name:</label>
-          <input type="text" name="firstName" required minlength="1" [(ngModel)]="user.firstName" #firstName="ngModel" class="form_column" />
-          <span class="error" *ngIf="!firstName.valid">First name is requred</span>
+      <div class="">
+        <label for="lastName">*Last Name:</label>
+        <input type="text" name="lastName" required minlength="1" [(ngModel)]="user.lastName" #lastName="ngModel" class="form_column" />
+        <span class="error" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">Last name is requred</span>
+      </div>
+      <div class="">
+        <label for="email">*Email:</label>
+        <input type="text" name="email" required pattern="[\w\-\.\+]+\@[\w\-]+\.[a-zA-Z]+" [(ngModel)]="user.email" #email="ngModel" class="form_column" />
+        <span class="error" *ngIf="email.errors && (email.dirty || email.touched)">Email is requred</span>
+      </div>
+      <div class="">
+        <label for="pw">*Password:</label>
+        <input type="text" name="pw" required minlength="4" [(ngModel)]="user.pw" #pw="ngModel" class="form_column" />
+        <span class="error" *ngIf="pw.errors && (pw.dirty || pw.touched)">Password must be at least 4 characters long</span>
+      </div>
+      <div class="">
+        <label for="pw_confirm">*Confirm Password:</label>
+        <input type="text" name="pw_confirm" required [(ngModel)]="pw_confirm" #pwConfirm="ngModel" class="form_column" />
+        <span class="error" *ngIf="(user.pw !== pw_confirm) && (pwConfirm.dirty || pwConfirm.touched)">Password Confirmation must match Password</span>
+      </div>
+      <div class="">
+        <label for="street">*Street:</label>
+        <input type="text" name="street" required minlength="1" [(ngModel)]="user.street" #street="ngModel" class="form_column" />
+        <span class="error" *ngIf="street.errors && (street.dirty || street.touched)">Street address is requred</span>
+      </div>
+      <div class="">
+        <label for="street2">Unit/Apt:</label>
+        <input type="text" name="street2" [(ngModel)]="user.street2" #street2="ngModel" class="form_column" />
+      </div>
+      <div class="">
+        <label for="city">*City:</label>
+        <input type="text" name="city" required minlength="1" [(ngModel)]="user.city" #city="ngModel" class="form_column" />
+        <span class="error" *ngIf="city.errors && (city.dirty || city.touched)">City is requred</span>
+      </div>
+      <div class="">
+        <label for="state">*State:</label>
+        <select name="state" required pattern="\w+" [(ngModel)]="user.state" #state="ngModel" class="form_column" >
+          <option selected disabled value="">Select a state</option>
+          <option *ngFor="let stateName of STATES" value="{{ stateName }}">{{ stateName }}</option>
+        </select>
+        <span class="error" *ngIf="state.errors && (state.dirty || state.touched)">State is requred</span>
+      </div>
+      <div class="">
+        <label for="isFeelingLucky">*I'm feeling lucky:</label>
+        <div class="form_column" style="display: inline-block;">
+          <input type="radio" name="isFeelingLucky" value="yes" required [(ngModel)]="user.isFeelingLucky" #isFeelingLucky="ngModel" />Yes
+          <input type="radio" name="isFeelingLucky" value="no" required [(ngModel)]="user.isFeelingLucky" #isFeelingLucky="ngModel" />No
         </div>
-        <div class="">
-          <label for="lastName">*Last Name:</label>
-          <input type="text" name="lastName" required minlength="1" [(ngModel)]="user.lastName" #lastName="ngModel" class="form_column" />
-          <span class="error" *ngIf="!lastName.valid">Last name is requred</span>
-        </div>
-        <div class="">
-          <label for="email">*Email:</label>
-          <input type="text" name="email" required pattern="[\w\-\.\+]+\@[\w\-]+\.[a-zA-Z]+" [(ngModel)]="user.email" #email="ngModel" class="form_column" />
-          <span class="error" *ngIf="!email.valid">Email is requred</span>
-        </div>
-        <div class="">
-          <label for="pw">*Password:</label>
-          <input type="text" name="pw" required minlength="4" [(ngModel)]="user.pw" #pw="ngModel" class="form_column" />
-          <span class="error" *ngIf="!pw.valid">Password must be at least 4 characters long</span>
-        </div>
-        <div class="">
-          <label for="pw_confirm">*Confirm Password:</label>
-          <input type="text" name="pw_confirm" required [(ngModel)]="pw_confirm" #pwConfirm="ngModel" class="form_column" />
-          <span class="error" *ngIf="user.pw !== pw_confirm">Password Confirmation must match Password</span>
-        </div>
-        <div class="">
-          <label for="street">*Street:</label>
-          <input type="text" name="street" required minlength="1" [(ngModel)]="user.street" #street="ngModel" class="form_column" />
-          <span class="error" *ngIf="!street.valid">Street address is requred</span>
-        </div>
-        <div class="">
-          <label for="street2">Unit/Apt:</label>
-          <input type="text" name="street2" [(ngModel)]="user.street2" #street2="ngModel" class="form_column" />
-        </div>
-        <div class="">
-          <label for="city">*City:</label>
-          <input type="text" name="city" required minlength="1" [(ngModel)]="user.city" #city="ngModel" class="form_column" />
-          <span class="error" *ngIf="!city.valid">City is requred</span>
-        </div>
-        <div class="">
-          <label for="state">*State:</label>
-          <select name="state" required pattern="\w+" [(ngModel)]="user.state" #state="ngModel" class="form_column" >
-            <option selected disabled value="">Select a state</option>
-            <option *ngFor="let stateName of STATES" value="{{ stateName }}">{{ stateName }}</option>
-          </select>
-          <span class="error" *ngIf="!state.valid">State is requred</span>
-        </div>
-        <div class="">
-          <label for="isFeelingLucky">*I'm feeling lucky:</label>
-          <div class="form_column" style="display: inline-block;">
-            <input type="radio" name="isFeelingLucky" value="yes" required [(ngModel)]="user.isFeelingLucky" #isFeelingLucky="ngModel" />Yes
-            <input type="radio" name="isFeelingLucky" value="no" required [(ngModel)]="user.isFeelingLucky" #isFeelingLucky="ngModel" />No
-          </div>
-          <span class="error" *ngIf="!isFeelingLucky.valid">Choosing how you feel is requred</span>
-        </div>
+        <span class="error" *ngIf="!isFeelingLucky.valid">Choosing how you feel is requred</span>
+      </div>
     </div>
-    <!-- <input type="submit" value="Register" id="submit_btn" [disabled]="!submit_enable" /> -->
     <input type="submit" value="Register" id="submit_btn" [disabled]="!registrationForm.form.valid" />
   </form>
 </div>
