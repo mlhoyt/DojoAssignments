@@ -23,6 +23,6 @@ export class GithubGetScoreComponent implements OnInit {
   onSubmit() {
     this._httpService.getData( "https://api.github.com/users/" + this.username )
       .then( data => { this.newScoreEvent.emit( { score: data.followers + data.public_repos } ); })
-      .catch( err => { console.log( err ); } );
+      .catch( err => { this.newScoreEvent.emit( { score: -1 } ); } );
   }
 }

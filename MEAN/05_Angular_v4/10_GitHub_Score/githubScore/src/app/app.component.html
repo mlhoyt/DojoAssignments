@@ -1,4 +1,12 @@
 <div class="container">
   <app-github-get-score (newScoreEvent)="updateScore($event)"></app-github-get-score>
-  <app-github-show-score></app-github-show-score>
+  <app-github-show-score [score]="score"></app-github-show-score>
 </div>
+<pre>
+  does_not_exist: ERR - Not a Github user! - BLACK
+  mlhoyt: 9 - Needs work! - RED
+  dusty-g: 22 - A decent start! - ORANGE
+  foobar: 75 - Doing good! - BLACK
+  madjaqk: 110 - Great job! - GREEN
+  w3c: 469 - Github Elite! - BLUE
+</pre>

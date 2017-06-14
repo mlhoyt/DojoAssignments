@@ -10,6 +10,5 @@ export class AppComponent {
 
   updateScore( eventData ) {
     this.score = eventData.score;
-    console.log( "Debug: AppComponent: updateScore: score:", this.score );
   }
 }
