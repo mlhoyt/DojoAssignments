@@ -1,0 +1,11 @@
+div.container {
+  margin: 1rem;
+  width: 720px;
+}
+
+app-quote-new {
+}
+
+app-quote-list {
+  margin-top: 1rem;
+}
