@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-quote-new',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote-new.component.css']
 })
 export class QuoteNewComponent implements OnInit {
+  @Output() newQuoteEvent = new EventEmitter();
+
   quote = { text: "", author: "" };
 
   constructor() { }
@@ -14,7 +17,7 @@ export class QuoteNewComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log( "Debug: QuoteNewComponent: onSubmit: ..." );
-    console.log( this.quote );
+    this.newQuoteEvent.emit( this.quote ); // Store
+    this.quote = { text: "", author: "" }; // Clear
   }
 }

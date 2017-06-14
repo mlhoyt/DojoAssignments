@@ -1,4 +1,4 @@
 <div class="container">
-  <app-quote-new></app-quote-new>
+  <app-quote-new (newQuoteEvent)="storeNewQuote($event)"></app-quote-new>
   <app-quote-list></app-quote-list>
 </div>
