@@ -37,4 +37,8 @@ export class AppComponent {
       votes: eventData.votes || 0
     });
   }
+
+  updateQuote( eventData ) {
+    console.log( "Debug: AppComponent: updateQuote: id:", eventData.id, "action:", eventData.action );
+  }
 }

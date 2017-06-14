@@ -8,8 +8,8 @@
     <p><span *ngIf="quote.votes > 0">+</span>{{ quote.votes }}</p>
   </div>
   <div class="quote_actions">
-    <button type="button" name="voteUp" class="voteUp">Vote Up</button>
-    <button type="button" name="voteDown" class="voteDown">Vote Down</button>
-    <button type="button" name="delete" class="delete">Delete</button>
+    <button type="button" class="voteUp" (click)="updateQuote(quote.id, 1)">Vote Up</button>
+    <button type="button" class="voteDown" (click)="updateQuote(quote.id, 2)">Vote Down</button>
+    <button type="button" class="delete" (click)="updateQuote(quote.id, 3)">Delete</button>
   </div>
 </div>
