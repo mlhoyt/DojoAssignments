@@ -1,2 +1,15 @@
 <h1>Quotes List</h1>
-{{ quotes | json }}
+<div *ngFor="let quote of quotes" class="quote_container">
+  <div class="quote_text">
+    <p>{{ quote.text }}</p>
+    <p>&nbsp;&nbsp;-&nbsp;{{ quote.author }}</p>
+  </div>
+  <div class="quote_votes">
+    <p><span *ngIf="quote.votes > 0">+</span>{{ quote.votes }}</p>
+  </div>
+  <div class="quote_actions">
+    <button type="button" name="voteUp" class="voteUp">Vote Up</button>
+    <button type="button" name="voteDown" class="voteDown">Vote Down</button>
+    <button type="button" name="delete" class="delete">Delete</button>
+  </div>
+</div>
