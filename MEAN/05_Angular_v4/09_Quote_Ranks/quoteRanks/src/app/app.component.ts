@@ -51,6 +51,10 @@ export class AppComponent {
         else if( eventData.action === 3 ) {
           this.quotes.splice( i, 1 );
         }
+
+        // Sort descending by votes count
+        this.quotes.sort( ( a, b ) => b.votes - a.votes );
+
         break;
       }
     }
