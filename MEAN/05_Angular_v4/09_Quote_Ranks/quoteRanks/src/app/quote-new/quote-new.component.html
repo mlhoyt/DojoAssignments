@@ -1,3 +1,27 @@
-<p>
-  quote-new works!
-</p>
+<h1>Add a Quote</h1>
+<div class="container">
+  <form class="" #addQuoteForm="ngForm" (submit)="onSubmit()">
+    <div id="text">
+      <textarea name="text" rows="4" cols="80" [(ngModel)]="quote.text" required minlength="4" #text="ngModel"></textarea>
+    </div>
+    <div id="author">
+      <label for="author">Author:</label>
+      <input type="text" name="author" [(ngModel)]="quote.author" required minlength="1" #author="ngModel" />
+    </div>
+    <input type="submit" name="submit" id="submit" value="Add Quote" [disabled]="!addQuoteForm.form.valid" />
+  </form>
+  <div id="form_errors">
+    <p *ngIf="text.pristine" class="error">
+      Quote is required
+    </p>
+    <p *ngIf="text.errors && (text.dirty || text.touched)" class="error">
+      Quote length must be at least 4 characters
+    </p>
+    <p *ngIf="author.pristine" class="error">
+      Author is required
+    </p>
+    <p *ngIf="author.errors && (author.dirty || author.touched)" class="error">
+      Author length must be at least 1 character
+    </p>
+  </div>
+</div>
