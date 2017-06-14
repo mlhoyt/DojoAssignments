@@ -1,3 +1,9 @@
-<p>
-  github-get-score works!
-</p>
+<h1>GitHub Score</h1>
+<form class="" #usernameForm="ngForm" (submit)="onSubmit()">
+  <div class="row_container">
+    <label for="username">GitHub Username:</label>
+    <!-- <input type="text" name="username" [(ngModel)]="username" required minlength="1" #username="ngModel" /> -->
+    <input type="text" name="username" [(ngModel)]="username" required minlength="1" />
+  </div>
+  <input type="submit" id="submit" value="Calculate my GitHub Score" [disabled]="!usernameForm.form.valid" />
+</form>

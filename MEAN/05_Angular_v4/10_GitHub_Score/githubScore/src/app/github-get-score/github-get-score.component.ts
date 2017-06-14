@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./github-get-score.component.css']
 })
 export class GithubGetScoreComponent implements OnInit {
+  username: string = "";
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+
+  }
 }
