@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  score: number = null;
+
+  updateScore( eventData ) {
+    this.score = eventData.score;
+    console.log( "Debug: AppComponent: updateScore: score:", this.score );
+  }
 }

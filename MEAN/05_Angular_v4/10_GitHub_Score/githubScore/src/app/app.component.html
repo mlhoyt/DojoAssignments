@@ -1,4 +1,4 @@
 <div class="container">
-  <app-github-get-score></app-github-get-score>
+  <app-github-get-score (newScoreEvent)="updateScore($event)"></app-github-get-score>
   <app-github-show-score></app-github-show-score>
 </div>
