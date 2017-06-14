@@ -1,0 +1,7 @@
+# -*- text -*-
+
+ng new githubScore
+cd githubScore
+ng generate component github-get-score
+ng generate component github-show-score
+
