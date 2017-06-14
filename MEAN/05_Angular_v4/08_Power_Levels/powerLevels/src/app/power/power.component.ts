@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./power.component.css']
 })
 export class PowerComponent implements OnInit {
+  powerLevelSelect: number = 0;
   powerLevel: number = 0;
   POWER_LEVELS: Array<number> = [];
 
@@ -18,7 +19,7 @@ export class PowerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPowerLevelChange() {
-
+  onSubmit() {
+    this.powerLevel = this.powerLevelSelect;
   }
 }

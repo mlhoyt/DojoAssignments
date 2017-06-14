@@ -1,8 +1,8 @@
 <fieldset>
   <legend>PowerComponent</legend>
-  <form (change)="onChangePowerLevel()">
+  <form (submit)="onSubmit()">
     <label for="powerLevel">Initial Power Level:</label>
-    <select name="powerLevel" [(ngModel)]="powerLevel">
+    <select name="powerLevel" [(ngModel)]="powerLevelSelect">
       <option selected disabled value="0">Choose</option>
       <option *ngFor="let n of POWER_LEVELS" value="{{ n }}">{{ n }}</option>
     </select>
