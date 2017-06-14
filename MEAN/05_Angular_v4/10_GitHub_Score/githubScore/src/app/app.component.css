@@ -1,0 +1,18 @@
+div.container {
+  width: 720px;
+  margin: 0.5rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+app-github-get-score {
+  display: inline-block;
+  vertical-align: top;
+  width: 358px;
+}
+
+app-github-show-score {
+  display: inline-block;
+  vertical-align: top;
+  width: 358px;
+}

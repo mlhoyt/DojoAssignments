@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GithubGetScoreComponent } from './github-get-score/github-get-score.component';
@@ -12,7 +13,8 @@ import { GithubShowScoreComponent } from './github-show-score/github-show-score.
     GithubShowScoreComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
