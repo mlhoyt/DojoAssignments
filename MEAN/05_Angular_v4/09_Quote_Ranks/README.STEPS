@@ -1,0 +1,8 @@
+# -*- text -*-
+
+# ng new quoteRanks
+# cd quoteRanks
+ng generate component quote-new
+ng generate component quote-list
+ng generate component quote-item
+
