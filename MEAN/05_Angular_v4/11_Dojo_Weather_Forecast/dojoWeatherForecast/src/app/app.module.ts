@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
 import { WeatherNavComponent } from './weather-nav/weather-nav.component';
@@ -25,7 +26,8 @@ import { HttpService } from './http.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RoutingModule
   ],
   providers: [ HttpService ],
   bootstrap: [AppComponent]
