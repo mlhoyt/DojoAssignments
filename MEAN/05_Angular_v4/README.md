@@ -106,7 +106,7 @@ $ ng generate service {{COMP}}
 
 # Routing
 
-app/app-routing.module.ts
+Create `app/app-routing.module.ts`
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -115,13 +115,13 @@ const routes: Routes = [
   // { path: '{{URL}}' [, pathMatch: 'full'] , ( component: {{COMP}}Component | redirectTo: '{{URL}}' ) }, ...
 ];
 @NgModule({
-  imports: [ RouterModule.forRoot(routes)] ,
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
 })
 export class AppRoutingModule {}
 ```
 
-app/app.module.ts
+Update `app/app.module.ts`
 
 ```typescript
 ...
@@ -137,3 +137,14 @@ import { AppRoutingModule } from './app-routing.module';
 })
 ...
 ```
+
+Update `app/{{COMP}}/{{COMP}.component.html`
+
+```HTML
+...
+<router-outlet></router-outlet>
+...
+<a [routerLink]="[ '/{{URL}}', ... ]">{{A_CONTENT}}</a>
+...
+```
+
