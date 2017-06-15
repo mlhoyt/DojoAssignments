@@ -1,4 +1,8 @@
 Installation
+New Project
+New Component
+New Class
+New Service
 
 ---
 
@@ -20,10 +24,62 @@ os: ...
 
 ---
 
+# New Project:
+
+```
+$ ng new {{NG_PROJECT}}
+...
+
+$ ls -1
+...
+{{NG_PROJECT}}/
+...
+
+$ cd {{NG_PROJECT}}
+```
+
+---
+
+# New Component:
+
+```
+$ cd .../{{NG_PROJECT}}
+$ ng generate component {{COMP}}
+...
+./src/app/{{COMP}}.component...
+...
+```
+
+---
+
+# New Class:
+
+```
+$ cd .../{{NG_PROJECT}}
+$ ng generate class {{CLASS}}
+...
+./src/app/{{CLASS}}.ts
+...
+```
+
+---
+
+# New Service:
+
+```
+$ cd .../{{NG_PROJECT}}
+$ ng generate service {{COMP}}
+...
+./src/app/{{SERVICE}}.service...
+...
+```
+
+---
+
 # Directory Structure
 
 ```
-{{NG_PROJECT}}/src/app/
+{{NG_PROJECT}}/
 ├── ...
 ├── src/
 │    ├── app/
@@ -32,7 +88,7 @@ os: ...
 │    │    ├── app.component.spec.ts
 │    │    ├── app.component.ts
 │    │    ├── app.module.ts
-│    │    ├── {{COMP}}
+│    │    ├── {{COMP}}/
 │    │    │   ├── {{COMP}}.component.css
 │    │    │   ├── {{COMP}}.component.html
 │    │    │   ├── {{COMP}}.component.spec.ts
