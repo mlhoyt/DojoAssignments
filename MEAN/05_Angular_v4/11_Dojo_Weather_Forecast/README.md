@@ -8,7 +8,9 @@
 - [x] `ng generate component weather-dc`
 - [x] `ng generate component weather-chicago`
 - [x] `ng generate service http`
+
 ---
+
 - [x] Update `.../src/app/app.component.html`: Removed default content; Added top-level component (app-weather-nav) element
 ```HTML
 <app-weather-nav></app-weather-nav>
@@ -16,7 +18,48 @@
 
 - [x] Update `.../src/app/weather-nav/weather-nav.component.html`: Added basic content
 - [x] Update `.../src/app/weather-nav/weather-nav.component.css`: Added basic content
+
 ---
+
+- [x] Update `.../src/app/app.module.ts`: Import HttpModule
+ ...
++import { HttpModule } from '@angular/http';
+ ...
+ 
+ @NgModule({
+   ...
+   imports: [
+     ...
++    HttpModule
+   ],
+   ...
+ })
+ export class AppModule { }
+```
+
+- [x] Update `.../src/app/http.service.ts`: Build-out via delegate to Http
+```typescript
+ ...
++import { Http } from '@angular/http';
++import 'rxjs/add/operator/map';
++import 'rxjs/add/operator/toPromise';
+ 
+ @Injectable()
+ export class HttpService {
+ 
+   constructor(
++    private _http: Http
+   )
+   {}
+ 
++  get( url ) {
++    return this._http.get( url )
++      .map( data => data.json() )
++      .toPromise();
++  }
+ }
+```
+
 - [x] Update `.../src/app/app.module.ts`: Register http.service
 ```typescript
  ...
@@ -30,6 +73,8 @@
  })
  export class AppModule { }
 ```
+
+---
 
 - [x] Update `.../src/app/weather-{{CITY}/weather-{{CITY}.component.ts`: Inject HttpService
 ``` typescript

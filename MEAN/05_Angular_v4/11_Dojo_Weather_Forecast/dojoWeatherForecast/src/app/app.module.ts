@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { WeatherNavComponent } from './weather-nav/weather-nav.component';
@@ -9,6 +10,7 @@ import { WeatherBurbankComponent } from './weather-burbank/weather-burbank.compo
 import { WeatherDallasComponent } from './weather-dallas/weather-dallas.component';
 import { WeatherDcComponent } from './weather-dc/weather-dc.component';
 import { WeatherChicagoComponent } from './weather-chicago/weather-chicago.component';
+import { HttpService } from './http.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { WeatherChicagoComponent } from './weather-chicago/weather-chicago.compo
     WeatherChicagoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ HttpService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-weather-seattle',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherSeattleComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _httpService: HttpService
+  )
+  {}
 
   ngOnInit() {
   }
