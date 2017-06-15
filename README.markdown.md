@@ -63,8 +63,8 @@ NOTES:
 ```
 | {{TH1_TEXT}} | {{TH2_TEXT}} | {{TH3_TEXT}}
 | ------------ | :----------: | -----------:
-| {{TD11_TEXT}} | {{TD12_TEXT}}
-| {{TD21_TEXT}} | {{TD22_TEXT}}
+| {{TD11_TEXT}} | {{TD12_TEXT}} | {{TD13_TEXT}}
+| {{TD21_TEXT}} | {{TD22_TEXT}} | {{TD23_TEXT}}
 ```
 
 NOTES:
