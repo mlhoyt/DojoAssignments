@@ -88,6 +88,7 @@ $ ng generate service {{COMP}}
 │    │    ├── app.component.spec.ts
 │    │    ├── app.component.ts
 │    │    ├── app.module.ts
+│    │    ├── app-routing.module.ts
 │    │    ├── {{COMP}}/
 │    │    │   ├── {{COMP}}.component.css
 │    │    │   ├── {{COMP}}.component.html
@@ -111,8 +112,15 @@ Create `app/app-routing.module.ts`
 ```typescript
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { {{COMP}}Component } from './{{COMP}}/{{COMP}}.component';
 const routes: Routes = [
+  // Static URLs
   // { path: '{{URL}}' [, pathMatch: 'full'] , ( component: {{COMP}}Component | redirectTo: '{{URL}}' ) }, ...
+  // Parameterized URLs
+  // { path: '{{PATH}}/:id', component: {{COMP}}Component } 
+    // URL: http://localhost:4200/{{PATH}}/7
+    // TS: params.id => '7'
+    // HTML: <a routerLink="['/{{PATH}}', {{PATH}}.id]" >{{A_CONTENT}}</a>
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
