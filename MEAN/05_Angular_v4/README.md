@@ -104,6 +104,8 @@ $ ng generate service {{COMP}}
 
 ---
 
+# Routing
+
 app/app-routing.module.ts
 
 ```typescript
@@ -119,3 +121,19 @@ const routes: Routes = [
 export class AppRoutingModule {}
 ```
 
+app/app.module.ts
+
+```typescript
+...
+import { AppRoutingModule } from './app-routing.module';
+...
+@NgModule({
+  ...
+  imports: [
+    ...
+    AppRoutingModule,
+  ],
+  ...
+})
+...
+```
