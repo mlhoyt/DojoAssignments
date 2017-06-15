@@ -1,3 +1,5 @@
+# Project Setup
+
 - [x] `ng new dojoWeatherForecast`
 - [x] `cd {{NG_PROJECT}}`
 - [x] `ng generate component weather-nav`
@@ -10,16 +12,20 @@
 - [x] `ng generate service http`
 
 ---
+# AppComponent: Update content
 
 - [x] Update `.../src/app/app.component.html`: Removed default content; Added top-level component (app-weather-nav) element
 ```HTML
 <app-weather-nav></app-weather-nav>
 ```
+---
+# WeatherNavComponent: Update content
 
 - [x] Update `.../src/app/weather-nav/weather-nav.component.html`: Added basic content
 - [x] Update `.../src/app/weather-nav/weather-nav.component.css`: Added basic content
 
 ---
+# HttpService: Build-out and Register
 
 - [x] Update `.../src/app/app.module.ts`: Import HttpModule
 ```typescript
@@ -61,7 +67,7 @@
  }
 ```
 
-- [x] Update `.../src/app/app.module.ts`: Register http.service
+- [x] Update `.../src/app/app.module.ts`: Register HttpService
 ```typescript
  ...
 +import { HttpService } from './http.service';
@@ -76,6 +82,7 @@
 ```
 
 ---
+# App{{COMP}}Component: Inject, Connect, and Test HttpService
 
 - [x] Update `.../src/app/weather-{{CITY}/weather-{{CITY}.component.ts`: Inject HttpService
 ``` typescript
