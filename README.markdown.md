@@ -3,11 +3,11 @@ See https://guides.github.com/features/mastering-markdown/
 # Text (Replace {{...}} with corresponding text)
 
 * Bold
-  * \*\* {{B_TEXT}} \*\*
+  * `** {{B_TEXT}} **`
 * Italic
-  * \_ {{I_TEXT}} \_
+  * `_ {{I_TEXT}} _`
 * Strikethrough
-  * \~\~ {{ST_TEXT}} \~\~
+  * `~~ {{ST_TEXT}} ~~`
 * Image
   * \! \[ {{IMG_ALT}} \]\( {{IMG_SRC}} \)
 * Link (Anchor)
@@ -44,7 +44,7 @@ See https://guides.github.com/features/mastering-markdown/
 ```
 {{TH1_TEXT}} | {{TH2_TEXT}}
 ------------ | ------------
-{{TD11_TEXT}} | {{TD12_TEXT }}
-{{TD21_TEXT}} | {{TD22_TEXT }}
+{{TD11_TEXT}} | {{TD12_TEXT}}
+{{TD21_TEXT}} | {{TD22_TEXT}}
 ```
 
