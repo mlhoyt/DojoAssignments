@@ -1,8 +1,8 @@
-[Installation][Installation]
+[Installation](Installation)
 
 ---
 
-# [Installation:]
+# [Installation]:
 
 $ npm install -g @angular/cli
 
