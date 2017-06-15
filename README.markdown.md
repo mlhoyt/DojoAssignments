@@ -2,6 +2,7 @@ References:
 * https://guides.github.com/features/mastering-markdown/
 * https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 * https://daringfireball.net/projects/markdown/basics
+* [Typing Extended ASCII Characters on the Mac](http://www.idautomation.com/kb/mac_ascii.html)
 
 NOTES:
 1 Replace {{...}} with corresponding text
