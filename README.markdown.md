@@ -6,7 +6,7 @@ References:
 
 NOTES:
 
-1 Replace {{...}} with corresponding text
+1. Replace {{...}} with corresponding text
 
 ---
 
@@ -69,7 +69,7 @@ NOTES:
 
 NOTES:
 
-1 `-----` => left-aligned
-1 `:---:` => center-aligned
-1 `----:` => right-aligned
+1. `-----` => left-aligned
+1. `:---:` => center-aligned
+1. `----:` => right-aligned
 
