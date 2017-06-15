@@ -8,10 +8,42 @@
 - [x] `ng generate component weather-dc`
 - [x] `ng generate component weather-chicago`
 - [x] `ng generate service http`
-- [x] Update `.../src/app/app.component.html`:
+---
+- [x] Update `.../src/app/app.component.html`: Removed default content; Added top-level component (app-weather-nav) element
 ```HTML
 <app-weather-nav></app-weather-nav>
 ```
-- [x] Update `.../src/app/weather-nav/weather-nav.component.html`: basic content
-- [x] Update `.../src/app/weather-nav/weather-nav.component.css`: basic content
+
+- [x] Update `.../src/app/weather-nav/weather-nav.component.html`: Added basic content
+- [x] Update `.../src/app/weather-nav/weather-nav.component.css`: Added basic content
+---
+- [x] Update `.../src/app/app.module.ts`: Register http.service
+```typescript
+ ...
++import { HttpService } from './http.service';
+ 
+ @NgModule({
+   ...
+-  providers: [],
++  providers: [ HttpService ],
+   ...
+ })
+ export class AppModule { }
+```
+
+- [x] Update `.../src/app/weather-{{CITY}/weather-{{CITY}.component.ts`: Inject HttpService
+``` typescript
+ ...
++import { HttpService } from '../http.service';
+ 
+ ...
+ export class WeatherSeattleComponent implements OnInit {
+ 
+   constructor(
++    private _httpService: HttpService
+   )
+   {}
+   ...
+ }
+```
 
