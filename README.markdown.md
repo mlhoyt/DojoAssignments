@@ -5,6 +5,7 @@ References:
 * [Typing Extended ASCII Characters on the Mac](http://www.idautomation.com/kb/mac_ascii.html)
 
 NOTES:
+
 1 Replace {{...}} with corresponding text
 
 ---
@@ -67,6 +68,7 @@ NOTES:
 ```
 
 NOTES:
+
 1 `-----` => left-aligned
 1 `:---:` => center-aligned
 1 `----:` => right-aligned
