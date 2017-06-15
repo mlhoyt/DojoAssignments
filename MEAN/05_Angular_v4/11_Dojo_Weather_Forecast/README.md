@@ -132,3 +132,69 @@
 - [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
 
 - [x] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+
+---
+# RoutingModule: Build-out (basic) and Register
+
+- [x] Create `.../src/app/routing.module.ts`:
+```typescript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+];
+
+@NgModule({
+  imports: [ RouterModule.forRoot( routes ) ],
+  exports: [ RouterModule ]
+})
+export class RoutingModule {}
+```
+
+- [x] Update `.../src/app/app.module.ts`: Register RoutingModule
+```typescript
+ ...
++import { RoutingModule } from './routing.module';
+ 
+ @NgModule({
+   ...
+   imports: [
+     ...
++    RoutingModule
+   ],
+   ...
+ })
+ export class AppModule { }
+```
+
+---
+# RoutingModule: Add custom routing
+
+- [x] Update `.../src/app/routing.module.ts`: Add custom routing
+```typescript
+ ...
++import { {{COMP}}Component } from './{{COMP}/{{COMP}.component';
+ ...
+ const routes: Routes = [
++  { path: '', pathMatch: 'full', redirectTo: '{{URL}}' },
++  { path: '{{URL}}', component: {{COMP}}Component },
+ ]
+ ...
+```
+
+---
+# {{COMP}}Component: Update HTML to use "router-outlet" and anchor tag "routerLink"
+
+- [x] Update `.../src/app/{{COMP}}Component/{{COMP}}.component.html`: Add "router-outlet" element
+```HTML
+ ...
++<router-outlet></router-outlet>
+ ...
+```
+
+- [x] Update `.../src/app/{{COMP}}Component/{{COMP}}.component.html`: Add anchor tag "routerLink"
+```HTML
+ ...
++<a [routerLink]="['{{URL}}',...]">{{A_CONTENT}}</a>
+ ...
+```
