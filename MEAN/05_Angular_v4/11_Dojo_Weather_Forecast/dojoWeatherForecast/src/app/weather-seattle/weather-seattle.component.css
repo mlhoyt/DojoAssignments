@@ -1,0 +1,21 @@
+* {
+  font-family: sans-serif;
+}
+
+div.data_container {
+  display: inline-block;
+  vertical-align: top;
+  width: 510px;
+  text-align: left;
+}
+
+div.data_container p {
+  margin-top: 0.5rem;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+  height: 150px;
+}
