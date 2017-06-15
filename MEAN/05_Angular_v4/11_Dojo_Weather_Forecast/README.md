@@ -82,15 +82,15 @@
 ```
 
 ---
-# App{{COMP}}Component: Inject, Connect, and Test HttpService
+# {{COMP}}Component: Inject, Connect, and Test HttpService
 
-- [x] Update `.../src/app/weather-{{CITY}/weather-{{CITY}.component.ts`: Inject HttpService
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Inject HttpService
 ``` typescript
  ...
 +import { HttpService } from '../http.service';
  
  ...
- export class WeatherSeattleComponent implements OnInit {
+ export class {{COMP}}Component implements OnInit {
  
    constructor(
 +    private _httpService: HttpService
@@ -100,3 +100,35 @@
  }
 ```
 
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Connect HttpService
+```typescript
+ ...
+ export class WeatherSeattleComponent implements OnInit {
++  data = [];
++  owapi_url = "http://api.openweathermap.org/data/2.5/weather";
++  owapi_uid = "APPID=9e6717fb14947b2948cd7f033dacd57f";
++  owapi_args = "q=seattle";
+   ...
+   ngOnInit() {
++    this._httpService.get( this.owapi_url + "?" + this.owapi_uid + "&" + this.owapi_args )
++      .then( data => { this.data = data; } )
++      .catch( err => { console.log( "Error: WeatherSeattleComponent: HttpService.get:" + err ); } );
+   }
+ }
+```
+
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Test HttpService
+```HTML
+ ...
++{{ data | json }}
+ ...
+```
+
+---
+# {{COMP}}Component: Update HTML/CSS Content
+
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add helper method/s
+
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
