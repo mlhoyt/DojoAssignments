@@ -22,6 +22,7 @@
 ---
 
 - [x] Update `.../src/app/app.module.ts`: Import HttpModule
+```typescript
  ...
 +import { HttpModule } from '@angular/http';
  ...
