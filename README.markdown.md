@@ -48,10 +48,10 @@ NOTES:
   * `··* {{ITEM_2a}}`
   * `··* {{ITEM_2b}}`
 * Ordered Lists
-  * `1 {{ITEM_1}}`
-  * `1 {{ITEM_2}}`
-  * `··1 {{ITEM_2a}}`
-  * `··1 {{ITEM_2b}}`
+  * `1. {{ITEM_1}}`
+  * `1. {{ITEM_2}}`
+  * `··1. {{ITEM_2a}}`
+  * `··1. {{ITEM_2b}}`
 * Task Lists
   * `- [x] {{TEXT}}`
   * `- [ ] {{TEXT}}`
