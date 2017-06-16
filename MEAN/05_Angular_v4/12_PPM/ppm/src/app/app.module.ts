@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PpmNavComponent } from './ppm-nav/ppm-nav.component';
@@ -18,7 +19,8 @@ import { PpmEditComponent } from './ppm-edit/ppm-edit.component';
     PpmEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

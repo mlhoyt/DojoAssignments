@@ -1,3 +1,23 @@
-<p>
-  ppm-create works!
-</p>
+<div class="container">
+  <h1>Create a New Product</h1>
+  <form class="" #createForm="ngForm" (submit)="onSubmit(); createForm.reset();">
+    <div class="row_container">
+      <label for="title">Title:</label>
+      <input type="text" name="title" [(ngModel)]="product.title" placeholder="Enter title" #title="ngModel" required minlength="4"/>
+      <span class="error" *ngIf="title.errors && title.errors.required">*</span>
+      <span class="error" *ngIf="title.errors && (title.dirty || title.touched)">Title must be at least 4 characters</span>
+    </div>
+    <div class="row_container">
+      <label for="price">Price:</label>
+      <input type="text" name="price" [(ngModel)]="product.price" placeholder="Enter price" #price="ngModel" required />
+      <span class="error" *ngIf="price.errors && price.errors.required">*</span>
+      <span class="error" *ngIf="price.errors && (price.dirty || price.touched)">Price is required</span>
+    </div>
+    <div class="row_container">
+      <label for="image_url">Image Url:</label>
+      <input type="text" name="image_url" [(ngModel)]="product.image_url" placeholder="Enter Image Url" />
+    </div>
+    <input type="submit" name="submit" value="CREATE" [disabled]="!createForm.form.valid" />
+  </form>
+  {{ products | json }}
+</div>
