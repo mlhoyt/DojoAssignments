@@ -173,15 +173,57 @@
 ---
 # PpmNavComponent: Configure as PpmProductsDataService MASTER
 
-- [ ] Update `.../src/app/ppm-nav/ppm-nav.component.ts`: Add PpmProductsDataService MASTER info
+- [x] Update `.../src/app/ppm-nav/ppm-nav.component.ts`: Add PpmProductsDataService MASTER info
 ```typescript
-
 ```
 
 ---
-# Ppm*Component: Update TS/HTML/CSS Content
+# Test
+- [x] Browser: http://localhost:4200
 
-- [ ] Move Ppm*Component data (product/s) to PpmNavComponent via Observable?
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
+
+---
+# PpmViewListComponent: Configure as PpmProductsDataService SLAVE
+
+- [x] Update `.../src/app/ppm-view-list/ppm-view-list.component.ts`: Add PpmProductsDataService SLAVE info
+```typescript
+```
+
+---
+# Test
+- [x] Browser: http://localhost:4200
+
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
+
+---
+# PpmCreateComponent: Configure as PpmProductsDataService SLAVE
+
+- [x] Update `.../src/app/ppm-create/ppm-create.component.ts`: Add PpmProductsDataService SLAVE info
+```typescript
+```
+
+---
+# Test
+- [x] Browser: http://localhost:4200
+
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
+
+---
+# PpmEditComponent: Configure as PpmProductsDataService SLAVE
+
+- [ ] Update `.../src/app/ppm-edit/ppm-edit.component.ts`: Add PpmProductsDataService SLAVE info
+```typescript
+```
 
 ---
 # Test
