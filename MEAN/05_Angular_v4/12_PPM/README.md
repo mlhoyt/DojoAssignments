@@ -134,6 +134,15 @@
 - [x] `git commit -m "..."`
 
 ---
+# PpmProductsDataService
+
+- [x] `ng generate service ppm-products-data`
+
+- [ ] Update `.../src/app/ppm-products-data.service.ts`:
+```typescript
+```
+
+---
 # Ppm*Component: Update TS/HTML/CSS Content
 
 - [ ] Move Ppm*Component data (product/s) to PpmNavComponent via Observable?
