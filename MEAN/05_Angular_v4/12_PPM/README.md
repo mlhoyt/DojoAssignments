@@ -4,8 +4,8 @@
 - [x] `cd {{NG_PROJECT}}`
 - [x] `ng generate component ppm-nav`
 - [x] `ng generate component ppm-home`
-- [x] `ng generate component ppm-view-list``
-- [x] `ng generate component ppm-create``
+- [x] `ng generate component ppm-view-list`
+- [x] `ng generate component ppm-create`
 - [x] `ng generate component ppm-edit`
 
 ---
