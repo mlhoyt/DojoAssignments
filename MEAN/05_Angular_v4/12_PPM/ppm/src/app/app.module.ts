@@ -9,6 +9,8 @@ import { PpmViewListComponent } from './ppm-view-list/ppm-view-list.component';
 import { PpmCreateComponent } from './ppm-create/ppm-create.component';
 import { PpmEditComponent } from './ppm-edit/ppm-edit.component';
 
+import { PpmProductsDataService } from './ppm-products-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,7 @@ import { PpmEditComponent } from './ppm-edit/ppm-edit.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ PpmProductsDataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

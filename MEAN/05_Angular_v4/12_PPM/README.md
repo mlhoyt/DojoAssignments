@@ -134,12 +134,48 @@
 - [x] `git commit -m "..."`
 
 ---
-# PpmProductsDataService
+# PpmProductsDataService: Create and Register
 
 - [x] `ng generate service ppm-products-data`
 
-- [ ] Update `.../src/app/ppm-products-data.service.ts`:
+- [x] Update `.../src/app/ppm-products-data.service.ts`: Build-out as observable data
 ```typescript
+ import { Injectable } from '@angular/core';
++import { Subject } from 'rxjs/Subject';
++import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+ 
+ @Injectable()
+ export class PpmProductsDataService {
++  subject = new BehaviorSubject( null );
+ 
+   constructor() { }
+ 
++  update( data: Array<any> ) {
++    this.subject.next( data );
++  }
+ }
+```
+
+- [x] Update `.../src/app/app.module.ts`: Register PpmProductsDataService
+```typescript
+ ...
++import { PpmProductsDataService } from './ppm-products-data.service';
+
+ @NgModule({
+   ...
+-  providers: [],
++  providers: [ PpmProductsDataService ],
+   ...
+ })
+ export class AppModule { }
+```
+
+---
+# PpmNavComponent: Configure as PpmProductsDataService MASTER
+
+- [ ] Update `.../src/app/ppm-nav/ppm-nav.component.ts`: Add PpmProductsDataService MASTER info
+```typescript
+
 ```
 
 ---
