@@ -1,0 +1,45 @@
+* {
+  font-family: sans-serif;
+}
+
+div.container {
+  border: 1px solid black;
+  padding: 10px;
+  height: 425px;
+  overflow: auto;
+}
+
+div.product_item {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 8px;
+  width: 200px;
+  margin-right: 8px;
+}
+
+div.product_item img {
+  display: block;
+  width: 100%;
+}
+
+div.product_item button {
+  display: block;
+  border: 1px solid black;
+  box-shadow: 4px 4px 2px rgb( 169, 169, 169 );
+  width: 100%;
+}
+
+div.product_item h2, button {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.bg_orange {
+  background-color: orange;
+  color: black;
+}
+
+.bg_red {
+  background-color: red;
+  color: white;
+}

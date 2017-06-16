@@ -1,3 +1,10 @@
-<p>
-  ppm-view-list works!
-</p>
+<div class="container">
+  <h1>Products List</h1>
+  <div *ngFor="let product of products" class="product_item">
+    <img src="{{ product.image_url }}" alt="{{ product.name }} Image">
+    <h2>{{ product.name }}</h2>
+    <h2>${{ product.price }}</h2>
+    <button type="button" name="edit" class="bg_orange">EDIT</button>
+    <button type="button" name="delete" class="bg_red">Delete</button>
+  </div>
+</div>
