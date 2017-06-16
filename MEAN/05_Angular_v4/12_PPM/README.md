@@ -14,6 +14,11 @@
 - [x] Browser: http://localhost:4200
 
 ---
+# Commit
+- [x] `git add`
+- [x] `git commit -m "Added ...; initial commit"`
+
+---
 # AppComponent: Update content
 
 - [x] Update `.../src/app/app.component.html`: Removed default content; Added top-level component (ppm-nav) element
@@ -26,19 +31,45 @@
 - [x] Browser: http://localhost:4200
 
 ---
-# PpmNavComponent: Update content
-
-- [ ] Update `.../src/app/ppm-nav/ppm-nav.component.html`: Added basic content
-- [ ] Update `.../src/app/ppm-nav/ppm-nav.component.css`: Added basic content
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
 
 ---
-# {{COMP}}Component: Update HTML/CSS Content
+# PpmNavComponent: Update content
 
-- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add helper method/s
+- [x] Update `.../src/app/ppm-nav/ppm-nav.component.html`: Added basic content
+- [x] Update `.../src/app/ppm-nav/ppm-nav.component.css`: Added basic content
 
-- [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+---
+# Test
+- [x] Browser: http://localhost:4200
 
-- [x] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
+
+---
+# PpmHomeComponent: Update TS/HTML/CSS Content
+
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+
+---
+# PpmViewListComponent: Update TS/HTML/CSS Content
+
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+
+---
+# PpmCreateComponent: Update TS/HTML/CSS Content
+
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
 
 ---
 # RoutingModule: Build-out (basic) and Register
