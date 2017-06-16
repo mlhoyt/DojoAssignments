@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
 import { PpmNavComponent } from './ppm-nav/ppm-nav.component';
@@ -22,7 +23,8 @@ import { PpmProductsDataService } from './ppm-products-data.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RoutingModule
   ],
   providers: [ PpmProductsDataService ],
   bootstrap: [AppComponent]

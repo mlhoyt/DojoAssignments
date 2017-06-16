@@ -2,13 +2,14 @@
   <h1>PPM - Project Product Management</h1>
 
   <p>
-    <a href="#">Home</a>
-    | <a href="#">Product List</a>
-    | <a href="#">Product Creation</a>
+    <a [routerLink]="['/home']">Home</a>
+    | <a [routerLink]="['/products']">Product List</a>
+    | <a [routerLink]="['/products', 'new']">Product Creation</a>
   </p>
 
-  <app-ppm-home></app-ppm-home>
+  <router-outlet></router-outlet>
+  <!-- <app-ppm-home></app-ppm-home>
   <app-ppm-view-list></app-ppm-view-list>
-  <app-ppm-create></app-ppm-create>
+  <app-ppm-create></app-ppm-create> -->
   <app-ppm-edit></app-ppm-edit>
 </div>

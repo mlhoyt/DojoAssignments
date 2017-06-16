@@ -237,7 +237,7 @@
 ---
 # RoutingModule: Build-out (basic) and Register
 
-- [ ] Create `.../src/app/routing.module.ts`:
+- [x] Create `.../src/app/routing.module.ts`:
 ```typescript
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -252,7 +252,7 @@ const routes: Routes = [
 export class RoutingModule {}
 ```
 
-- [ ] Update `.../src/app/app.module.ts`: Register RoutingModule
+- [x] Update `.../src/app/app.module.ts`: Register RoutingModule
 ```typescript
  ...
 +import { RoutingModule } from './routing.module';
@@ -270,17 +270,17 @@ export class RoutingModule {}
 
 ---
 # Test
-- [ ] Browser: http://localhost:4200
+- [x] Browser: http://localhost:4200
 
 ---
 # Commit
-- [ ] `git add . ../README.md`
-- [ ] `git commit -m "..."`
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
 
 ---
 # RoutingModule: Add custom routing
 
-- [ ] Update `.../src/app/routing.module.ts`: Add custom routing
+- [x] Update `.../src/app/routing.module.ts`: Add custom routing
 ```typescript
  ...
 +import { {{COMP}}Component } from './{{COMP}/{{COMP}.component';
@@ -293,28 +293,33 @@ export class RoutingModule {}
 ```
 
 ---
-# {{COMP}}Component: Update HTML to use "router-outlet" and anchor tag "routerLink"
+# PpmNavComponent: Update HTML to use "router-outlet" and anchor tag "routerLink"
 
-- [ ] Update `.../src/app/{{COMP}}Component/{{COMP}}.component.html`: Add "router-outlet" element
+- [x] Update `.../src/app/ppm-nav/ppm.nav.component.html`: Add "router-outlet" element
 ```HTML
  ...
 +<router-outlet></router-outlet>
  ...
 ```
 
-- [ ] Update `.../src/app/{{COMP}}Component/{{COMP}}.component.html`: Add anchor tag "routerLink"
+- [x] Update `.../src/app/ppm-nav/ppm-nav.component.html`: Add anchor tag "routerLink"
 ```HTML
  ...
-+<a [routerLink]="['{{URL}}',...]">{{A_CONTENT}}</a>
++<a [routerLink]="['/{{URL}}',...]">{{A_CONTENT}}</a>
  ...
 ```
 
 ---
 # Test
-- [ ] Browser: http://localhost:4200
+- [x] Browser: http://localhost:4200
 
 ---
 # Commit
-- [ ] `git add . ../README.md`
-- [ ] `git commit -m "..."`
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
 
+---
+- [ ] PpmCreateComponent: Enable redirect to "/products" on creation
+- [ ] PpmViewListComponent: Enable "Delete" buttons
+- [ ] PpmViewListComponent: Enable "EDIT" buttons
+- [ ] RoutingModule: Add "/products/edit/:id" routes
