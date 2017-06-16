@@ -1,0 +1,72 @@
+* {
+  font-family: sans-serif;
+}
+
+div.container {
+  border: 1px solid black;
+  padding: 10px;
+  height: 425px;
+}
+
+div.row_container {
+  margin-top: 0.5rem;
+}
+
+label {
+  display: inline-block;
+  width: 125px;
+}
+
+input[type=text] {
+  width: 175px;
+  border: 1px solid black;
+}
+
+button {
+  margin-top: 0.5rem;
+  margin-left: 96px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 2px rgb( 169, 169, 169 );
+  width: 100px;
+  height: 20px;
+}
+
+input[type=submit] {
+  margin-top: 0.5rem;
+  margin-left: 8px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 2px rgb( 169, 169, 169 );
+  background-color: green;
+  width: 100px;
+  height: 20px;
+}
+
+input[type=submit]:disabled {
+  border: 1px solid rgb( 169, 169, 169 );
+  background-color: white;
+  color: rgb( 169, 169, 169 );
+}
+
+.error {
+  color: red;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.edit {
+  background-color: orange;
+  color: black;
+}
+
+.update {
+  background-color: blue;
+  color: white;
+}
+
+.create {
+  background-color: green;
+  color: white;
+}

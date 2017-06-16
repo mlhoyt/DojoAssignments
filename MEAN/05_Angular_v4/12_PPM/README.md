@@ -120,9 +120,23 @@
 ---
 # PpmEditComponent: Update TS/HTML/CSS Content
 
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+
+---
+# Test
+- [x] Browser: http://localhost:4200
+
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
+
+---
+# Ppm*Component: Update TS/HTML/CSS Content
+
+- [ ] Move Ppm*Component data (product/s) to PpmNavComponent via Observable?
 
 ---
 # Test
@@ -132,11 +146,6 @@
 # Commit
 - [ ] `git add . ../README.md`
 - [ ] `git commit -m "..."`
-
----
-# Ppm*Component: Update TS/HTML/CSS Content
-
-- [ ] Move Ppm*Component data (product/s) to PpmNavComponent via Observable?
 
 ---
 # RoutingModule: Build-out (basic) and Register
