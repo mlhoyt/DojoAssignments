@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { PpmProductsDataService } from '../ppm-products-data.service';
 import { Subscription } from 'rxjs/Subscription';
+import { ProductsData } from '../products-data';
 
 @Component({
   selector: 'app-ppm-create',
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class PpmCreateComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  products = [];
+  products: ProductsData;
   product = { title: "", price: "", image_url: "" };
 
   constructor(
@@ -29,8 +30,8 @@ export class PpmCreateComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.products.push({
-      id: Math.floor( 1 + (Math.random() * 100) ),
+    this.products.items.push({
+      id: ++this.products.last_id,
       title: this.product.title,
       price: this.product.price,
       image_url: this.product.image_url || "../../assets/ppm-no-image.png",

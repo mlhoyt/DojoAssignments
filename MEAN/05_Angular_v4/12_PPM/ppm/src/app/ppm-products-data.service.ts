@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ProductsData } from './products-data';
 
 @Injectable()
 export class PpmProductsDataService {
@@ -8,7 +9,7 @@ export class PpmProductsDataService {
 
   constructor() { }
 
-  update( data: Array<any> ) {
+  update( data: ProductsData ) {
     this.subject.next( data );
   }
 }

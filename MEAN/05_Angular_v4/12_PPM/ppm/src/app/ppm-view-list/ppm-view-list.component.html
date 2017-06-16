@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Products List</h1>
-  <div *ngFor="let product of products" class="product_item">
+  <div *ngFor="let product of products.items" class="product_item">
     <img src="{{ product.image_url }}" alt="{{ product.name }} Image">
     <h2>{{ product.title }} ({{ product.id }})</h2>
     <h2>{{ product.price | currency:"USD":true }}</h2>
