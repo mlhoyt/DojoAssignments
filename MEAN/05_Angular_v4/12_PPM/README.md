@@ -53,9 +53,18 @@
 ---
 # PpmHomeComponent: Update TS/HTML/CSS Content
 
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
-- [ ] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.ts`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.html`: Add content
+- [x] Update `.../src/app/{{COMP}/{{COMP}.component.css`: Add content
+
+---
+# Test
+- [x] Browser: http://localhost:4200
+
+---
+# Commit
+- [x] `git add . ../README.md`
+- [x] `git commit -m "..."`
 
 ---
 # PpmViewListComponent: Update TS/HTML/CSS Content

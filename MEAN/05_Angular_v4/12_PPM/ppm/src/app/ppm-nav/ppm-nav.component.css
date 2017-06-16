@@ -3,6 +3,6 @@
 }
 
 div.container {
-  margin: 10px;
-  width: 700px;
+  /* IMPLICIT: document.body.margin: 8px; */
+  width: 704px;
 }
