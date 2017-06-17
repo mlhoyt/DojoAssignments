@@ -200,14 +200,12 @@ module.exports = function( globals ) {
   // globals.app.use( bodyParser.urlencoded( { extended: true } ) );
   globals.app.use( bodyParser.json() );
 
-  // let mongoose = require( 'mongoose' );
-  // let {{TABLE_NAME}} = mongoose.model( '{{TABLE_NAME}}' );
-  let {{TABLE_NAME}}_ctrlr = require( '../controllers/{{TABLE_NAME}}.js' );
+  // let {{TABLE_NAME}}_ctrlr = require( '../controllers/{{TABLE_NAME}}.js' );
 
-  globals.app.{{HTTP_TYPE}}( '{{URL}}/:{{PARAM}}', function( req, res ) {
-    // res.json( {{data, true }} )
-    // {{TABLE_NAME}}_ctrlr.{{CTRLR_METHOD}}( req, res )
-  })
+  // globals.app.{{HTTP_TYPE}}( '{{URL}}/:{{PARAM}}', function( req, res ) {
+  //   // res.json( {{data, true }} )
+  //   // {{TABLE_NAME}}_ctrlr.{{CTRLR_METHOD}}( req, res )
+  // });
   // ...
 }
 ```
@@ -264,7 +262,23 @@ module.exports = {
 - [ ] `???`
 
 ## Server - Launch
-- [ ] `nodemon server.js 2>&1 > logs/nodemon.log &`
+- [ ] `nodemon server.js 2>&1 > logs/nodemon.log`
+
+## Server - Test
+- [ ] `curl http://localhost:8000`
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /</pre>
+</body>
+</html>
+```
 
 ---
 # Development Prep-Database-Server-Client
