@@ -2,7 +2,7 @@
   <h1>Products List</h1>
   <div *ngFor="let product of products.items" class="product_item">
     <img src="{{ product.image_url }}" alt="{{ product.name }} Image">
-    <h2>{{ product.title }} ({{ product.id }})</h2>
+    <h2>{{ product.title }}</h2>
     <h2>{{ product.price | currency:"USD":true }}</h2>
     <button type="button" name="edit" class="bg_orange" (click)="onClickEdit(product.id);">EDIT</button>
     <button type="button" name="delete" class="bg_red" (click)="onClickDelete(product.id);">Delete</button>

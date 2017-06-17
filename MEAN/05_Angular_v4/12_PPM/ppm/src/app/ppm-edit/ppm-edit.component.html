@@ -2,6 +2,10 @@
   <h1>Edit Product</h1>
   <form class="" #editForm="ngForm" (submit)="onClickUpdate();">
     <div class="row_container">
+      <label for="id">ID:</label>
+      {{ product.id }}
+    </div>
+    <div class="row_container">
       <label for="title">Title:</label>
       <input type="text" name="title" [(ngModel)]="product.title" placeholder="Enter title" #title="ngModel" required minlength="4"/>
       <span class="error" *ngIf="title.errors && title.errors.required">*</span>
