@@ -324,4 +324,4 @@ export class RoutingModule {}
 - [x] PpmViewListComponent: Enable "EDIT" buttons
 - [x] RoutingModule: Add "/products/edit/:id" routes
 - [x] PpmEditComponent: Enable "Delete" button
-- [ ] PpmEditComponent: Enable "UPDATE" button
+- [x] PpmEditComponent: Enable "UPDATE" button

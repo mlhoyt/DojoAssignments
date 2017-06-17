@@ -43,6 +43,8 @@ export class PpmEditComponent implements OnInit, OnDestroy {
   }
 
   onClickUpdate() {
+    this._ppmProductsDataService.subject.next( this.products );
+    this._router.navigate( ['/products'] );
   }
 
   onClickDelete() {
