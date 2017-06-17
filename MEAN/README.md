@@ -223,37 +223,37 @@ module.exports = {
   create: function( req, res, globals ) {
     let item = new {{TABLE_NAME}}( req.body );
     item.save()
-      .catch( err => res.status( 500 ).json( err ) ),
+      .catch( err => res.status( 500 ).json( err ) )
       .then( () => res.json( true ) );
-  }
+  },
 
   read_all: function( req, res ) {
     {{TABLE_NAME}}.find({})
-      // .sort( '{{FIELD_NAME}}|-{{FIELD_NAME}}')
-      .catch( err => res.status( 500 ).json( err ) ),
+      // .sort( '{{FIELD_NAME}}|-{{FIELD_NAME}}') // createdAt
+      .catch( err => res.status( 500 ).json( err ) )
       .then( data => res.json( data ) );
   },
 
   read_one: function( req, res ) {
     {{TABLE_NAME}}.findOne({ {{PARAM}}: req.params.{{PARAM}} })
-      .catch( err => res.status( 500 ).json( err ) ),
+      .catch( err => res.status( 500 ).json( err ) )
       .then( data => res.json( data ) );
   },
 
   update: function( req, res ) {
     {{TABLE_NAME}}.findOne({ {{PARAM}}: req.params.{{PARAM}} })
-      .catch( err => res.status( 500 ).json( ero ) ),
+      .catch( err => res.status( 500 ).json( ero ) )
       .then( item => {
         item = req.body;
         item.save()
-          .catch( err => res.status( 500 ).json( err ) ),
+          .catch( err => res.status( 500 ).json( err ) )
           .then( () => res.json( true ) );
       });
   },
 
   delete: function( req, res ) {
     {{TABLE_NAME}}.remove({ {{PARAM}}: req.params.{{PARAM}} })
-      .catch( err => res.status( 500 ).json( err ) ),
+      .catch( err => res.status( 500 ).json( err ) )
       .then( () => res.json( true ) );
   },
 }
