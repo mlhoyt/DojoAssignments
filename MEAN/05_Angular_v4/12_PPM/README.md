@@ -321,5 +321,7 @@ export class RoutingModule {}
 ---
 - [x] PpmCreateComponent: Enable redirect to "/products" on creation
 - [x] PpmViewListComponent: Enable "Delete" buttons
-- [ ] PpmViewListComponent: Enable "EDIT" buttons
-- [ ] RoutingModule: Add "/products/edit/:id" routes
+- [x] PpmViewListComponent: Enable "EDIT" buttons
+- [x] RoutingModule: Add "/products/edit/:id" routes
+- [x] PpmEditComponent: Enable "Delete" button
+- [ ] PpmEditComponent: Enable "UPDATE" button

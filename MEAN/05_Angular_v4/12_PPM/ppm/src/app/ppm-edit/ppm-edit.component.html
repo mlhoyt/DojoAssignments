@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Edit Product</h1>
-  <form class="" #editForm="ngForm" (submit)="onUpdate();">
+  <form class="" #editForm="ngForm" (submit)="onClickUpdate();">
     <div class="row_container">
       <label for="title">Title:</label>
       <input type="text" name="title" [(ngModel)]="product.title" placeholder="Enter title" #title="ngModel" required minlength="4"/>
@@ -17,7 +17,7 @@
       <label for="image_url">Image Url:</label>
       <input type="text" name="image_url" [(ngModel)]="product.image_url" placeholder="Enter Image Url" />
     </div>
-    <button type="button" name="delete" (click)="onDelete();" class="delete">Delete</button>
+    <button type="button" name="delete" (click)="onClickDelete();" class="delete">Delete</button>
     <input type="submit" name="submit" value="UPDATE" class="update" [disabled]="!editForm.form.valid" />
   </form>
 </div>
