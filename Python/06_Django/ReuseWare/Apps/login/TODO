@@ -1,0 +1,4 @@
+# -*- text -*-
+[ ] Change "Users" to "User" as per Python/Django models convention
+[ ] Add "dob" (date-of-birth) field and validation from ~/Desktop/DojoMisc/Python/BeltExam/Quotes/apps/login/...
+
