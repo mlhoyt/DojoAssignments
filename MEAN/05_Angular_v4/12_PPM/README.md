@@ -319,7 +319,7 @@ export class RoutingModule {}
 - [x] `git commit -m "..."`
 
 ---
-- [ ] PpmCreateComponent: Enable redirect to "/products" on creation
+- [x] PpmCreateComponent: Enable redirect to "/products" on creation
 - [ ] PpmViewListComponent: Enable "Delete" buttons
 - [ ] PpmViewListComponent: Enable "EDIT" buttons
 - [ ] RoutingModule: Add "/products/edit/:id" routes

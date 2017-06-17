@@ -3,6 +3,7 @@ import { OnDestroy } from '@angular/core';
 import { PpmProductsDataService } from '../ppm-products-data.service';
 import { Subscription } from 'rxjs/Subscription';
 import { ProductsData } from '../products-data';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ppm-create',
@@ -15,7 +16,8 @@ export class PpmCreateComponent implements OnInit, OnDestroy {
   product = { title: "", price: "", image_url: "" };
 
   constructor(
-    private _ppmProductsDataService: PpmProductsDataService
+    private _ppmProductsDataService: PpmProductsDataService,
+    private _router: Router
   )
   {
     this.subscription = this._ppmProductsDataService.subject
@@ -39,6 +41,7 @@ export class PpmCreateComponent implements OnInit, OnDestroy {
     this._ppmProductsDataService.update( this.products );
 
     this.product = { title: "", price: "", image_url: "" };
-    // redirectTo "/products"
+
+    this._router.navigate( ['/products'] );
   }
 }
