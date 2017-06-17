@@ -1,0 +1,16 @@
+Wrote to /Users/mhoyt/Desktop/DojoAssignments/MEAN/06_Full_MEAN/01_Anonymous_Notes/package.json:
+
+{
+  "name": "01_Anonymous_Notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
