@@ -27,4 +27,13 @@ export class PpmViewListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  onClickDelete( id ) {
+    for( let i = 0; i < this.products.items.length; ++i ) {
+      if( this.products.items[i].id === id ) {
+        this.products.items.splice( i, 1 );
+        this._ppmProductsDataService.subject.next( this.products );
+      }
+    }
+  }
 }

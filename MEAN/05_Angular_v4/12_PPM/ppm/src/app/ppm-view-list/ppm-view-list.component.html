@@ -5,6 +5,6 @@
     <h2>{{ product.title }} ({{ product.id }})</h2>
     <h2>{{ product.price | currency:"USD":true }}</h2>
     <button type="button" name="edit" class="bg_orange">EDIT</button>
-    <button type="button" name="delete" class="bg_red">Delete</button>
+    <button type="button" name="delete" class="bg_red" (click)="onClickDelete(product.id);">Delete</button>
   </div>
 </div>
