@@ -10,13 +10,15 @@ import { GithubApiService } from './github-api.service';
 import { BattleComponent } from './battle/battle.component';
 import { SelectComponent } from './battle/select/select.component';
 import { PlayerComponent } from './battle/select/player/player.component';
+import { ResultsComponent } from './battle/results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BattleComponent,
     SelectComponent,
-    PlayerComponent
+    PlayerComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
