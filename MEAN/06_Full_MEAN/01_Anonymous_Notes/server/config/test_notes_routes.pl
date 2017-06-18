@@ -109,9 +109,9 @@ sub delete
 # &create( ${POST}, "${URL}/notes/", ${DATA4} );
 # &read_all( ${GET}, "${URL}/notes/" );
 
-&read_all( ${GET}, "${URL}/notes/" );
-&update( ${PUT}, "${URL}/notes/${ID3}", ${DATA3b} );
-&read_all( ${GET}, "${URL}/notes/" );
-&delete( ${DELETE}, "${URL}/notes/${ID3}" );
+# &read_all( ${GET}, "${URL}/notes/" );
+# &update( ${PUT}, "${URL}/notes/${ID3}", ${DATA3b} );
+# &read_all( ${GET}, "${URL}/notes/" );
+# &delete( ${DELETE}, "${URL}/notes/${ID3}" );
 &read_all( ${GET}, "${URL}/notes/" );
 

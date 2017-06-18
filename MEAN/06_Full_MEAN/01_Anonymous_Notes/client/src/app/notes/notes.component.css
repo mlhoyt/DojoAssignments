@@ -1,0 +1,10 @@
+* {
+  font-family: sans-serif;
+}
+
+div.container {
+  border: 1px solid black;
+  width: 704px;
+  padding: 8px;
+  background-color: rgb( 233, 233, 233 );
+}
