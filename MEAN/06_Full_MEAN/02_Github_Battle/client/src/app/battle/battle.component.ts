@@ -34,7 +34,10 @@ export class BattleComponent implements OnInit {
   have_player( player: Player ) {
     for( let i = 0; i < this.all_players.length; ++i ) {
       if( this.all_players[ i ].username === player.username ) {
-        player = this.all_players[ i ];
+        player.avatar_url = this.all_players[ i ].avatar_url;
+        player.score = this.all_players[ i ].score;
+        player.isInvalid = false;
+        player.isLoaded = true;
         return( true );
       }
     }
@@ -57,6 +60,10 @@ export class BattleComponent implements OnInit {
             player.score = (data.followers + data.public_repos) * 12;
             player.isInvalid = false;
             player.isLoaded = true;
+
+            this._playerApi.create( player )
+              .catch( err => { console.log( "Error: AppBattleComponent: get_user: create_player:", err ); } )
+              .then( () => { this.get_all_players(); } );
           }
         });
     }
