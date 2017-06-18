@@ -14,7 +14,8 @@ export class GithubApiService {
   {}
 
   read_user( pk ) {
-    return this._http.get( '${api_base_url}/users/${pk}' )
+    let url: string = this.api_base_url + "/users/" + pk;
+    return this._http.get( url )
       .map( data => data.json() )
       .toPromise();
   }

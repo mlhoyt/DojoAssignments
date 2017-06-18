@@ -6,5 +6,8 @@
       | <a href="#">Rankings</a>
     </p>
   </header>
-  <app-select></app-select>
+  <app-select [player1]="player1" [player2]="player2" (get_user_event)="get_user($event)"></app-select>
+  <pre>all_players: {{ all_players | json }}</pre>
+  <pre>players1: {{ player1 | json }}</pre>
+  <pre>players2: {{ player2 | json }}</pre>
 </div>

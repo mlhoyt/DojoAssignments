@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Player {{ label }}</h2>
-  <form #usernameForm="ngForm">
+  <form #usernameForm="ngForm" (submit)="onClickGetUser()">
     <div class="row_container">
       <label for="username">Github Username:</label>
       <input type="text" name="username" [(ngModel)]="player.username" placeholder="Enter username" required minlength="1" />

@@ -26,6 +26,12 @@ input[type=submit] {
   color: white;
 }
 
+input[type=submit]:disabled {
+  border: 1px solid rgb( 169, 169, 169 );
+  background-color: white;
+  color: rgb( 169, 169, 169 );
+}
+
 #submit_error_msg {
   color: red;
   font-size: 90%;
