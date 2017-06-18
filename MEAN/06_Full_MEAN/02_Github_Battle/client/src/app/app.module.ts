@@ -11,6 +11,7 @@ import { BattleComponent } from './battle/battle.component';
 import { SelectComponent } from './battle/select/select.component';
 import { PlayerComponent } from './battle/select/player/player.component';
 import { ResultsComponent } from './battle/results/results.component';
+import { RankingsComponent } from './battle/rankings/rankings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResultsComponent } from './battle/results/results.component';
     BattleComponent,
     SelectComponent,
     PlayerComponent,
-    ResultsComponent
+    ResultsComponent,
+    RankingsComponent
   ],
   imports: [
     BrowserModule,

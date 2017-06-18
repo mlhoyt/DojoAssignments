@@ -8,7 +8,5 @@
   </header>
   <app-select [player1]="player1" [player2]="player2" (get_user_event)="get_user($event)"></app-select>
   <app-results [player1]="player1" [player2]="player2"></app-results>
-  <pre>all_players: {{ all_players | json }}</pre>
-  <pre>player1: {{ player1 | json }}</pre>
-  <pre>player2: {{ player2 | json }}</pre>
+  <app-rankings [all_players]="all_players"></app-rankings>
 </div>
