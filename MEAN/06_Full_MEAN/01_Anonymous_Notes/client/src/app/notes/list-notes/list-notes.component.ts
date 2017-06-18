@@ -13,5 +13,4 @@ export class ListNotesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
