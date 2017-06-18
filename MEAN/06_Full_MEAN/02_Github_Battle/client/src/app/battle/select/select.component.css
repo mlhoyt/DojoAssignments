@@ -1,0 +1,8 @@
+app-player {
+  display: inline-block;
+}
+
+.spacer {
+  display: inline-block;
+  width: 10px;
+}

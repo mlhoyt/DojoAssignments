@@ -1,0 +1,33 @@
+* {
+  font-family: sans-serif;
+}
+
+div.container {
+  border: 1px solid black;
+  width: 328px;
+  padding: 8px;
+}
+
+div.container h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+input[type=text] {
+  border: 1px solid black;
+  width: 175px;
+  margin-left: 10px;
+}
+
+input[type=submit] {
+  border: 1px solid black;
+  width: 324px;
+  background-color: blue;
+  color: white;
+}
+
+#submit_error_msg {
+  color: red;
+  font-size: 90%;
+  text-align: center;
+}
