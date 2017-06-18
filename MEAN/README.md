@@ -378,9 +378,9 @@ export class {{TABLE_NAME}}ApiService {
 - [ ] Update `src/app/{{TABLE_NAME}}-api.service.ts` for: {{TABLE_NAME}}, {{URL}}, {{PARAM}}
 
 ```
-cat src/app/template-api.service.README | \
-perl -pe 's/\{\{TABLE_NAME\}\}/NAME/g' | \
-perl -pe 's/\{\{URL\}\}/URL/g' \
+cat src/app/template-api.service.README \
+| perl -pe 's/\{\{TABLE_NAME\}\}/NAME/g' \
+| perl -pe 's/\{\{URL\}\}/URL/g' \
 > src/app/NAME-api.service.ts`
 ```
 
