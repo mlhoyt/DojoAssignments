@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteApiService } from '../note-api.service';
+import { Note } from './note';
 
 @Component({
   selector: 'app-notes',
@@ -7,7 +8,7 @@ import { NoteApiService } from '../note-api.service';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  notes = [];
+  notes: Array<Note> = [];
 
   constructor(
     private _noteApi: NoteApiService

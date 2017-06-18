@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { Note } from '../note';
 
 @Component({
   selector: 'app-new-note',
@@ -8,7 +9,7 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class NewNoteComponent implements OnInit {
   @Output() createEvent = new EventEmitter();
-  data = { text: "" };
+  data: Note = new Note();
 
   constructor() { }
 
@@ -17,6 +18,6 @@ export class NewNoteComponent implements OnInit {
 
   onSubmit() {
     this.createEvent.emit( this.data );
-    this.data = { text: "" };
+    this.data = new Note();
   }
 }
