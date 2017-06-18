@@ -309,9 +309,94 @@ module.exports = {
 
 ## Client Database API Service/s
 - [ ] `cd .../{{MEAN_PROJECT}}/client/`
+- [ ] Update `src/app/app.module.ts`: Import HttpModule
+
+```typescript
+ ...
++import { HttpModule } from '@angular/http';
+ ...
+
+ @NgModule({
+   ...
+   imports: [
++    HttpModule,
+   ],
+   ...
+ })
+ export class AppModule { }
+```
+
+- [ ] Create `src/app/template-api.service.README`:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+export class {{TABLE_NAME}}ApiService {
+  constructor(
+    private _http: Http
+  )
+  {}
+
+  create( item ) {
+    return this._http.post( '{{URL}}', item )
+      .map( data => data.json() )
+      .toPromise();
+  }
+
+  read_all() {
+    return this._http.get( '{{URL}}' )
+      .map( data => data.json() )
+      .toPromise();
+  }
+
+  read_one( pk ) {
+    return this._http.get( '{{URL}}/${pk}' )
+      .map( data => data.json() )
+      .toPromise();
+  }
+
+  update( item, pk ) {
+    return this._http.put( '{{URL}}/${pk}', item )
+      .map( data => data.json() )
+      .toPromise();
+  }
+
+  delete( pk ) {
+    return this._http.delete( '{{URL}}/${pk}' )
+      .map( data => data.json() )
+      .toPromise();
+  }
+}
+```
+
 - [ ] `ng generate service {{TABLE_NAME}}-api`
-- [ ] Edit `src/app/{{TABLE_NAME}}-api.service.ts`
-- [ ] Edit `src/app/app.module.ts`: Register {{TABLE_NAME}}-api.service
+- [ ] Update `src/app/{{TABLE_NAME}}-api.service.ts` for: {{TABLE_NAME}}, {{URL}}, {{PARAM}}
+
+```
+cat src/app/template-api.service.README | \
+perl -pe 's/\{\{TABLE_NAME\}\}/NAME/g' | \
+perl -pe 's/\{\{URL\}\}/URL/g' \
+> src/app/NAME-api.service.ts`
+```
+
+- [ ] Update `src/app/app.module.ts`: Register {{TABLE_NAME}}-api.service
+
+```typescript
+ ...
++import { {{TABLE_NAME}}ApiService } from './{{TABLE_NAME}}-api.service';
+
+ @NgModule({
+   ...
++  providers: [ {{TABLE_NAME}}ApiService ],
+   ...
+ })
+ export class AppModule { }
+```
 
 ## Client External API Service/s
 - [ ] `cd .../{{MEAN_PROJECT}}/client/`
