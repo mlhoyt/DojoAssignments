@@ -307,8 +307,25 @@ module.exports = {
 - [ ] Update `server/config/routes.js` for {{TABLE_NAME}}, {{URL}}
 - [ ] Test API
 
-## Client
-- [ ] `???`
+## Client Database API Service/s
+- [ ] `cd .../{{MEAN_PROJECT}}/client/`
+- [ ] `ng generate service {{TABLE_NAME}}-api`
+- [ ] Edit `src/app/{{TABLE_NAME}}-api.service.ts`
+- [ ] Edit `src/app/app.module.ts`: Register {{TABLE_NAME}}-api.service
+
+## Client External API Service/s
+- [ ] `cd .../{{MEAN_PROJECT}}/client/`
+- [ ] `ng generate service {{EXTERNAL}}-api`
+- [ ] Edit `src/app/{{EXTERNAL}}-api.service.ts`
+- [ ] Edit `src/app/app.module.ts`: Register {{EXTERNAL}}-api.service
+
+## Client Component/s
+- [ ] `cd .../{{MEAN_PROJECT}}/client/`
+- [ ] `ng generate component {{NAME}}`
+- [ ] `cd ./src/app/{{NAME}}`
+- [ ] `ng generate class {{TABLE_NAME}}`
+- [ ] Edit `src/app/{{NAME}}/{{TABLE_NAME}}.ts`: Effectively to match `server/models/{{TABLE_NAME}}.js`
+- [ ] OPTIONAL: `ng generate component {{SUB_NAME}}`
 
 ---
 # Shutdown
