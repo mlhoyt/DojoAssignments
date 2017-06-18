@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import { Player } from '../../../player';
 
 @Component({
   selector: 'app-player',
@@ -8,7 +9,7 @@ import { Input } from '@angular/core';
 })
 export class PlayerComponent implements OnInit {
   @Input() label;
-  username: string = "";
+  @Input() player: Player;
 
   constructor() { }
 
