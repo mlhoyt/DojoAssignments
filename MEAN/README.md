@@ -185,7 +185,12 @@ module.exports = function( globals ) {
 ```javascript
 // -*- javascript -*-
 
+let express = require( 'express' );
+let path = require( 'path' );
+
 module.exports = function( globals ) {
+  globals.app.use( express.static( path.join( __dirname, '../../client/dist' ) ) );
+  globals.app.use( express.static( path.join( __dirname, '../../node_modules' ) ) );
 };
 ```
 
@@ -202,11 +207,17 @@ module.exports = function( globals ) {
 
   // let {{TABLE_NAME}}_ctrlr = require( '../controllers/{{TABLE_NAME}}.js' );
 
-  // globals.app.{{HTTP_TYPE}}( '{{URL}}/:{{PARAM}}', function( req, res ) {
-  //   // res.json( {{data, true }} )
-  //   // {{TABLE_NAME}}_ctrlr.{{CTRLR_METHOD}}( req, res )
+  // globals.app.{{HTTP_TYPE}}( '{{URL}}/:{{PARAM}}', ( req, res ) => {
+  //   {{TABLE_NAME}}_ctrlr.{{CTRLR_METHOD}}( req, res )
   // });
-  // ...
+
+  // globals.app.post   ( '{{URL}}',     ( req, res ) => {{TABLE_NAME}}_ctrlr.create   ( req, res ) );
+  // globals.app.get    ( '{{URL}}',     ( req, res ) => {{TABLE_NAME}}_ctrlr.read_all ( req, res ) );
+  // globals.app.get    ( '{{URL}}/:id', ( req, res ) => {{TABLE_NAME}}_ctrlr.read_one ( req, res ) );
+  // globals.app.put    ( '{{URL}}/:id', ( req, res ) => {{TABLE_NAME}}_ctrlr.update   ( req, res ) );
+  // globals.app.delete ( '{{URL}}/:id', ( req, res ) => {{TABLE_NAME}}_ctrlr.delete   ( req, res ) );
+  // // Default (delegate to front-end router)
+  globals.app.all( "*", ( req, res ) => res.sendfile( path.resolve( "./client/dist/index.html" ) ) );
 }
 ```
 
@@ -220,7 +231,7 @@ let mongoose = require('mongoose');
 let {{TABLE_NAME}} = mongoose.model( '{{TABLE_NAME}}' );
 
 module.exports = {
-  create: function( req, res, globals ) {
+  create: function( req, res ) {
     let item = new {{TABLE_NAME}}( req.body );
     item.save()
       .catch( err => res.status( 500 ).json( err ) )
@@ -229,7 +240,7 @@ module.exports = {
 
   read_all: function( req, res ) {
     {{TABLE_NAME}}.find({})
-      // .sort( '{{FIELD_NAME}}|-{{FIELD_NAME}}') // createdAt
+      // .sort( '{{FIELD_NAME}}|-{{FIELD_NAME}}') // createdAt, -createdAt
       .catch( err => res.status( 500 ).json( err ) )
       .then( data => res.json( data ) );
   },
@@ -241,14 +252,9 @@ module.exports = {
   },
 
   update: function( req, res ) {
-    {{TABLE_NAME}}.findOne({ {{PARAM}}: req.params.{{PARAM}} })
-      .catch( err => res.status( 500 ).json( ero ) )
-      .then( item => {
-        item = req.body;
-        item.save()
-          .catch( err => res.status( 500 ).json( err ) )
-          .then( () => res.json( true ) );
-      });
+    {{TABLE_NAME}}.updateOne({ {{PARAM}}: req.params.{{PARAM}} }, {$set: req.body})
+      .catch( err => res.status( 500 ).json( err ) )
+      .then( () => res.json( true ) );
   },
 
   delete: function( req, res ) {
@@ -258,8 +264,6 @@ module.exports = {
   },
 }
 ```
-
-- [ ] `???`
 
 ## Server - Launch
 - [ ] `nodemon server.js 2>&1 > logs/nodemon.log`
@@ -284,10 +288,11 @@ module.exports = {
 # Development Prep-Database-Server-Client
 
 ## Prep
-- [ ] `???`
 
 ## Database
-- [ ] `???`
+- [ ] Create `server/models/{{TABLE_NAME}}.js`
+- [ ] Create `server/controllers/{{TABLE_NAME}}.js`
+- [ ] Update `server/config/routes.js` for {{TABLE_NAME}}
 
 ## Server
 - [ ] `???`
