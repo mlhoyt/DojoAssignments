@@ -37,3 +37,17 @@ input[type=submit]:disabled {
   font-size: 90%;
   text-align: center;
 }
+
+img.avatar {
+  display: block;
+  margin: 0 auto;
+  height: 104.7px;
+  border: 1px solid rgb( 64, 64, 64 );
+}
+
+p.avatar {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+}

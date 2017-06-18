@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="!player.isLoaded" class="container">
   <h2>Player {{ label }}</h2>
   <form #usernameForm="ngForm" (submit)="onClickGetUser()">
     <div class="row_container">
@@ -11,4 +11,8 @@
     </p>
     <input type="submit" name="submit" value="Get User" [disabled]="!usernameForm.form.valid" />
   </form>
+</div
+><div *ngIf="player.isLoaded" class="container">
+  <img class="avatar" src="{{ player.avatar_url }}" alt="{{ player.username }} Github Avatar Image" />
+  <p class="avatar">{{ player.username }}</p>
 </div>
