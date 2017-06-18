@@ -401,8 +401,20 @@ cat src/app/template-api.service.README \
 ## Client External API Service/s
 - [ ] `cd .../{{MEAN_PROJECT}}/client/`
 - [ ] `ng generate service {{EXTERNAL}}-api`
-- [ ] Edit `src/app/{{EXTERNAL}}-api.service.ts`
-- [ ] Edit `src/app/app.module.ts`: Register {{EXTERNAL}}-api.service
+- [ ] Update `src/app/{{EXTERNAL}}-api.service.ts`: Leverage `src/app/template-api.service.README`
+- [ ] Update `src/app/app.module.ts`: Register {{EXTERNAL}}-api.service
+
+```typescript
+ ...
++import { {{EXTERNAL}}ApiService } from './{{EXTERNAL}}-api.service';
+
+ @NgModule({
+   ...
++  providers: [ ..., {{EXTERNAL}}ApiService ],
+   ...
+ })
+ export class AppModule { }
+```
 
 ## Client Component/s
 - [ ] `cd .../{{MEAN_PROJECT}}/client/`

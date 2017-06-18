@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import { PlayerApiService } from './player-api.service';
+import { GithubApiService } from './github-api.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { PlayerApiService } from './player-api.service';
     BrowserModule,
     HttpModule,
   ],
-  providers: [ PlayerApiService ],
+  providers: [ PlayerApiService, GithubApiService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
