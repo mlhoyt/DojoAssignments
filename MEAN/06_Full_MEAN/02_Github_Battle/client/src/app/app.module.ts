@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 
 import { PlayerApiService } from './player-api.service';
 import { GithubApiService } from './github-api.service';
+import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BattleComponent
   ],
   imports: [
     BrowserModule,
