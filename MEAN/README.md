@@ -15,6 +15,12 @@
 - [ ] `mkdir .../{{MEAN_PROJECT}}`
 - [ ] `cd .../{{MEAN_PROJECT}}`
 - [ ] `mkdir ./logs`
+- [ ] Create `.gitignore`:
+
+```
+/db
+/logs
+```
 
 ---
 # Database (MongoDB) Prep-Setup-Launch
@@ -266,7 +272,7 @@ module.exports = {
 ```
 
 ## Server - Launch
-- [ ] `nodemon server.js 2>&1 > logs/nodemon.log`
+- [ ] `nodemon server.js`
 
 ## Server - Test
 - [ ] `curl http://localhost:8000`
@@ -288,14 +294,18 @@ module.exports = {
 # Development Prep-Database-Server-Client
 
 ## Prep
+- [ ] `cd .../{{MEAN_PROJECT}}`
+- [ ] `atom .`
 
-## Database
+## Database/Server API
 - [ ] Create `server/models/{{TABLE_NAME}}.js`
+  - [ ] `cat server/models/template.README | perl -pe 's/\{\{TABLE_NAME\}\}/NAME/g' > server/models/NAME.js`
+  - [ ] Edit `server/models/NAME.js`
 - [ ] Create `server/controllers/{{TABLE_NAME}}.js`
-- [ ] Update `server/config/routes.js` for {{TABLE_NAME}}
-
-## Server
-- [ ] `???`
+  - [ ] `cat server/controllers/template.README | perl -pe 's/\{\{TABLE_NAME\}\}/NAME/g' > server/controllers/NAME.js`
+  - [ ] Edit `server/controllers/NAME.js`
+- [ ] Update `server/config/routes.js` for {{TABLE_NAME}}, {{URL}}
+- [ ] Test API
 
 ## Client
 - [ ] `???`
@@ -310,7 +320,7 @@ module.exports = {
 - [ ] `ps -u ${LOGNAME} | grep '@angular/cli' | perl -ne '/^\s*\d+\s+(\d+)\s*tty/ && do { print( "kill -INT ${1}\n" ); exit; }'`
 
 ## Shutdown - Server
-- [ ] `???`
+- [ ] `<ctrl>+c`
 
 ## Shutdown - Database
 - [ ] `cat logs/mongod.log | perl -ne '/starting\s*:\s*pid=(\d+)/ && system( "kill -INT ${1}" );'`
