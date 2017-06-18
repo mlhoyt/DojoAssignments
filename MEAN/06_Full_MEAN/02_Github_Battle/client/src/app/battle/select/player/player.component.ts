@@ -12,6 +12,7 @@ export class PlayerComponent implements OnInit {
   @Input() label;
   @Input() player: Player;
   @Output() get_user_event = new EventEmitter();
+  error_msg: string = "";
 
   constructor() { }
 
@@ -19,6 +20,9 @@ export class PlayerComponent implements OnInit {
   }
 
   onClickGetUser() {
+    this.error_msg = "Github username '" + this.player.username + "' does not exit!";
+    this.player.isInvalid = undefined;
+    this.player.isLoaded = undefined;
     this.get_user_event.emit( this.player );
   }
 }

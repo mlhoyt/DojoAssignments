@@ -1,0 +1,10 @@
+- [x] Update player.component to show error message if isInvalid
+- [ ] Update player.component to show avatar if isLoaded
+- [ ] Update select.component to show "Battle" button if both players isLoaded
+- [ ] Update battle.component to store new users to database
+- [ ] Test have_player correctly pulls from database when applicable
+- [ ] Create, build-out, test results component
+- [ ] Create, build-out, test rankings component
+- [ ] Remove battle.component.html (data structure) debug output
+- [ ] Add front-end routing for select.component, results.component, rankings.component
+

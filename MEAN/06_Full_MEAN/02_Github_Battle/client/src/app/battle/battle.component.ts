@@ -46,14 +46,18 @@ export class BattleComponent implements OnInit {
       this._githubApi.read_user( player.username )
         .catch( err => {
           console.log( "Error: AppBattleComponent: get_user:", player.username, "not found!" );
+          player.avatar_url = "";
+          player.score = 0;
           player.isInvalid = true;
           player.isLoaded = false;
         })
         .then( data => {
-          player.avatar_url = data.avatar_url;
-          player.score = (data.followers + data.public_repos) * 12;
-          player.isInvalid = false;
-          player.isLoaded = true;
+          if( ! player.isInvalid ) {
+            player.avatar_url = data.avatar_url;
+            player.score = (data.followers + data.public_repos) * 12;
+            player.isInvalid = false;
+            player.isLoaded = true;
+          }
         });
     }
   }
