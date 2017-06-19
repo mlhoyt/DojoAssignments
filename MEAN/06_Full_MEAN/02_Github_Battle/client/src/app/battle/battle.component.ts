@@ -3,6 +3,7 @@ import { Player } from '../player';
 import { PlayerApiService } from '../player-api.service';
 import { GithubApiService } from '../github-api.service';
 import { Player1DataService } from '../player1-data.service';
+import { Player2DataService } from '../player2-data.service';
 
 @Component({
   selector: 'app-battle',
@@ -12,20 +13,21 @@ import { Player1DataService } from '../player1-data.service';
 export class BattleComponent implements OnInit {
   all_players: Array<Player>;
   player1: Player = new Player();
-  player2: Player;
+  player2: Player = new Player();
 
   constructor(
     private _playerApi: PlayerApiService,
     private _githubApi: GithubApiService,
     private _player1DataService: Player1DataService,
+    private _player2DataService: Player2DataService,
   )
   {
     this._player1DataService.subject.next( this.player1 );
+    this._player2DataService.subject.next( this.player2 );
   }
 
   ngOnInit() {
     this.get_all_players();
-    this.player2 = new Player();
   }
 
   get_all_players() {

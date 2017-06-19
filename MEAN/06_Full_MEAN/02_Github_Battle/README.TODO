@@ -57,6 +57,29 @@
       ... See changes above ...
       ```
 
+  - [x] `ng generate service player2-data`
+  - [x] Change `player2` from passed data to using `Player2DataService`:
+    - [x] Edit `src/app/player2-data.service.ts`:
+      - [x] Leverage from boiler-plate
+    - [x] Edit `src/app/app.module.ts`
+      - [x] Register `Player2DataService`
+    - [x] Edit `src/app/battle/battle.component.ts`
+      - [x] Import/Inject `Player2DataService`
+      - [x] Change `player2` to be associated with `Player2DataService`
+    - [x] Edit `src/app/battle/battle.component.html`
+      - [x] Remove `... [player2]="player2" ...` data passing
+    - [x] Update `src/app/battle/select/select.component.ts`:
+
+      ```typescript
+       ... See changes above ...
+      ```
+
+    - [x] Update `src/app/battle/results/results.component.ts`:
+
+      ```typescript
+      ... See changes above ...
+      ```
+
 - [ ] Add front-end routing for select.component, results.component, rankings.component
 - [ ] Enable select.component 'Battle' button
 - [ ] Enable results.component 'Reset' button

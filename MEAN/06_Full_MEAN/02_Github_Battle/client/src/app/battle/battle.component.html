@@ -6,7 +6,7 @@
       | <a href="#">Rankings</a>
     </p>
   </header>
-  <app-select [player2]="player2" (get_user_event)="get_user($event)"></app-select>
-  <app-results [player2]="player2"></app-results>
+  <app-select (get_user_event)="get_user($event)"></app-select>
+  <app-results></app-results>
   <app-rankings [all_players]="all_players"></app-rankings>
 </div>
