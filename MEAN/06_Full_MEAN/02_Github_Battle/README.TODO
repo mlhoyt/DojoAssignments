@@ -6,6 +6,7 @@
 - [x] Create, build-out, test results component
 - [x] Create, build-out, test rankings component
 - [x] Remove battle.component.html (data structure) debug output
+  - [ ] Change from passing data/events to using CommunicateService/Observable
 - [ ] Add front-end routing for select.component, results.component, rankings.component
 - [ ] Enable select.component 'Battle' button
 - [ ] Enable results.component 'Reset' button
