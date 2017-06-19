@@ -6,10 +6,59 @@
 - [x] Create, build-out, test results component
 - [x] Create, build-out, test rankings component
 - [x] Remove battle.component.html (data structure) debug output
-  - [ ] Change from passing data/events to using CommunicateService/Observable
+- [ ] Change from passing data/events to using CommunicateService/Observable
+  - [x] `ng generate service player1-data`
+  - [x] Change `player1` from passed data to using `Player1DataService`:
+    - [x] Edit `src/app/player1-data.service.ts`:
+      - [x] Leverage from boiler-plate
+    - [x] Edit `src/app/app.module.ts`
+      - [x] Register `Player1DataService`
+    - [x] Edit `src/app/battle/battle.component.ts`
+      - [x] Import/Inject `Player1DataService`
+      - [x] Change `player1` to be associated with `Player1DataService`
+    - [x] Edit `src/app/battle/battle.component.html`
+      - [x] Remove `... [player1]="player1" ...` data passing
+    - [x] Update `src/app/battle/select/select.component.ts`:
+
+      ```typescript
+       ...
+      +import { OnDestroy } from '@angular/core';
+       ...
+      +import { Player1DataService } from '../../player1-data.service';
+      +import { Subscription } from 'rxjs/Subscription';
+
+       ...
+      -export class SelectComponent implements OnInit {
+      +export class SelectComponent implements OnInit, OnDestroy {
+      -  @Input() player1: Player;
+      +  player1: Player;
+         @Input() player2: Player;
+         @Output() get_user_event = new EventEmitter();
+
+      +  p1subscription: Subscription;
+
+         constructor(
+      +    private _player1DataService: Player1DataService,
+         )
+         {
+      +    this.p1subscription = this._player1DataService.subject
+      +      .subscribe( data => { this.player1 = data; }, err => {}, () => {} );
+         }
+         ...
+      +  ngOnDestroy() {
+      +    this.p1subscription.unsubscribe();
+      +  }
+         ...
+      ```
+
+    - [x] Update `src/app/battle/results/results.component.ts`:
+
+      ```typescript
+      ... See changes above ...
+      ```
+
 - [ ] Add front-end routing for select.component, results.component, rankings.component
 - [ ] Enable select.component 'Battle' button
 - [ ] Enable results.component 'Reset' button
 - [ ] Enable battle.component 'Battle' link
 - [ ] Enable battle.component 'Rankings' link
-
