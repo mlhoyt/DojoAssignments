@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
@@ -30,6 +31,7 @@ import { AllPlayersDataService } from './all-players-data.service';
     BrowserModule,
     HttpModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [
     PlayerApiService,
