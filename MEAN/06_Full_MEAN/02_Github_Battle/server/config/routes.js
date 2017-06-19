@@ -1,6 +1,7 @@
 // -*- javascript -*-
 
 let bodyParser = require( 'body-parser' );
+let path = require( 'path' );
 
 module.exports = function( globals ) {
   // globals.app.use( bodyParser.urlencoded( { extended: true } ) );
