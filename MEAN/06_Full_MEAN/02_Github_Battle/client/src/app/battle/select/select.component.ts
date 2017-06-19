@@ -8,6 +8,7 @@ import { AllPlayersDataService } from '../../all-players-data.service';
 import { Subscription } from 'rxjs/Subscription';
 import { GithubApiService } from '../../github-api.service';
 import { PlayerApiService } from '../../player-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select',
@@ -29,6 +30,7 @@ export class SelectComponent implements OnInit, OnDestroy {
     private _allPlayersDataService: AllPlayersDataService,
     private _githubApi: GithubApiService,
     private _playerApi: PlayerApiService,
+    private _router: Router,
   )
   {
     this.p1subscription = this._player1DataService.subject
@@ -48,6 +50,10 @@ export class SelectComponent implements OnInit, OnDestroy {
     this.allPlayersSubscription.unsubscribe();
   }
 
+  onClickBattleButton() {
+    this._router.navigate( ['/results'] );
+  }
+  
   get_all_players() {
     this._playerApi.read_all()
       .catch( err => { console.log( "Error: AppSelectComponent: get_all_players:", err ); } )
