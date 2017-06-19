@@ -2,11 +2,9 @@
   <header>
     <h1>Github Battle</h1>
     <p>
-      <a href="#">Battle</a>
-      | <a href="#">Rankings</a>
+      <a [routerLink]="['/']">Battle</a>
+      | <a [routerLink]="['/rankings']">Rankings</a>
     </p>
   </header>
-  <app-select></app-select>
-  <app-results></app-results>
-  <app-rankings></app-rankings>
+  <router-outlet></router-outlet>
 </div>
