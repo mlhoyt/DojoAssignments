@@ -6,7 +6,7 @@
 - [x] Create, build-out, test results component
 - [x] Create, build-out, test rankings component
 - [x] Remove battle.component.html (data structure) debug output
-- [ ] Change from passing data/events to using CommunicateService/Observable
+- [x] Change from passing data/events to using CommunicateService/Observable
   - [x] `ng generate service player1-data`
   - [x] Change `player1` from passed data to using `Player1DataService`:
     - [x] Edit `src/app/player1-data.service.ts`:
@@ -97,8 +97,33 @@
        ... See changes above ...
       ```
 
-- [ ] Add front-end routing for select.component, results.component, rankings.component
-- [ ] Enable select.component 'Battle' button
-- [ ] Enable results.component 'Reset' button
-- [ ] Enable battle.component 'Battle' link
-- [ ] Enable battle.component 'Rankings' link
+  - [x] Remove passed event/s
+    - [x] Edit `src/app/battle/battle.component.html`: Remove passed event/s
+    - [x] Edit `src/app/battle/battle.component.ts`: Remove github-api.service injection/use
+    - [x] Edit `src/app/battle/select/select.component.ts`: Add github-api.service injection/use
+    - [x] Edit `src/app/battle/battle.component.ts`: Remove have_player, get_user
+    - [x] Edit `src/app/battle/select/select.component.ts`: Add player-api.service, have_player, get_user
+
+- [x] Add front-end routing for select.component, results.component, rankings.component
+  - [x] Create `src/app/app-routing.module.ts`:
+
+  ```typescript
+  import { NgModule } from '@angular/core';
+  import { Routes, RouterModule } from '@angular/router';
+  // import { {{COMP}}Component } from '.../{{COMP}}/{{COMP}}.component';
+
+  const routes: Routes = [
+    // { path: '{{URL}}', pathMatch: 'full', {{COMP}}Component },
+  ];
+
+  @NgModule({
+    imports: [ RouterModule.forRoot( routes ) ],
+    exports: [ RouterModule ]
+  })
+  export class RoutingModule {}
+  ```
+
+- [x] Enable select.component 'Battle' button
+- [x] Enable results.component 'Reset' button
+- [x] Enable battle.component 'Battle' link
+- [x] Enable battle.component 'Rankings' link
