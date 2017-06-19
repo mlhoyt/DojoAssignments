@@ -5,6 +5,7 @@ import { Player } from '../../player';
 import { Player1DataService } from '../../player1-data.service';
 import { Player2DataService } from '../../player2-data.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results',
@@ -21,6 +22,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   constructor(
     private _player1DataService: Player1DataService,
     private _player2DataService: Player2DataService,
+    private _router: Router,
   )
   {
     this.p1subscription = this._player1DataService.subject
@@ -37,4 +39,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.p2subscription.unsubscribe();
   }
 
+  onClickResetButton() {
+    this._player1DataService.subject.next( new Player() );
+    this._player2DataService.subject.next( new Player() );
+    this._router.navigate( ['/'] );
+  }
 }

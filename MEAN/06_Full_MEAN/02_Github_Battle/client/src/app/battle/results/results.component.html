@@ -12,6 +12,6 @@
     <img *ngIf="player2.score >= player1.score" src="{{ player2.avatar_url }}" alt="{{ player2.username }} Avatar Image" />
   </div>
   <p class="button_container">
-    <button type="button" id="reset_btn">Reset</button>
+    <button type="button" id="reset_btn" (click)="onClickResetButton()">Reset</button>
   </p>
 </div>
