@@ -80,6 +80,23 @@
       ... See changes above ...
       ```
 
+  - [x] `ng generate service all-players-data`
+  - [x] Change `all_players` from passed data to using `AllPlayersDataService`:
+    - [x] Edit `src/app/all-players-data.service.ts`:
+      - [x] Leverage from boiler-plate
+    - [x] Edit `src/app/app.module.ts`
+      - [x] Register `AllPlayersDataService`
+    - [x] Edit `src/app/battle/battle.component.ts`
+      - [x] Import/Inject `AllPlayersDataService`
+      - [x] Change `all_players` to be associated with `AllPlayersDataService`
+    - [x] Edit `src/app/battle/battle.component.html`
+      - [x] Remove `... [all_players]="all_players" ...` data passing
+    - [x] Update `src/app/battle/rankings/rankings.component.ts`:
+
+      ```typescript
+       ... See changes above ...
+      ```
+
 - [ ] Add front-end routing for select.component, results.component, rankings.component
 - [ ] Enable select.component 'Battle' button
 - [ ] Enable results.component 'Reset' button

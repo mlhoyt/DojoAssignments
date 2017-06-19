@@ -4,6 +4,7 @@ import { PlayerApiService } from '../player-api.service';
 import { GithubApiService } from '../github-api.service';
 import { Player1DataService } from '../player1-data.service';
 import { Player2DataService } from '../player2-data.service';
+import { AllPlayersDataService } from '../all-players-data.service';
 
 @Component({
   selector: 'app-battle',
@@ -20,20 +21,24 @@ export class BattleComponent implements OnInit {
     private _githubApi: GithubApiService,
     private _player1DataService: Player1DataService,
     private _player2DataService: Player2DataService,
+    private _allPlayersDataService: AllPlayersDataService,
   )
   {
     this._player1DataService.subject.next( this.player1 );
     this._player2DataService.subject.next( this.player2 );
+    this.get_all_players();
   }
 
   ngOnInit() {
-    this.get_all_players();
   }
 
   get_all_players() {
     this._playerApi.read_all()
       .catch( err => { console.log( "Error: AppBattleComponent: get_all_players:", err ); } )
-      .then( data => { this.all_players = data; });
+      .then( data => {
+        this.all_players = data;
+        this._allPlayersDataService.subject.next( this.all_players );
+      });
   }
 
   have_player( player: Player ) {
