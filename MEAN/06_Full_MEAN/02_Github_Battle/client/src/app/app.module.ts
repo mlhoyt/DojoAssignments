@@ -15,6 +15,7 @@ import { RankingsComponent } from './battle/rankings/rankings.component';
 
 import { Player1DataService } from './player1-data.service';
 import { Player2DataService } from './player2-data.service';
+import { AllPlayersDataService } from './all-players-data.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,13 @@ import { Player2DataService } from './player2-data.service';
     HttpModule,
     FormsModule,
   ],
-  providers: [ PlayerApiService, GithubApiService, Player1DataService, Player2DataService ],
+  providers: [
+    PlayerApiService,
+    GithubApiService,
+    Player1DataService,
+    Player2DataService,
+    AllPlayersDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
